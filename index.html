@@ -28,34 +28,6 @@
             background: #2c3e50;
         }
         
-        .hero-image-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            padding: 40px 20px;
-        }
-        
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 0;
-            box-shadow: none;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        /* Show desktop image by default, hide mobile */
-        .hero-image-desktop {
-            display: block;
-        }
-        
-        /* Hide mobile image by default (desktop shows first image) */
-        .hero-image-mobile {
-            display: none;
-        }
-        
         .race-logo {
             position: absolute;
             top: 20px;
@@ -77,67 +49,30 @@
             border-radius: 10px;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 1200px;
+        .hero-image-container {
+            width: 100%;
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            padding: 40px 20px;
         }
         
-        .hero-title-top {
-            font-size: 5em;
-            font-weight: 900;
-            letter-spacing: 8px;
-            color: #f5f5dc;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
-            margin-bottom: -20px;
-            line-height: 1;
-            text-transform: uppercase;
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            box-shadow: none;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
         
-        .hero-title-main {
-            font-size: 8em;
-            font-weight: 900;
-            letter-spacing: 10px;
-            background: linear-gradient(45deg, #ffeb3b, #4caf50, #2196f3, #f44336);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: none;
-            margin: 20px 0;
-            line-height: 1;
-            text-transform: uppercase;
-            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.9));
+        /* Desktop: show desktop image, hide mobile */
+        .hero-image-desktop {
+            display: block !important;
         }
         
-        .hero-subtitle {
-            font-size: 3.5em;
-            font-weight: 700;
-            color: #7fff00;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-            margin-top: -10px;
-            letter-spacing: 4px;
-            font-style: italic;
-            text-transform: lowercase;
-        }
-        
-        .hero-details {
-            margin-top: 40px;
-            font-size: 2.2em;
-            font-weight: 800;
-            color: #ffeb3b;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-            letter-spacing: 2px;
-        }
-        
-        .hero-location {
-            font-size: 1.8em;
-            color: #f5f5dc;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            margin-top: 10px;
-            letter-spacing: 3px;
+        .hero-image-mobile {
+            display: none !important;
         }
         
         .container {
@@ -524,15 +459,15 @@
             font-weight: 300;
         }
         
+        /* MOBILE STYLES */
         @media (max-width: 768px) {
-            /* Hide desktop image on mobile */
+            /* Mobile: hide desktop image, show mobile */
             .hero-image-desktop {
-                display: none;
+                display: none !important;
             }
             
-            /* Show mobile image on mobile */
             .hero-image-mobile {
-                display: block;
+                display: block !important;
             }
             
             .hero-image-container {
@@ -549,33 +484,6 @@
             
             .race-logo img {
                 width: 120px;
-            }
-            
-            .hero {
-                min-height: 500px;
-            }
-            
-            .hero-title-top {
-                font-size: 2em;
-                letter-spacing: 3px;
-            }
-            
-            .hero-title-main {
-                font-size: 3.5em;
-                letter-spacing: 4px;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.8em;
-                letter-spacing: 2px;
-            }
-            
-            .hero-details {
-                font-size: 1.3em;
-            }
-            
-            .hero-location {
-                font-size: 1.1em;
             }
             
             .donation-cards,
