@@ -52,20 +52,35 @@
             top: 20px;
             right: 20px;
             z-index: 10;
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
         }
         
-        .race-logo:hover {
+        .race-logo a {
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        
+        .race-logo a:hover {
             transform: scale(1.05);
         }
         
         .race-logo img {
-            width: 180px;
             height: auto;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
             background: transparent;
             padding: 10px;
             border-radius: 10px;
+        }
+        
+        .brooklyn-logo {
+            width: 180px;
+        }
+        
+        .charity-logo {
+            width: 140px;
         }
         
         .hero-image-container {
@@ -497,12 +512,22 @@
             .race-logo {
                 position: static;
                 margin: 20px auto;
-                display: block;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .race-logo a {
                 text-align: center;
             }
             
-            .race-logo img {
+            .brooklyn-logo {
                 width: 120px;
+            }
+            
+            .charity-logo {
+                width: 100px;
             }
             
             .donation-cards,
@@ -523,10 +548,23 @@
 </head>
 <body>
     <div class="hero">
-        <!-- Brooklyn Half Marathon Logo -->
-        <a href="https://brooklynexperience.com" target="_blank" rel="noopener" class="race-logo" aria-label="Brooklyn Half Marathon Experience">
-            <img src="brooklyn-logo.png" alt="NYCRUNS Brooklyn Experience Half Marathon">
-        </a>
+        <!-- Logo Stack: Brooklyn Half Marathon + Charity Logos -->
+        <div class="race-logo">
+            <!-- Brooklyn Half Marathon Logo -->
+            <a href="https://brooklynexperience.com" target="_blank" rel="noopener" aria-label="Brooklyn Experience Half Marathon">
+                <img src="brooklyn-logo.png" alt="NYCRUNS Brooklyn Experience Half Marathon" class="brooklyn-logo">
+            </a>
+            
+            <!-- St. Jude Logo -->
+            <a href="https://www.stjude.org" target="_blank" rel="noopener" aria-label="St. Jude Children's Research Hospital">
+                <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital" class="charity-logo">
+            </a>
+            
+            <!-- Memorial Sloan Kettering Logo -->
+            <a href="https://www.mskcc.org" target="_blank" rel="noopener" aria-label="Memorial Sloan Kettering Cancer Center">
+                <img src="msk-logo.png" alt="Memorial Sloan Kettering Cancer Center" class="charity-logo">
+            </a>
+        </div>
         
         <!-- Hero Images - Desktop and Mobile versions -->
         <div class="hero-image-container">
