@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description"
         content="Running the Brooklyn Experience Half Marathon to honor Uncle Edwy's memory and raise funds for St. Jude Children's Hospital and Memorial Sloan Kettering's colorectal cancer research. Every mile matters.">
     <meta name="keywords"
@@ -44,10 +47,10 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS7HZR134V"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-SS7HZR134V');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SS7HZR134V');
     </script>
 
     <!-- Structured Data -->
@@ -94,12 +97,34 @@
 
         html {
             scroll-behavior: smooth;
+            /* Prevent text size adjustment on orientation change */
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
 
         body {
             font-family: 'Arimo', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            /* Improve font rendering on mobile */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Optimize images for mobile performance */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Improve tap targets for mobile (minimum 44x44px recommended by iOS) */
+        button,
+        a,
+        input[type="submit"] {
+            min-height: 44px;
+            min-width: 44px;
         }
 
         /* Skip to content link for accessibility */
@@ -303,27 +328,26 @@
             display: inline-block;
             color: #2c3e50;
         }
-
+        
         .social-share a:hover {
             transform: scale(1.2);
         }
-
+        
         .social-share .fa-facebook {
             color: #1877F2;
         }
-
+        
         .social-share .fa-x-twitter {
             color: #000000;
         }
-
+        
         .social-share .fa-linkedin {
             color: #0A66C2;
         }
-
+        
         .social-share .fa-envelope {
             color: #EA4335;
         }
-
         .social-share a:hover {
             transform: scale(1.2);
         }
@@ -420,7 +444,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
+        
         .signup-form input {
             flex: 1;
             min-width: 250px;
@@ -429,7 +453,7 @@
             border: none;
             font-size: 1em;
         }
-
+        
         .signup-form button {
             padding: 15px 30px;
             background: #2c3e50;
@@ -440,12 +464,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .signup-form button:hover {
             background: #1a252f;
             transform: translateY(-2px);
         }
-
+        
         /* Substack Embed Styling */
         .substack-embed {
             max-width: 500px;
@@ -453,12 +477,12 @@
             display: flex;
             justify-content: center;
         }
-
+        
         .substack-embed iframe {
             border-radius: 15px !important;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             border: none !important;
-            background: rgba(255, 255, 255, 0.95) !important;
+            background: rgba(255,255,255,0.95) !important;
         }
 
         /* FAQ Section */
@@ -568,19 +592,19 @@
             margin-bottom: 20px;
         }
 
-        .photo-frame {
+         .photo-frame {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
             margin: 30px auto;
-            border: 5px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 5px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
+        
         .photo-frame img {
             width: 100%;
             height: 100%;
@@ -640,23 +664,23 @@
             padding: 50px;
             border-radius: 15px;
             margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
+        
         .impact-section h3 {
             color: #2c3e50;
             font-size: 1.8em;
             margin-bottom: 25px;
             text-align: center;
         }
-
+        
         .impact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 30px;
         }
-
+        
         .impact-item {
             padding: 25px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -685,17 +709,17 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
+        
         .gallery-item:hover {
             transform: translateY(-5px);
         }
-
+        
         .gallery-item img {
             width: 100%;
             height: 300px;
@@ -751,6 +775,10 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            /* Enable hardware acceleration for smoother animations on mobile */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: transform;
         }
 
         .slide {
@@ -759,6 +787,11 @@
             width: 100%;
             min-height: 500px;
             animation: fadeEffect 0.5s;
+            /* Hardware acceleration for slides */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .slide.active {
@@ -789,7 +822,6 @@
             from {
                 opacity: 0.4;
             }
-
             to {
                 opacity: 1;
             }
@@ -1118,11 +1150,11 @@
             }
 
             .brooklyn-logo {
-                width: 150px;
+                width: 120px;
             }
 
             .charity-logo {
-                width: 150px;
+                width: 120px;
             }
 
             .nav-menu {
@@ -1140,77 +1172,140 @@
             .impact-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .impact-section {
                 padding: 30px 20px;
             }
-
+            
             .impact-item {
                 min-height: auto;
                 padding: 30px 20px;
             }
-
+            
             .photo-frame {
                 width: 200px;
                 height: 200px;
             }
-
+            
             .gallery-item img,
             .gallery-placeholder {
                 height: 250px;
             }
-
-            /* Slideshow mobile styles */
+            
+            /* Slideshow mobile optimization */
+            .race-photo-section {
+                padding: 30px 15px;
+                margin: 20px 0;
+            }
+            
+            .race-photo-section h3 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+            
+            .race-photo-section p {
+                font-size: 0.95em;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+            
             .slideshow-container {
                 max-width: 100%;
+                margin: 0 -15px; /* Extend to screen edges for full width */
+                border-radius: 0; /* Remove border radius on mobile for edge-to-edge */
             }
-
+            
+            /* Reduce slide height on mobile */
             .slide,
             .slide img,
             .slide .gallery-placeholder {
-                min-height: 350px;
-                height: 350px;
+                min-height: 280px;
+                height: 280px;
             }
-
+            
+            /* Make caption more readable on mobile */
             .slide-caption {
-                font-size: 1em;
-                padding: 20px 15px;
+                font-size: 0.9em;
+                padding: 15px 12px;
+                line-height: 1.4;
             }
-
+            
+            /* Larger, easier to tap navigation arrows */
             .slide-nav {
-                padding: 12px;
-                font-size: 24px;
+                padding: 15px 12px;
+                font-size: 28px;
+                width: 45px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
-
+            
+            .slide-nav.prev {
+                left: 0;
+            }
+            
+            .slide-nav.next {
+                right: 0;
+            }
+            
+            /* Adjust counter position */
             .slide-counter {
                 top: 10px;
                 right: 10px;
-                font-size: 14px;
-                padding: 8px 12px;
+                font-size: 13px;
+                padding: 6px 10px;
             }
-
+            
+            /* Optimize thumbnail strip for mobile */
+            .thumbnail-container {
+                gap: 8px;
+                margin-top: 15px;
+                padding: 0 10px;
+                justify-content: flex-start;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                scrollbar-width: thin;
+            }
+            
             .thumbnail {
-                width: 60px;
-                height: 45px;
+                width: 70px;
+                height: 50px;
+                flex-shrink: 0; /* Prevent thumbnails from shrinking */
+                border-width: 2px;
             }
-
+            
             .thumbnail-placeholder {
-                font-size: 1.2em;
+                font-size: 1em;
             }
-
+            
+            /* Make play/pause button more touch-friendly */
             #playPauseBtn {
-                padding: 10px 25px;
-                font-size: 0.9em;
+                padding: 12px 30px;
+                font-size: 0.95em;
+                margin-top: 15px;
+                min-height: 44px; /* iOS recommended minimum tap target */
             }
-
-            .race-photo-section {
-                padding: 30px 20px;
+            
+            /* Add a subtle scrollbar for thumbnail strip */
+            .thumbnail-container::-webkit-scrollbar {
+                height: 4px;
             }
-
+            
+            .thumbnail-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            
+            .thumbnail-container::-webkit-scrollbar-thumb {
+                background: #667eea;
+                border-radius: 10px;
+            }
+            
             .tribute-box {
                 padding: 30px;
             }
-
             .total-raised {
                 font-size: 3em;
             }
@@ -1231,6 +1326,63 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.2em;
+            }
+        }
+
+        /* EXTRA SMALL SCREENS (Small phones) */
+        @media (max-width: 480px) {
+            
+            /* Further reduce slideshow height on small phones */
+            .slide,
+            .slide img,
+            .slide .gallery-placeholder {
+                min-height: 250px;
+                height: 250px;
+            }
+            
+            /* Smaller caption text */
+            .slide-caption {
+                font-size: 0.85em;
+                padding: 12px 10px;
+            }
+            
+            /* Adjust navigation arrows */
+            .slide-nav {
+                padding: 10px 8px;
+                font-size: 24px;
+                width: 40px;
+                height: 55px;
+            }
+            
+            /* Smaller thumbnails on tiny screens */
+            .thumbnail {
+                width: 60px;
+                height: 42px;
+            }
+            
+            /* Stack social buttons vertically on very small screens */
+            .social-share a {
+                display: block;
+                margin: 8px auto;
+                max-width: 200px;
+            }
+            
+            /* Reduce section padding */
+            .section {
+                padding: 30px 0;
+            }
+            
+            .container {
+                padding: 15px 10px;
+            }
+            
+            /* Hero adjustments */
+            .hero h1 {
+                font-size: 1.75em;
+            }
+            
+            .hero-tagline {
+                font-size: 1em;
             }
         }
     </style>
@@ -1290,23 +1442,19 @@
     <!-- Social Share Bar -->
     <div class="social-share">
         <p>Share Miles For Uncle Edwy:</p>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://elaiken3.github.io/milesforuncleedwy.github.io/"
-            target="_blank" rel="noopener" aria-label="Share on Facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://elaiken3.github.io/milesforuncleedwy.github.io/" target="_blank" rel="noopener" aria-label="Share on Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://twitter.com/intent/tweet?url=https://elaiken3.github.io/milesforuncleedwy.github.io/&text=Support%20Miles%20For%20Uncle%20Edwy%20-%20Brooklyn%20Experience%20Half%20Marathon%20fundraising%20for%20cancer%20research"
-            target="_blank" rel="noopener" aria-label="Share on X">
+        <a href="https://twitter.com/intent/tweet?url=https://elaiken3.github.io/milesforuncleedwy.github.io/&text=Support%20Miles%20For%20Uncle%20Edwy%20-%20Brooklyn%20Experience%20Half%20Marathon%20fundraising%20for%20cancer%20research" target="_blank" rel="noopener" aria-label="Share on X">
             <i class="fa-brands fa-x-twitter"></i>
         </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://elaiken3.github.io/milesforuncleedwy.github.io/"
-            target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://elaiken3.github.io/milesforuncleedwy.github.io/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Check%20out%20this%20inspiring%20fundraising%20campaign:%20https://elaiken3.github.io/milesforuncleedwy.github.io/"
-            aria-label="Share via Email">
+        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Check%20out%20this%20inspiring%20fundraising%20campaign:%20https://elaiken3.github.io/milesforuncleedwy.github.io/" aria-label="Share via Email">
             <i class="fa-solid fa-envelope"></i>
         </a>
-    </div>
+</div>
 
     <!-- Impact Statistics -->
     <section class="impact-stats">
@@ -1336,34 +1484,25 @@
                 <h2>In Loving Memory</h2>
                 <div class="tribute-box">
                     <h3>Edwy Bruce Aiken</h3>
-                    <p class="dates">Forever in Our Hearts | October 22, 1957 - February 26, 2021</p>
+                    <p class="dates">Forever in Our Hearts | October 22, 1957  -  February 26, 2021</p>
 
                     <!-- Uncle Edwy's Photo -->
                     <div class="photo-frame">
                         <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
-                        <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy"
-                            width="250" height="250">
+                        <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="250" height="250">
                     </div>
 
                     <div class="heart" aria-label="Heart symbol">❤️</div>
-                    <p>Uncle Edwy was more than family, he was pure joy. The source of our loudest laughter, and the
-                        creator of our most cherished memories.
-                        When colorectal cancer took him from us in 2021 at just 63 years old, we lost not just an uncle,
-                        but our favorite storyteller, our biggest cheerleader,
+                    <p>Uncle Edwy was more than family, he was pure joy. The source of our loudest laughter, and the creator of our most cherished memories. 
+                        When colorectal cancer took him from us in 2021 at just 63 years old, we lost not just an uncle, but our favorite storyteller, our biggest cheerleader, 
                         and the heart of every family gathering.</p>
-                    <p>He was taken from us far too soon. At 63, Uncle Edwy had so much more life to live, so many more
-                        moments to share, and so much more love to give.
-                        His story is not unique. It's the same heartbreaking story that countless families have lived
-                        through.
-                        This shared pain, this collective loss, is exactly why we cannot stand still. We must push
-                        forward, we must fight for a cure,
-                        and we must ensure that fewer families experience the devastation we felt. That's why I'm
-                        running. Not just in memory of Uncle Edwy,
+                    <p>He was taken from us far too soon. At 63, Uncle Edwy had so much more life to live, so many more moments to share, and so much more love to give. 
+                        His story is not unique. It's the same heartbreaking story that countless families have lived through. 
+                        This shared pain, this collective loss, is exactly why we cannot stand still. We must push forward, we must fight for a cure, 
+                        and we must ensure that fewer families experience the devastation we felt. That's why I'm running. Not just in memory of Uncle Edwy, 
                         but for every family who has said goodbye too soon.</p>
-                    <p><strong>This race is my promise to him that his loss will not be in vain. Every mile honors the
-                            life he should still be living.
-                            Every dollar raised fights for the cure that could save the next family from our
-                            heartbreak.</strong></p>
+                    <p><strong>This race is my promise to him that his loss will not be in vain. Every mile honors the life he should still be living. 
+                        Every dollar raised fights for the cure that could save the next family from our heartbreak.</strong></p>
                 </div>
             </div>
         </section>
@@ -1418,55 +1557,48 @@
                     <div class="race-photo-section">
                         <h3>Memories & Training Journey</h3>
                         <p style="text-align: center; margin-bottom: 30px; color: #666;">
-                            Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy's
-                            memory with every mile.
+                            Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy's memory with every mile.
                         </p>
-
+                        
                         <div class="slideshow-container">
                             <!-- Slides -->
                             <div class="slide fade active">
                                 <div class="gallery-placeholder">
                                     📷<br>Add your first photo here (photo1.jpg)
                                 </div>
-                                <div class="slide-caption">Add your caption here - describe the memory or training
-                                    moment</div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training moment</div>
                             </div>
 
                             <div class="slide fade">
                                 <div class="gallery-placeholder">
                                     📷<br>Add your second photo here (photo2.jpg)
                                 </div>
-                                <div class="slide-caption">Add your caption here - describe the memory or training
-                                    moment</div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training moment</div>
                             </div>
 
                             <div class="slide fade">
                                 <div class="gallery-placeholder">
                                     📷<br>Add your third photo here (photo3.jpg)
                                 </div>
-                                <div class="slide-caption">Add your caption here - describe the memory or training
-                                    moment</div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training moment</div>
                             </div>
 
                             <div class="slide fade">
                                 <div class="gallery-placeholder">
                                     📷<br>Add your fourth photo here (photo4.jpg)
                                 </div>
-                                <div class="slide-caption">Add your caption here - describe the memory or training
-                                    moment</div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training moment</div>
                             </div>
 
                             <div class="slide fade">
                                 <div class="gallery-placeholder">
                                     📷<br>Add your fifth photo here (photo5.jpg)
                                 </div>
-                                <div class="slide-caption">Add your caption here - describe the memory or training
-                                    moment</div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training moment</div>
                             </div>
 
                             <!-- Navigation arrows -->
-                            <button class="slide-nav prev" onclick="changeSlide(-1)"
-                                aria-label="Previous photo">❮</button>
+                            <button class="slide-nav prev" onclick="changeSlide(-1)" aria-label="Previous photo">❮</button>
                             <button class="slide-nav next" onclick="changeSlide(1)" aria-label="Next photo">❯</button>
 
                             <!-- Slide counter -->
@@ -1560,12 +1692,9 @@
                 <div class="donation-cards">
                     <article class="donation-card">
                         <h3>St. Jude Children's Hospital</h3>
-                        <p>Support families so they can focus on what matters most: helping their child live. No family
-                            ever receives a bill from St. Jude for treatment, travel, housing, or food.</p>
-
-                        <a href="http://fundraising.stjude.org/goto/milesforuncleedwy" target="_blank"
-                            class="donate-button" rel="noopener"
-                            style="font-size: 1.3em; padding: 22px 50px; margin-top: 30px;">Donate to St. Jude</a>
+                        <p>Support families so they can focus on what matters most: helping their child live. No family ever receives a bill from St. Jude for treatment, travel, housing, or food.</p>
+                        
+                        <a href="http://fundraising.stjude.org/goto/milesforuncleedwy" target="_blank" class="donate-button" rel="noopener" style="font-size: 1.3em; padding: 22px 50px; margin-top: 30px;">Donate to St. Jude</a>
                     </article>
 
                     <article class="donation-card">
@@ -1635,11 +1764,9 @@
         <!-- Email Signup Section -->
         <section class="email-signup">
             <h2>Stay Updated on My Journey</h2>
-            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy
-                community.</p>
+            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy community.</p>
             <div class="substack-embed">
-                <iframe src="https://milesforuncleedwy.substack.com/embed" width="480" height="320"
-                    style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://milesforuncleedwy.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
             </div>
         </section>
     </main>
@@ -1706,7 +1833,7 @@
 
         // Track donation button clicks (for analytics)
         document.querySelectorAll('.donate-button').forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function() {
                 // Google Analytics event tracking
                 gtag('event', 'click', {
                     'event_category': 'donation',
@@ -1716,10 +1843,10 @@
                 console.log('Donation button clicked:', this.textContent);
             });
         });
-
+        
         // Track social share clicks
         document.querySelectorAll('.social-share a').forEach(link => {
-            link.addEventListener('click', function () {
+            link.addEventListener('click', function() {
                 const platform = this.getAttribute('aria-label');
                 gtag('event', 'share', {
                     'event_category': 'social',
@@ -1735,17 +1862,17 @@
         // ============================================
         // SLIDESHOW FUNCTIONALITY
         // ============================================
-
+        
         let currentSlideIndex = 1;
         let autoPlayInterval;
         let isAutoPlaying = true;
         const slides = document.querySelectorAll('.slide');
         const thumbnails = document.querySelectorAll('.thumbnail');
         const totalSlidesCount = slides.length;
-
+        
         // Update total slides display
         document.getElementById('totalSlides').textContent = totalSlidesCount;
-
+        
         // Show specific slide
         function showSlide(n) {
             if (n > totalSlidesCount) {
@@ -1754,43 +1881,43 @@
             if (n < 1) {
                 currentSlideIndex = totalSlidesCount;
             }
-
+            
             // Hide all slides
             slides.forEach(slide => {
                 slide.classList.remove('active');
             });
-
+            
             // Remove active from all thumbnails
             thumbnails.forEach(thumb => {
                 thumb.classList.remove('active');
             });
-
+            
             // Show current slide
             slides[currentSlideIndex - 1].classList.add('active');
-
+            
             // Highlight current thumbnail
             if (thumbnails[currentSlideIndex - 1]) {
                 thumbnails[currentSlideIndex - 1].classList.add('active');
             }
-
+            
             // Update counter
             document.getElementById('currentSlide').textContent = currentSlideIndex;
         }
-
+        
         // Change slide by n (next/prev)
         function changeSlide(n) {
             currentSlideIndex += n;
             showSlide(currentSlideIndex);
             resetAutoPlay();
         }
-
+        
         // Go to specific slide
         function goToSlide(n) {
             currentSlideIndex = n;
             showSlide(currentSlideIndex);
             resetAutoPlay();
         }
-
+        
         // Auto-play functionality
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
@@ -1798,23 +1925,23 @@
                 showSlide(currentSlideIndex);
             }, 4000); // Change slide every 4 seconds
         }
-
+        
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
-
+        
         function resetAutoPlay() {
             if (isAutoPlaying) {
                 stopAutoPlay();
                 startAutoPlay();
             }
         }
-
+        
         // Toggle auto-play
         function toggleAutoPlay() {
             const playPauseIcon = document.getElementById('playPauseIcon');
             const playPauseText = document.getElementById('playPauseText');
-
+            
             if (isAutoPlaying) {
                 stopAutoPlay();
                 isAutoPlaying = false;
@@ -1827,7 +1954,7 @@
                 playPauseText.textContent = 'Pause';
             }
         }
-
+        
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
@@ -1839,33 +1966,103 @@
                 toggleAutoPlay();
             }
         });
-
-        // Touch/swipe support for mobile
+        
+        // Touch/swipe support for mobile - Enhanced
         let touchStartX = 0;
         let touchEndX = 0;
-
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isSwiping = false;
+        
         const slideshowContainer = document.querySelector('.slideshow-container');
-
+        
         if (slideshowContainer) {
+            // Prevent default touch behaviors that might interfere
             slideshowContainer.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
-            });
-
-            slideshowContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-
-            function handleSwipe() {
-                if (touchEndX < touchStartX - 50) {
-                    changeSlide(1); // Swipe left - next slide
+                touchStartY = e.changedTouches[0].screenY;
+                isSwiping = false;
+            }, { passive: true });
+            
+            slideshowContainer.addEventListener('touchmove', (e) => {
+                // Detect if user is swiping horizontally
+                const deltaX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+                const deltaY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+                
+                if (deltaX > deltaY && deltaX > 10) {
+                    isSwiping = true;
+                    // Prevent page scroll when swiping horizontally
+                    e.preventDefault();
                 }
-                if (touchEndX > touchStartX + 50) {
-                    changeSlide(-1); // Swipe right - previous slide
+            }, { passive: false });
+            
+            slideshowContainer.addEventListener('touchend', (e) => {
+                if (isSwiping) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    touchEndY = e.changedTouches[0].screenY;
+                    handleSwipe();
+                }
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeDistance = touchEndX - touchStartX;
+                const verticalDistance = Math.abs(touchEndY - touchStartY);
+                
+                // Only register as swipe if horizontal movement is greater than vertical
+                if (Math.abs(swipeDistance) > verticalDistance) {
+                    if (swipeDistance < -50) {
+                        changeSlide(1); // Swipe left - next slide
+                    } else if (swipeDistance > 50) {
+                        changeSlide(-1); // Swipe right - previous slide
+                    }
                 }
             }
         }
-
+        
+        // Auto-scroll active thumbnail into view on mobile
+        function scrollThumbnailIntoView() {
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const thumbnailContainer = document.querySelector('.thumbnail-container');
+            
+            if (activeThumbnail && thumbnailContainer && window.innerWidth <= 768) {
+                // Smooth scroll the active thumbnail into view
+                activeThumbnail.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+        }
+        
+        // Update showSlide to include thumbnail scrolling
+        const originalShowSlide = showSlide;
+        showSlide = function(n) {
+            originalShowSlide(n);
+            scrollThumbnailIntoView();
+        };
+        
+        // Pause auto-play when page is not visible (saves battery on mobile)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isAutoPlaying) {
+                stopAutoPlay();
+            } else if (!document.hidden && isAutoPlaying) {
+                startAutoPlay();
+            }
+        });
+        
+        // Reduce auto-play speed on mobile for better UX
+        function getAutoPlaySpeed() {
+            return window.innerWidth <= 768 ? 5000 : 4000; // 5 seconds on mobile, 4 on desktop
+        }
+        
+        // Update startAutoPlay to use dynamic speed
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }, getAutoPlaySpeed());
+        }
+        
         // Initialize slideshow
         showSlide(currentSlideIndex);
         startAutoPlay();
