@@ -44,10 +44,10 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS7HZR134V"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SS7HZR134V');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-SS7HZR134V');
     </script>
 
     <!-- Structured Data -->
@@ -303,26 +303,27 @@
             display: inline-block;
             color: #2c3e50;
         }
-        
+
         .social-share a:hover {
             transform: scale(1.2);
         }
-        
+
         .social-share .fa-facebook {
             color: #1877F2;
         }
-        
+
         .social-share .fa-x-twitter {
             color: #000000;
         }
-        
+
         .social-share .fa-linkedin {
             color: #0A66C2;
         }
-        
+
         .social-share .fa-envelope {
             color: #EA4335;
         }
+
         .social-share a:hover {
             transform: scale(1.2);
         }
@@ -419,7 +420,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .signup-form input {
             flex: 1;
             min-width: 250px;
@@ -428,7 +429,7 @@
             border: none;
             font-size: 1em;
         }
-        
+
         .signup-form button {
             padding: 15px 30px;
             background: #2c3e50;
@@ -439,12 +440,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .signup-form button:hover {
             background: #1a252f;
             transform: translateY(-2px);
         }
-        
+
         /* Substack Embed Styling */
         .substack-embed {
             max-width: 500px;
@@ -452,12 +453,12 @@
             display: flex;
             justify-content: center;
         }
-        
+
         .substack-embed iframe {
             border-radius: 15px !important;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             border: none !important;
-            background: rgba(255,255,255,0.95) !important;
+            background: rgba(255, 255, 255, 0.95) !important;
         }
 
         /* FAQ Section */
@@ -567,19 +568,19 @@
             margin-bottom: 20px;
         }
 
-         .photo-frame {
+        .photo-frame {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
             margin: 30px auto;
-            border: 5px solid rgba(255,255,255,0.5);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .photo-frame img {
             width: 100%;
             height: 100%;
@@ -639,23 +640,23 @@
             padding: 50px;
             border-radius: 15px;
             margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .impact-section h3 {
             color: #2c3e50;
             font-size: 1.8em;
             margin-bottom: 25px;
             text-align: center;
         }
-        
+
         .impact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 30px;
         }
-        
+
         .impact-item {
             padding: 25px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -684,17 +685,17 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .gallery-item:hover {
             transform: translateY(-5px);
         }
-        
+
         .gallery-item img {
             width: 100%;
             height: 300px;
@@ -740,6 +741,186 @@
             margin-bottom: 30px;
             text-align: center;
         }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            min-height: 500px;
+            animation: fadeEffect 0.5s;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide .gallery-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #eaeadf;
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: #eaeadf;
+            padding: 30px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .slide-nav {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            z-index: 10;
+        }
+
+        .slide-nav:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-nav.prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .slide-nav.next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* Thumbnail Navigation */
+        .thumbnail-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            cursor: pointer;
+            width: 100px;
+            height: 70px;
+            opacity: 0.6;
+            transition: 0.3s ease;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover {
+            opacity: 1;
+        }
+
+        .thumbnail.active {
+            opacity: 1;
+            border: 3px solid #667eea;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .thumbnail-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #eaeadf;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Slideshow Controls */
+        .slideshow-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #playPauseBtn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        #playPauseBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
 
         .fundraising-tracker {
             background: white;
@@ -937,11 +1118,11 @@
             }
 
             .brooklyn-logo {
-                width: 120px;
+                width: 150px;
             }
 
             .charity-logo {
-                width: 120px;
+                width: 150px;
             }
 
             .nav-menu {
@@ -959,29 +1140,77 @@
             .impact-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .impact-section {
                 padding: 30px 20px;
             }
-            
+
             .impact-item {
                 min-height: auto;
                 padding: 30px 20px;
             }
-            
+
             .photo-frame {
                 width: 200px;
                 height: 200px;
             }
-            
+
             .gallery-item img,
             .gallery-placeholder {
                 height: 250px;
             }
-            
+
+            /* Slideshow mobile styles */
+            .slideshow-container {
+                max-width: 100%;
+            }
+
+            .slide,
+            .slide img,
+            .slide .gallery-placeholder {
+                min-height: 350px;
+                height: 350px;
+            }
+
+            .slide-caption {
+                font-size: 1em;
+                padding: 20px 15px;
+            }
+
+            .slide-nav {
+                padding: 12px;
+                font-size: 24px;
+            }
+
+            .slide-counter {
+                top: 10px;
+                right: 10px;
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+
+            .thumbnail-placeholder {
+                font-size: 1.2em;
+            }
+
+            #playPauseBtn {
+                padding: 10px 25px;
+                font-size: 0.9em;
+            }
+
+            .race-photo-section {
+                padding: 30px 20px;
+            }
+
             .tribute-box {
                 padding: 30px;
             }
+
             .total-raised {
                 font-size: 3em;
             }
@@ -1061,19 +1290,23 @@
     <!-- Social Share Bar -->
     <div class="social-share">
         <p>Share Miles For Uncle Edwy:</p>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://elaiken3.github.io/milesforuncleedwy.github.io/" target="_blank" rel="noopener" aria-label="Share on Facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://elaiken3.github.io/milesforuncleedwy.github.io/"
+            target="_blank" rel="noopener" aria-label="Share on Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://twitter.com/intent/tweet?url=https://elaiken3.github.io/milesforuncleedwy.github.io/&text=Support%20Miles%20For%20Uncle%20Edwy%20-%20Brooklyn%20Experience%20Half%20Marathon%20fundraising%20for%20cancer%20research" target="_blank" rel="noopener" aria-label="Share on X">
+        <a href="https://twitter.com/intent/tweet?url=https://elaiken3.github.io/milesforuncleedwy.github.io/&text=Support%20Miles%20For%20Uncle%20Edwy%20-%20Brooklyn%20Experience%20Half%20Marathon%20fundraising%20for%20cancer%20research"
+            target="_blank" rel="noopener" aria-label="Share on X">
             <i class="fa-brands fa-x-twitter"></i>
         </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://elaiken3.github.io/milesforuncleedwy.github.io/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://elaiken3.github.io/milesforuncleedwy.github.io/"
+            target="_blank" rel="noopener" aria-label="Share on LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Check%20out%20this%20inspiring%20fundraising%20campaign:%20https://elaiken3.github.io/milesforuncleedwy.github.io/" aria-label="Share via Email">
+        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Check%20out%20this%20inspiring%20fundraising%20campaign:%20https://elaiken3.github.io/milesforuncleedwy.github.io/"
+            aria-label="Share via Email">
             <i class="fa-solid fa-envelope"></i>
         </a>
-</div>
+    </div>
 
     <!-- Impact Statistics -->
     <section class="impact-stats">
@@ -1103,25 +1336,34 @@
                 <h2>In Loving Memory</h2>
                 <div class="tribute-box">
                     <h3>Edwy Bruce Aiken</h3>
-                    <p class="dates">Forever in Our Hearts | October 22, 1957  -  February 26, 2021</p>
+                    <p class="dates">Forever in Our Hearts | October 22, 1957 - February 26, 2021</p>
 
                     <!-- Uncle Edwy's Photo -->
                     <div class="photo-frame">
                         <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
-                        <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="250" height="250">
+                        <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy"
+                            width="250" height="250">
                     </div>
 
                     <div class="heart" aria-label="Heart symbol">❤️</div>
-                    <p>Uncle Edwy was more than family, he was pure joy. The source of our loudest laughter, and the creator of our most cherished memories. 
-                        When colorectal cancer took him from us in 2021 at just 63 years old, we lost not just an uncle, but our favorite storyteller, our biggest cheerleader, 
+                    <p>Uncle Edwy was more than family, he was pure joy. The source of our loudest laughter, and the
+                        creator of our most cherished memories.
+                        When colorectal cancer took him from us in 2021 at just 63 years old, we lost not just an uncle,
+                        but our favorite storyteller, our biggest cheerleader,
                         and the heart of every family gathering.</p>
-                    <p>He was taken from us far too soon. At 63, Uncle Edwy had so much more life to live, so many more moments to share, and so much more love to give. 
-                        His story is not unique. It's the same heartbreaking story that countless families have lived through. 
-                        This shared pain, this collective loss, is exactly why we cannot stand still. We must push forward, we must fight for a cure, 
-                        and we must ensure that fewer families experience the devastation we felt. That's why I'm running. Not just in memory of Uncle Edwy, 
+                    <p>He was taken from us far too soon. At 63, Uncle Edwy had so much more life to live, so many more
+                        moments to share, and so much more love to give.
+                        His story is not unique. It's the same heartbreaking story that countless families have lived
+                        through.
+                        This shared pain, this collective loss, is exactly why we cannot stand still. We must push
+                        forward, we must fight for a cure,
+                        and we must ensure that fewer families experience the devastation we felt. That's why I'm
+                        running. Not just in memory of Uncle Edwy,
                         but for every family who has said goodbye too soon.</p>
-                    <p><strong>This race is my promise to him that his loss will not be in vain. Every mile honors the life he should still be living. 
-                        Every dollar raised fights for the cure that could save the next family from our heartbreak.</strong></p>
+                    <p><strong>This race is my promise to him that his loss will not be in vain. Every mile honors the
+                            life he should still be living.
+                            Every dollar raised fights for the cure that could save the next family from our
+                            heartbreak.</strong></p>
                 </div>
             </div>
         </section>
@@ -1172,18 +1414,91 @@
                             Edwy can't be here to see the finish line, but his spirit will carry me through every mile.
                             Together, we can transform his loss into lasting hope for countless families.</strong></p>
 
-                    <!-- Flickr Slideshow Section -->
+                    <!-- Photo Slideshow Section -->
                     <div class="race-photo-section">
                         <h3>Memories & Training Journey</h3>
                         <p style="text-align: center; margin-bottom: 30px; color: #666;">
-                            Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy's memory with every mile.
+                            Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy's
+                            memory with every mile.
                         </p>
-                        
-                        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                            <!-- PASTE YOUR FLICKR EMBED CODE HERE -->
-                            <a data-flickr-embed="true" href="https://www.flickr.com/photos/203724818@N02/albums/72177720329965239" title="Miles For Uncle Edwy">
-                            <img src="https://live.staticflickr.com/65535/54883694237_bdf98954ef.jpg" width="640" height="480" alt="Miles For Uncle Edwy"/></a>
-                            <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
+                        <div class="slideshow-container">
+                            <!-- Slides -->
+                            <div class="slide fade active">
+                                <div class="gallery-placeholder">
+                                    📷<br>Add your first photo here (photo1.jpg)
+                                </div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training
+                                    moment</div>
+                            </div>
+
+                            <div class="slide fade">
+                                <div class="gallery-placeholder">
+                                    📷<br>Add your second photo here (photo2.jpg)
+                                </div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training
+                                    moment</div>
+                            </div>
+
+                            <div class="slide fade">
+                                <div class="gallery-placeholder">
+                                    📷<br>Add your third photo here (photo3.jpg)
+                                </div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training
+                                    moment</div>
+                            </div>
+
+                            <div class="slide fade">
+                                <div class="gallery-placeholder">
+                                    📷<br>Add your fourth photo here (photo4.jpg)
+                                </div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training
+                                    moment</div>
+                            </div>
+
+                            <div class="slide fade">
+                                <div class="gallery-placeholder">
+                                    📷<br>Add your fifth photo here (photo5.jpg)
+                                </div>
+                                <div class="slide-caption">Add your caption here - describe the memory or training
+                                    moment</div>
+                            </div>
+
+                            <!-- Navigation arrows -->
+                            <button class="slide-nav prev" onclick="changeSlide(-1)"
+                                aria-label="Previous photo">❮</button>
+                            <button class="slide-nav next" onclick="changeSlide(1)" aria-label="Next photo">❯</button>
+
+                            <!-- Slide counter -->
+                            <div class="slide-counter">
+                                <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
+                            </div>
+                        </div>
+
+                        <!-- Thumbnail navigation -->
+                        <div class="thumbnail-container">
+                            <div class="thumbnail active" onclick="goToSlide(1)">
+                                <div class="thumbnail-placeholder">1</div>
+                            </div>
+                            <div class="thumbnail" onclick="goToSlide(2)">
+                                <div class="thumbnail-placeholder">2</div>
+                            </div>
+                            <div class="thumbnail" onclick="goToSlide(3)">
+                                <div class="thumbnail-placeholder">3</div>
+                            </div>
+                            <div class="thumbnail" onclick="goToSlide(4)">
+                                <div class="thumbnail-placeholder">4</div>
+                            </div>
+                            <div class="thumbnail" onclick="goToSlide(5)">
+                                <div class="thumbnail-placeholder">5</div>
+                            </div>
+                        </div>
+
+                        <!-- Auto-play controls -->
+                        <div class="slideshow-controls">
+                            <button id="playPauseBtn" onclick="toggleAutoPlay()" aria-label="Play/Pause slideshow">
+                                <span id="playPauseIcon">⏸</span> <span id="playPauseText">Pause</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1245,9 +1560,12 @@
                 <div class="donation-cards">
                     <article class="donation-card">
                         <h3>St. Jude Children's Hospital</h3>
-                        <p>Support families so they can focus on what matters most: helping their child live. No family ever receives a bill from St. Jude for treatment, travel, housing, or food.</p>
-                        
-                        <a href="http://fundraising.stjude.org/goto/milesforuncleedwy" target="_blank" class="donate-button" rel="noopener" style="font-size: 1.3em; padding: 22px 50px; margin-top: 30px;">Donate to St. Jude</a>
+                        <p>Support families so they can focus on what matters most: helping their child live. No family
+                            ever receives a bill from St. Jude for treatment, travel, housing, or food.</p>
+
+                        <a href="http://fundraising.stjude.org/goto/milesforuncleedwy" target="_blank"
+                            class="donate-button" rel="noopener"
+                            style="font-size: 1.3em; padding: 22px 50px; margin-top: 30px;">Donate to St. Jude</a>
                     </article>
 
                     <article class="donation-card">
@@ -1317,9 +1635,11 @@
         <!-- Email Signup Section -->
         <section class="email-signup">
             <h2>Stay Updated on My Journey</h2>
-            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy community.</p>
+            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy
+                community.</p>
             <div class="substack-embed">
-                <iframe src="https://milesforuncleedwy.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://milesforuncleedwy.substack.com/embed" width="480" height="320"
+                    style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
             </div>
         </section>
     </main>
@@ -1386,7 +1706,7 @@
 
         // Track donation button clicks (for analytics)
         document.querySelectorAll('.donate-button').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 // Google Analytics event tracking
                 gtag('event', 'click', {
                     'event_category': 'donation',
@@ -1396,10 +1716,10 @@
                 console.log('Donation button clicked:', this.textContent);
             });
         });
-        
+
         // Track social share clicks
         document.querySelectorAll('.social-share a').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 const platform = this.getAttribute('aria-label');
                 gtag('event', 'share', {
                     'event_category': 'social',
@@ -1411,6 +1731,144 @@
 
         // Initialize on page load
         updateFundraisingDisplay();
+
+        // ============================================
+        // SLIDESHOW FUNCTIONALITY
+        // ============================================
+
+        let currentSlideIndex = 1;
+        let autoPlayInterval;
+        let isAutoPlaying = true;
+        const slides = document.querySelectorAll('.slide');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const totalSlidesCount = slides.length;
+
+        // Update total slides display
+        document.getElementById('totalSlides').textContent = totalSlidesCount;
+
+        // Show specific slide
+        function showSlide(n) {
+            if (n > totalSlidesCount) {
+                currentSlideIndex = 1;
+            }
+            if (n < 1) {
+                currentSlideIndex = totalSlidesCount;
+            }
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active from all thumbnails
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+
+            // Show current slide
+            slides[currentSlideIndex - 1].classList.add('active');
+
+            // Highlight current thumbnail
+            if (thumbnails[currentSlideIndex - 1]) {
+                thumbnails[currentSlideIndex - 1].classList.add('active');
+            }
+
+            // Update counter
+            document.getElementById('currentSlide').textContent = currentSlideIndex;
+        }
+
+        // Change slide by n (next/prev)
+        function changeSlide(n) {
+            currentSlideIndex += n;
+            showSlide(currentSlideIndex);
+            resetAutoPlay();
+        }
+
+        // Go to specific slide
+        function goToSlide(n) {
+            currentSlideIndex = n;
+            showSlide(currentSlideIndex);
+            resetAutoPlay();
+        }
+
+        // Auto-play functionality
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }, 4000); // Change slide every 4 seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        function resetAutoPlay() {
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                startAutoPlay();
+            }
+        }
+
+        // Toggle auto-play
+        function toggleAutoPlay() {
+            const playPauseIcon = document.getElementById('playPauseIcon');
+            const playPauseText = document.getElementById('playPauseText');
+
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                isAutoPlaying = false;
+                playPauseIcon.textContent = '▶';
+                playPauseText.textContent = 'Play';
+            } else {
+                startAutoPlay();
+                isAutoPlaying = true;
+                playPauseIcon.textContent = '⏸';
+                playPauseText.textContent = 'Pause';
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                toggleAutoPlay();
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const slideshowContainer = document.querySelector('.slideshow-container');
+
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            slideshowContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    changeSlide(1); // Swipe left - next slide
+                }
+                if (touchEndX > touchStartX + 50) {
+                    changeSlide(-1); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // Initialize slideshow
+        showSlide(currentSlideIndex);
+        startAutoPlay();
     </script>
 </body>
 
