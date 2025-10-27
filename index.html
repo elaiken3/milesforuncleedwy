@@ -410,7 +410,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
+        
         .signup-form input {
             flex: 1;
             min-width: 250px;
@@ -419,7 +419,7 @@
             border: none;
             font-size: 1em;
         }
-
+        
         .signup-form button {
             padding: 15px 30px;
             background: #2c3e50;
@@ -430,10 +430,25 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .signup-form button:hover {
             background: #1a252f;
             transform: translateY(-2px);
+        }
+        
+        /* Substack Embed Styling */
+        .substack-embed {
+            max-width: 500px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .substack-embed iframe {
+            border-radius: 15px !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: none !important;
+            background: rgba(255,255,255,0.95) !important;
         }
 
         /* FAQ Section */
@@ -1291,16 +1306,11 @@
         <!-- Email Signup Section -->
         <section class="email-signup">
             <h2>Stay Updated on My Journey</h2>
-            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy community on Substack.</p>
-            <form class="signup-form" action="https://milesforuncleedwy.substack.com/api/v1/free" method="post" accept-charset="utf-8">
-                <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
-                <input type="hidden" name="first_url" value="https://elaiken3.github.io/milesforuncleedwy/">
-                <button type="submit">Subscribe</button>
-            </form>
+            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy community.</p>
+            <div class="substack-embed">
+                <iframe src="https://milesforuncleedwy.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+            </div>
         </section>
-        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
-            Updates delivered via <a href="https://milesforuncleedwy.substack.com" target="_blank" style="color: #eaeadf; text-decoration: underline;">Substack</a>
-        </p>
     </main>
 
     <footer class="footer">
