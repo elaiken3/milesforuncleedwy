@@ -41,6 +41,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS7HZR134V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SS7HZR134V');
+    </script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -1375,9 +1384,26 @@
 
         // Track donation button clicks (for analytics)
         document.querySelectorAll('.donate-button').forEach(button => {
-            button.addEventListener('click', function () {
-                // Add your analytics tracking here
+            button.addEventListener('click', function() {
+                // Google Analytics event tracking
+                gtag('event', 'click', {
+                    'event_category': 'donation',
+                    'event_label': this.textContent,
+                    'value': 1
+                });
                 console.log('Donation button clicked:', this.textContent);
+            });
+        });
+        
+        // Track social share clicks
+        document.querySelectorAll('.social-share a').forEach(link => {
+            link.addEventListener('click', function() {
+                const platform = this.getAttribute('aria-label');
+                gtag('event', 'share', {
+                    'event_category': 'social',
+                    'event_label': platform,
+                    'value': 1
+                });
             });
         });
 
