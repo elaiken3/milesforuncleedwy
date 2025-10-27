@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://elaiken3.github.io/milesforuncleedwy.github.io/sitemap.xml
