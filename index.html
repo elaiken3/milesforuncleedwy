@@ -1291,13 +1291,16 @@
         <!-- Email Signup Section -->
         <section class="email-signup">
             <h2>Stay Updated on My Journey</h2>
-            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy
-                community.</p>
-            <form class="signup-form" action="#" method="POST" onsubmit="return handleEmailSignup(event)">
+            <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy community on Substack.</p>
+            <form class="signup-form" action="https://milesforuncleedwy.substack.com/api/v1/free" method="post" accept-charset="utf-8">
                 <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+                <input type="hidden" name="first_url" value="https://elaiken3.github.io/milesforuncleedwy/">
                 <button type="submit">Subscribe</button>
             </form>
         </section>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+            Updates delivered via <a href="https://milesforuncleedwy.substack.com" target="_blank" style="color: #eaeadf; text-decoration: underline;">Substack</a>
+        </p>
     </main>
 
     <footer class="footer">
@@ -1359,18 +1362,6 @@
         document.getElementById('backToTop').onclick = function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
-
-        // Email signup handler (customize with your email service)
-        function handleEmailSignup(event) {
-            event.preventDefault();
-            const email = event.target.email.value;
-
-            // Replace this with your actual email service integration
-            alert('Thank you for subscribing! We\'ll keep you updated on the journey.');
-            event.target.reset();
-
-            return false;
-        }
 
         // Track donation button clicks (for analytics)
         document.querySelectorAll('.donate-button').forEach(button => {
