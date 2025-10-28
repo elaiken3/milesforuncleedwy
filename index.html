@@ -74,18 +74,22 @@
           "addressCountry": "US"
         }
       },
-      "organizer": {
-        "@type": "Person",
-        "name": "Miles For Uncle Edwy"
-      },
       "offers": {
-        "@type": "Offer",
-        "url": "https://elaiken3.github.io/milesforuncleedwy.github.io/",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
+          "@type": "Offer",
+          "url": "https://elaiken3.github.io/milesforuncleedwy/",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "organizer": {
+          "@type": "Person",
+          "name": "Miles For Uncle Edwy",
+          "sameAs": [
+            "https://elaiken3.github.io/milesforuncleedwy/"
+          ]
+        },
+        "eventStatus": "https://schema.org/EventScheduled"
+
     </script>
 
     <style>
@@ -253,6 +257,100 @@
             gap: 15px;
             align-items: flex-end;
         }
+
+        /* Dual meters component */
+        .dual-meters { 
+          background:#fff; border-radius:16px; padding:28px; 
+          box-shadow:0 10px 30px rgba(0,0,0,.08); margin:32px 0;
+          font-family: inherit;
+        }
+        .dual-meters__title { 
+          font-size:1.4rem; margin:0 0 10px; color:#2c3e50;
+        }
+        .dual-meters__totals { 
+          display:flex; gap:18px; flex-wrap:wrap;
+        }
+        .dual-meters__total { 
+          background:#f7f7f9; border:1px solid #ececf2; border-radius:12px; 
+          padding:10px 14px; min-width:160px;
+        }
+        .dual-meters__label { 
+          display:block; font-size:.85rem; color:#667; margin-bottom:2px;
+        }
+        .dual-meters__value { 
+          font-weight:700; color:#2c3e50;
+        }
+        
+        .dual-meters__grid { 
+          display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:18px;
+        }
+        .dual-meters__card { 
+          border:1px solid #ececf2; border-radius:14px; padding:18px; background:#fff;
+        }
+        .dual-meters__card-title { 
+          margin:0; font-size:1.05rem; color:#2c3e50;
+        }
+        .dual-meters__amount { 
+          font-weight:700; color:#27ae60; font-size:1.25rem;
+        }
+        .dual-meters__card-head { 
+          display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:10px;
+        }
+        
+        .dual-meters__barwrap { 
+          position:relative; height:16px; background:#ececf2; border-radius:999px; overflow:hidden;
+        }
+        .dual-meters__bar { 
+          height:100%; width:0; border-radius:999px; 
+          background: linear-gradient(90deg, rgba(0,132,255,.95), rgba(0,180,120,.95)); 
+          transition:width .6s ease;
+        }
+        .dual-meters__bar--msk { 
+          background: linear-gradient(90deg, rgba(0,90,200,.95), rgba(0,60,140,.95));
+        }
+        .dual-meters__bar--combo {
+          background: linear-gradient(90deg, rgba(120,80,220,.95), rgba(255,80,160,.95));
+        }
+        .dual-meters__pct { 
+          margin-top:8px; font-weight:600; color:#2c3e50; font-size:.95rem;
+        }
+        
+        .dual-meters__btn { 
+          display:inline-block; margin-top:14px; padding:12px 20px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color:#fff; text-decoration:none; border-radius:999px; font-weight:700;
+          transition:transform .2s ease, box-shadow .2s ease;
+        }
+        .dual-meters__btn:hover { 
+          transform:translateY(-2px); box-shadow:0 6px 16px rgba(102,126,234,.35);
+        }
+        
+        .dual-meters__combined { 
+          margin-top:20px; 
+        }
+        .dual-meters__combined-head { 
+          display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;
+        }
+        .dual-meters__combined-label { 
+          font-weight:700; color:#2c3e50;
+        }
+        .dual-meters__combined-val { 
+          font-weight:800; color:#2c3e50;
+        }
+        .dual-meters__barwrap--combined { 
+          height:18px;
+        }
+        .dual-meters__note { 
+          display:block; margin-top:10px; color:#777;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+          .dual-meters { padding:20px; }
+          .dual-meters__grid { grid-template-columns:1fr; }
+          .dual-meters__total { min-width:unset; flex:1; }
+        }
+
 
         .race-logo a {
             transition: transform 0.3s ease;
@@ -1496,16 +1594,16 @@
     <!-- Social Share Bar -->
     <div class="social-share">
         <p>Share Miles For Uncle Edwy:</p>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://elaiken3.github.io/milesforuncleedwy.github.io/" target="_blank" rel="noopener" aria-label="Share on Facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://elaiken3.github.io/milesforuncleedwy/" target="_blank" rel="noopener" aria-label="Share on Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
-        <a href="https://twitter.com/intent/tweet?url=https://elaiken3.github.io/milesforuncleedwy.github.io/&text=Support%20Miles%20For%20Uncle%20Edwy%20-%20Brooklyn%20Experience%20Half%20Marathon%20fundraising%20for%20cancer%20research" target="_blank" rel="noopener" aria-label="Share on X">
+        <a href="https://twitter.com/intent/tweet?url=https://elaiken3.github.io/milesforuncleedwy/&text=Support%20Miles%20For%20Uncle%20Edwy%20-%20Brooklyn%20Experience%20Half%20Marathon%20fundraising%20for%20cancer%20research" target="_blank" rel="noopener" aria-label="Share on X">
             <i class="fa-brands fa-x-twitter"></i>
         </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://elaiken3.github.io/milesforuncleedwy.github.io/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://elaiken3.github.io/milesforuncleedwy/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Check%20out%20this%20inspiring%20fundraising%20campaign:%20https://elaiken3.github.io/milesforuncleedwy.github.io/" aria-label="Share via Email">
+        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Check%20out%20this%20inspiring%20fundraising%20campaign:%20https://elaiken3.github.io/milesforuncleedwy/" aria-label="Share via Email">
             <i class="fa-solid fa-envelope"></i>
         </a>
 </div>
@@ -1682,30 +1780,94 @@
             <div class="container">
                 <h2>Fundraising Progress</h2>
 
-                <div class="fundraising-tracker">
-                    <div class="tracker-header">
-                        <h3>Miles For Uncle Edwy Fund</h3>
-                        <div class="total-raised" id="totalRaised" aria-live="polite">$0</div>
-                        <div class="goal-text">of <span id="goalAmount">$10,000</span> goal</div>
+                <div class="dual-meters">
+                  <div class="dual-meters__header" aria-live="polite">
+                    <h3 class="dual-meters__title">Miles For Uncle Edwy — Fundraising Totals</h3>
+                    <div class="dual-meters__totals">
+                      <div class="dual-meters__total">
+                        <span class="dual-meters__label">Total Raised</span>
+                        <span id="dm-total" class="dual-meters__value">$0</span>
+                      </div>
+                      <div class="dual-meters__total">
+                        <span class="dual-meters__label">Goal</span>
+                        <span id="dm-goal" class="dual-meters__value">$0</span>
+                      </div>
+                      <div class="dual-meters__total">
+                        <span class="dual-meters__label">Donors</span>
+                        <span id="dm-donors" class="dual-meters__value">0</span>
+                      </div>
                     </div>
-
-                    <div class="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                        aria-valuenow="0" aria-label="Fundraising progress">
-                        <div class="progress-bar" id="progressBar">
-                            <span id="percentageText">0%</span>
+                  </div>
+                
+                  <div class="dual-meters__grid">
+                    <!-- St. Jude -->
+                    <section class="dual-meters__card" aria-labelledby="dm-stjude-h">
+                      <header class="dual-meters__card-head">
+                        <h4 id="dm-stjude-h" class="dual-meters__card-title">St. Jude Children’s Research Hospital</h4>
+                        <div class="dual-meters__amount">
+                          <span id="dm-stjude-amt">$0</span>
                         </div>
+                      </header>
+                      <div class="dual-meters__barwrap"
+                           role="progressbar"
+                           aria-valuemin="0"
+                           aria-valuemax="100"
+                           aria-valuenow="0"
+                           aria-label="St. Jude fundraising progress">
+                        <div id="dm-stjude-bar" class="dual-meters__bar"></div>
+                      </div>
+                      <div class="dual-meters__pct">
+                        <span id="dm-stjude-pct">0%</span> of personal St. Jude target
+                      </div>
+                      <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
+                         target="_blank" rel="noopener noreferrer"
+                         class="dual-meters__btn">Donate to St. Jude</a>
+                    </section>
+                
+                    <!-- MSK -->
+                    <section class="dual-meters__card" aria-labelledby="dm-msk-h">
+                      <header class="dual-meters__card-head">
+                        <h4 id="dm-msk-h" class="dual-meters__card-title">Memorial Sloan Kettering (Colorectal Cancer Research)</h4>
+                        <div class="dual-meters__amount">
+                          <span id="dm-msk-amt">$0</span>
+                        </div>
+                      </header>
+                      <div class="dual-meters__barwrap"
+                           role="progressbar"
+                           aria-valuemin="0"
+                           aria-valuemax="100"
+                           aria-valuenow="0"
+                           aria-label="MSK fundraising progress">
+                        <div id="dm-msk-bar" class="dual-meters__bar dual-meters__bar--msk"></div>
+                      </div>
+                      <div class="dual-meters__pct">
+                        <span id="dm-msk-pct">0%</span> of personal MSK target
+                      </div>
+                      <a href="https://giving.mskcc.org"
+                         target="_blank" rel="noopener noreferrer"
+                         class="dual-meters__btn">Donate to MSK</a>
+                    </section>
+                  </div>
+                
+                  <!-- Combined progress -->
+                  <div class="dual-meters__combined">
+                    <div class="dual-meters__combined-head">
+                      <span class="dual-meters__combined-label">Combined Progress</span>
+                      <span id="dm-combined-pct" class="dual-meters__combined-val">0%</span>
                     </div>
-
-                    <div class="charity-breakdown">
-                        <article class="charity-item">
-                            <h4>St. Jude Children's Hospital</h4>
-                            <div class="charity-amount" id="stJudeAmount">$0</div>
-                        </article>
-                        <article class="charity-item">
-                            <h4>Memorial Sloan Kettering<br><small>Colorectal Cancer Research</small></h4>
-                            <div class="charity-amount" id="mskAmount">$0</div>
-                        </article>
+                    <div class="dual-meters__barwrap dual-meters__barwrap--combined"
+                         role="progressbar"
+                         aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0"
+                         aria-label="Combined fundraising progress">
+                      <div id="dm-combined-bar" class="dual-meters__bar dual-meters__bar--combo"></div>
                     </div>
+                  </div>
+                
+                  <small class="dual-meters__note">
+                    * Totals reflect gifts made directly on the official St. Jude and MSK pages.
+                  </small>
                 </div>
             </div>
         </section>
@@ -1898,6 +2060,71 @@
 
         // Initialize on page load
         updateFundraisingDisplay();
+
+        (function(){
+          // Helper format
+          const fmt = v => v.toLocaleString('en-US', { style:'currency', currency:'USD', maximumFractionDigits:0 });
+        
+          function clampPct(raised, goal) {
+            if (!goal || goal <= 0) return 0;
+            return Math.max(0, Math.min(100, Math.round((raised/goal)*100)));
+          }
+        
+          // You can optionally set per-charity “sub-targets” here.
+          // If you leave them undefined, each bar uses a 50/50 split of the total goal.
+          const stJudeTarget = window.stJudeTarget || (goalAmount / 2);
+          const mskTarget    = window.mskTarget    || (goalAmount / 2);
+        
+          function updateDualMeters() {
+            // Totals
+            const total = stJudeAmount + mskAmount;
+        
+            // Per charity pcts (use their own targets)
+            const stPct = clampPct(stJudeAmount, stJudeTarget);
+            const mkPct = clampPct(mskAmount, mskTarget);
+        
+            // Combined pct vs. total goal
+            const combinedPct = clampPct(total, goalAmount);
+        
+            // DOM
+            const $ = id => document.getElementById(id);
+        
+            if ($('dm-total')) $('dm-total').textContent = fmt(total);
+            if ($('dm-goal')) $('dm-goal').textContent = fmt(goalAmount);
+            if ($('dm-donors')) $('dm-donors').textContent = (donorCount || 0).toLocaleString();
+        
+            if ($('dm-stjude-amt')) $('dm-stjude-amt').textContent = fmt(stJudeAmount);
+            if ($('dm-msk-amt')) $('dm-msk-amt').textContent    = fmt(mskAmount);
+        
+            if ($('dm-stjude-bar')) $('dm-stjude-bar').style.width = stPct + '%';
+            if ($('dm-msk-bar')) $('dm-msk-bar').style.width = mkPct + '%';
+            if ($('dm-combined-bar')) $('dm-combined-bar').style.width = combinedPct + '%';
+        
+            if ($('dm-stjude-pct')) $('dm-stjude-pct').textContent = stPct + '%';
+            if ($('dm-msk-pct')) $('dm-msk-pct').textContent       = mkPct + '%';
+            if ($('dm-combined-pct')) $('dm-combined-pct').textContent = combinedPct + '%';
+        
+            // ARIA values
+            const stWrap = document.querySelector('[aria-label="St. Jude fundraising progress"]');
+            const mkWrap = document.querySelector('[aria-label="MSK fundraising progress"]');
+            const cbWrap = document.querySelector('[aria-label="Combined fundraising progress"]');
+            if (stWrap) stWrap.setAttribute('aria-valuenow', stPct);
+            if (mkWrap) mkWrap.setAttribute('aria-valuenow', mkPct);
+            if (cbWrap) cbWrap.setAttribute('aria-valuenow', combinedPct);
+          }
+        
+          // Run now and whenever you update totals
+          updateDualMeters();
+        
+          // If you already call updateFundraisingDisplay(), you can also hook it:
+          const originalUpdate = window.updateFundraisingDisplay;
+          if (typeof originalUpdate === 'function') {
+            window.updateFundraisingDisplay = function(){
+              originalUpdate();
+              updateDualMeters();
+            };
+          }
+        })();
 
         // ============================================
         // SLIDESHOW FUNCTIONALITY
