@@ -1999,17 +1999,24 @@
             }
         }
         
-        // Auto-scroll active thumbnail into view on mobile
+        // Auto-scroll active thumbnail into view on mobile (without scrolling page)
         function scrollThumbnailIntoView() {
             const activeThumbnail = document.querySelector('.thumbnail.active');
             const thumbnailContainer = document.querySelector('.thumbnail-container');
             
             if (activeThumbnail && thumbnailContainer && window.innerWidth <= 768) {
-                // Smooth scroll the active thumbnail into view
-                activeThumbnail.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
+                // Calculate position to scroll within container only
+                const containerWidth = thumbnailContainer.offsetWidth;
+                const thumbnailLeft = activeThumbnail.offsetLeft;
+                const thumbnailWidth = activeThumbnail.offsetWidth;
+                
+                // Center the active thumbnail in the container
+                const scrollPosition = thumbnailLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+                
+                // Smooth scroll within container only (doesn't affect page scroll)
+                thumbnailContainer.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
                 });
             }
         }
