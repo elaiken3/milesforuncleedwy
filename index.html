@@ -660,6 +660,28 @@
             color: #667eea;
         }
 
+        /* Runner photo styling */
+        .runner-photo-container {
+            max-width: 500px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        .runner-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            display: block;
+        }
+        
+        .runner-photo-caption {
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+        }
+
         .impact-section {
             background: white;
             padding: 50px;
@@ -1182,6 +1204,20 @@
                 min-height: auto;
                 padding: 30px 20px;
             }
+
+            /* Runner photo mobile */
+            .runner-photo-container {
+                max-width: 350px;
+                margin: 30px auto;
+            }
+            
+            .runner-photo {
+                border-radius: 10px;
+            }
+            
+            .runner-photo-caption {
+                font-size: 0.9em;
+            }
             
             .photo-frame {
                 width: 300px;
@@ -1392,6 +1428,16 @@
                 width: 250px;
                 max-width: 90%;
             }
+
+            /* Runner photo on small phones */
+            .runner-photo-container {
+                max-width: 280px;
+                margin: 25px auto;
+            }
+            
+            .runner-photo-caption {
+                font-size: 0.85em;
+            }
         }
     </style>
 </head>
@@ -1526,6 +1572,13 @@
         <section class="section story" id="why-running">
             <div class="container">
                 <h2>Why I'm Running</h2>
+
+                <!-- Runner Photo -->
+                <div class="runner-photo-container">
+                    <img src="runner-photo.jpg" alt="Running for Uncle Edwy" class="runner-photo" loading="lazy">
+                    <p class="runner-photo-caption">Running 13.1 miles to honor Uncle Edwy's memory</p>
+                </div>
+                
                 <div class="story-content">
                     <p>When Uncle Edwy passed away from colorectal cancer in 2021, my family was devastated. But in our
                         grief, I found purpose. I found a way to turn our pain into something positive, to honor his
