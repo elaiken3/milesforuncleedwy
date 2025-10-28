@@ -1784,10 +1784,10 @@
             const totalRaised = stJudeAmount + mskAmount;
             const percentage = Math.min((totalRaised / goalAmount) * 100, 100);
 
-            document.getElementById('totalRaised').textContent = ' + totalRaised.toLocaleString();
-            document.getElementById('goalAmount').textContent = ' + goalAmount.toLocaleString();
-            document.getElementById('stJudeAmount').textContent = ' + stJudeAmount.toLocaleString();
-            document.getElementById('mskAmount').textContent = ' + mskAmount.toLocaleString();
+            document.getElementById('totalRaised').textContent = '$' + totalRaised.toLocaleString();
+            document.getElementById('goalAmount').textContent = '$' + goalAmount.toLocaleString();
+            document.getElementById('stJudeAmount').textContent = '$' + stJudeAmount.toLocaleString();
+            document.getElementById('mskAmount').textContent = '$' + mskAmount.toLocaleString();
             document.getElementById('progressBar').style.width = percentage + '%';
             document.getElementById('percentageText').textContent = Math.round(percentage) + '%';
             document.getElementById('donorCount').textContent = donorCount;
