@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+
+# Optional: disallow internal preview paths if you add them later
+# Disallow: /drafts/
+# Disallow: /private/
+
+# Point crawlers to your sitemap
 Sitemap: https://elaiken3.github.io/milesforuncleedwy/sitemap.xml
