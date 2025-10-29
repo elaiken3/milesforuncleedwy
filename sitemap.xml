@@ -8,17 +8,17 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://elaiken3.github.io/milesforuncleedwy/hero-image-desktop.png</image:loc>
+      <image:loc>www.milesforuncleedwy.org/hero-image-desktop.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://elaiken3.github.io/milesforuncleedwy/hero-image-mobile.png</image:loc>
+      <image:loc>www.milesforuncleedwy.org/hero-image-mobile.png</image:loc>
     </image:image>
   </url>
 
   <!-- If you later add additional pages (e.g., /about/, /faq/, /gallery/), add them like this: -->
   <!--
   <url>
-    <loc>https://elaiken3.github.io/milesforuncleedwy/about/</loc>
+    <loc>www.milesforuncleedwy.org/about/</loc>
     <lastmod>2025-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
