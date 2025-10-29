@@ -6,4 +6,4 @@ Allow: /
 # Disallow: /private/
 
 # Point crawlers to your sitemap
-Sitemap: https://elaiken3.github.io/milesforuncleedwy/sitemap.xml
+Sitemap: www.milesforuncleedwy.org/sitemap.xml
