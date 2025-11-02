@@ -1183,12 +1183,20 @@
             line-height: 1.8;
         }
 
+        /* Two-column layout on desktop, stacked on mobile */
         .donation-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+          .donation-cards {
+            grid-template-columns: 1fr;
+            gap: 25px;
+          }
         }
 
         .donation-card {
@@ -1726,29 +1734,32 @@
                             All donations go directly to two extraordinary organizations saving lives every day.
                           </p>
                     
-                          <!-- Separate St. Jude and MSK into their own boxes -->
-                          <article class="donation-card" style="margin-bottom:40px;">
-                            <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
-                                 width="180" height="auto" style="margin-bottom:20px;">
-                            <h3>St. Jude Children's Research Hospital</h3>
-                            <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
-                               travel, housing, or food — so they can focus on helping their child live.</p>
-                            <a href="http://fundraising.stjude.org/goto/milesforuncleedwy" target="_blank"
-                               class="donate-button" rel="noopener" style="font-size:1.2em;padding:18px 45px;">
-                               Donate to St. Jude
-                            </a>
-                          </article>
+                          <div class="donation-cards">
+                            <article class="donation-card">
+                              <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
+                                   width="180" height="auto" style="margin-bottom:20px;">
+                              <h3>St. Jude Children's Research Hospital</h3>
+                              <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
+                                 travel, housing, or food — so they can focus on helping their child live.</p>
+                              <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
+                                 target="_blank" class="donate-button" rel="noopener"
+                                 style="font-size:1.2em;padding:18px 45px;">
+                                 Donate to St. Jude
+                              </a>
+                            </article>
                           
-                          <article class="donation-card">
-                            <img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo"
-                                 width="180" height="auto" style="margin-bottom:20px;">
-                            <h3>Memorial Sloan Kettering</h3>
-                            <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
-                               work that gives families like mine more time and hope.</p>
-                            <a href="http://mskcc.convio.net/goto/milesforuncleedwy" target="_blank"
-                               class="donate-button" rel="noopener">Donate to MSK</a>
-                          </article>
-
+                            <article class="donation-card">
+                              <img src="msk-logo.png" alt="Memorial Sloan Kettering Cancer Center Logo"
+                                   width="180" height="auto" style="margin-bottom:20px;">
+                              <h3>Memorial Sloan Kettering</h3>
+                              <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
+                                 work that gives families like mine more time and hope.</p>
+                              <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
+                                 target="_blank" class="donate-button" rel="noopener">
+                                 Donate to MSK
+                              </a>
+                            </article>
+                          </div>
                         </div>
                     
                         <div class="trust-badges" style="margin-top:40px;">
@@ -1948,26 +1959,31 @@
                 </div>
 
                 <div class="donation-cards">
-                    <article class="donation-card">
-                        <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo" width="180" height="auto" style="margin-bottom: 20px;">
-                        <h3>St. Jude Children's Hospital</h3>
-                        <p>Support families so they can focus on what matters most: helping their child live. No family ever receives a bill from St. Jude for treatment, travel, housing, or food.</p>
-                        
-                        <a href="http://fundraising.stjude.org/goto/milesforuncleedwy" target="_blank" class="donate-button" rel="noopener" style="font-size: 1.3em; padding: 22px 50px; margin-top: 30px;">
-                            Donate to St. Jude
-                        </a>
-                    </article>
-                
-                    <article class="donation-card">
-                        <img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo" width="180" height="auto" style="margin-bottom: 20px;">
-                        <h3>Memorial Sloan Kettering</h3>
-                        <p>Fund groundbreaking colorectal cancer research in Uncle Edwy's memory. Help MSK continue their life-saving work and prevent other families from experiencing our loss.</p>
-                
-                        <a href="http://mskcc.convio.net/goto/milesforuncleedwy" target="_blank" class="donate-button" rel="noopener">
-                            Donate to MSK
-                        </a>
-                    </article>
-                </div>
+                <article class="donation-card">
+                  <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
+                       width="180" height="auto" style="margin-bottom:20px;">
+                  <h3>St. Jude Children's Research Hospital</h3>
+                  <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
+                     travel, housing, or food — so they can focus on helping their child live.</p>
+                  <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
+                     target="_blank" class="donate-button" rel="noopener"
+                     style="font-size:1.2em;padding:18px 45px;">
+                     Donate to St. Jude
+                  </a>
+                </article>
+              
+                <article class="donation-card">
+                  <img src="msk-logo.png" alt="Memorial Sloan Kettering Cancer Center Logo"
+                       width="180" height="auto" style="margin-bottom:20px;">
+                  <h3>Memorial Sloan Kettering</h3>
+                  <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
+                     work that gives families like mine more time and hope.</p>
+                  <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
+                     target="_blank" class="donate-button" rel="noopener">
+                     Donate to MSK
+                  </a>
+                </article>
+              </div>
             </div>
         </section>
 
