@@ -1186,10 +1186,11 @@
         /* Two-column layout on desktop, stacked on mobile */
         .donation-cards {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 32px;
           max-width: 1100px;
           margin: 0 auto;
+          align-items: start;
         }
         
         @media (max-width: 768px) {
@@ -1935,55 +1936,6 @@
                     * Totals reflect gifts made directly on the official St. Jude and MSK pages.
                   </small>
                 </div>
-            </div>
-        </section>
-
-        <section class="section donation-section" id="donate">
-            <div class="container">
-                <h2>Honor Uncle Edwy's Memory</h2>
-                <div class="donation-intro">
-                    <p><strong>Your donation does more than support my race—it honors Uncle Edwy's life and helps
-                            families fighting cancer today.</strong></p>
-                    <p>Choose to support St. Jude Children's Hospital, Memorial Sloan Kettering's colorectal cancer
-                        research in Uncle Edwy's name, or split your donation between both. Every contribution is a step
-                        toward a world without cancer.</p>
-                </div>
-
-                <!-- Trust Badges -->
-                <div class="trust-badges">
-                    <p>
-                        🔒 <strong>Secure donations</strong> processed directly through St. Jude and MSK<br>
-                        💯 <strong>100% of your donation</strong> goes to cancer research and treatment<br>
-                        ❤️ <strong>Tax-deductible</strong> charitable contributions
-                    </p>
-                </div>
-
-                <div class="donation-cards">
-                <article class="donation-card">
-                  <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
-                       width="180" height="auto" style="margin-bottom:20px;">
-                  <h3>St. Jude Children's Research Hospital</h3>
-                  <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
-                     travel, housing, or food — so they can focus on helping their child live.</p>
-                  <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
-                     target="_blank" class="donate-button" rel="noopener"
-                     style="font-size:1.2em;padding:18px 45px;">
-                     Donate to St. Jude
-                  </a>
-                </article>
-              
-                <article class="donation-card">
-                  <img src="msk-logo.png" alt="Memorial Sloan Kettering Cancer Center Logo"
-                       width="180" height="auto" style="margin-bottom:20px;">
-                  <h3>Memorial Sloan Kettering</h3>
-                  <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
-                     work that gives families like mine more time and hope.</p>
-                  <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
-                     target="_blank" class="donate-button" rel="noopener">
-                     Donate to MSK
-                  </a>
-                </article>
-              </div>
             </div>
         </section>
 
