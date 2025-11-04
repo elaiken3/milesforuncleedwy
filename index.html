@@ -529,6 +529,75 @@
             font-size: 1.2em;
         }
 
+        /* Countdown Section */
+        .countdown-section {
+          margin: 30px auto 10px;
+          max-width: 800px;
+          text-align: center;
+          padding: 30px 20px;
+          background: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .countdown-section h2 {
+          font-size: 2rem;
+          margin-bottom: 20px;
+          color: #2c3e50;
+        }
+        
+        .countdown-grid {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+          min-width: 90px;
+          padding: 10px 12px;
+          border-radius: 10px;
+          background: #f4f6ff;
+          border: 1px solid #dfe6ff;
+        }
+        
+        .countdown-number {
+          display: block;
+          font-size: 2.5rem;
+          font-weight: 800;
+          color: #667eea;
+          line-height: 1.1;
+        }
+        
+        .countdown-label {
+          display: block;
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: #555;
+          margin-top: 4px;
+        }
+        
+        .countdown-note {
+          margin-top: 18px;
+          font-size: 0.95rem;
+          color: #666;
+        }
+        
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+          .countdown-section {
+            padding: 24px 18px;
+          }
+          .countdown-number {
+            font-size: 2rem;
+          }
+          .countdown-item {
+            min-width: 80px;
+          }
+        }
+
+
         /* Trust Badges */
         .trust-badges {
             text-align: center;
@@ -1721,6 +1790,34 @@
             </div>
         </div>
 
+        <!-- Countdown to Race Day -->
+        <div class="container">
+          <section class="countdown-section" aria-label="Countdown to race day">
+            <h2>Countdown to Race Day</h2>
+            <div class="countdown-grid" id="raceCountdown">
+              <div class="countdown-item">
+                <span class="countdown-number" id="cd-days">0</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="cd-hours">0</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="cd-minutes">0</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="cd-seconds">0</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+            <p class="countdown-note">
+              Brooklyn Experience Half Marathon on April 26, 2026
+            </p>
+          </section>
+        </div>
+
         <section class="section story" id="why-running">
             <div class="container">
                 <h2>Why I'm Running</h2>
@@ -2079,6 +2176,47 @@
     <button id="backToTop" aria-label="Back to top">↑</button>
 
     <script>
+        // ============================================
+        // COUNTDOWN TO RACE DAY
+        // ============================================
+        // Set race date and time (adjust time if needed)
+        const raceDate = new Date('2026-04-26T07:00:00-04:00'); // 7:00 AM Eastern
+    
+        function updateRaceCountdown() {
+          const now = new Date().getTime();
+          const distance = raceDate.getTime() - now;
+    
+          const daysEl    = document.getElementById('cd-days');
+          const hoursEl   = document.getElementById('cd-hours');
+          const minutesEl = document.getElementById('cd-minutes');
+          const secondsEl = document.getElementById('cd-seconds');
+    
+          // If countdown elements are not on this page for some reason, do nothing
+          if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+    
+          if (distance <= 0) {
+            daysEl.textContent    = '0';
+            hoursEl.textContent   = '0';
+            minutesEl.textContent = '0';
+            secondsEl.textContent = '0';
+            return;
+          }
+    
+          const days    = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+          daysEl.textContent    = days;
+          hoursEl.textContent   = hours.toString().padStart(2, '0');
+          minutesEl.textContent = minutes.toString().padStart(2, '0');
+          secondsEl.textContent = seconds.toString().padStart(2, '0');
+        }
+    
+        // Update immediately, then every second
+        updateRaceCountdown();
+        setInterval(updateRaceCountdown, 1000);
+      
         // ============================================
         // UPDATE THESE VALUES WITH YOUR FUNDRAISING TOTALS
         // ============================================
