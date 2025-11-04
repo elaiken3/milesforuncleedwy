@@ -567,6 +567,128 @@
           font-size: 0.95rem;
           color: #666;
         }
+
+        /* Sponsor / Sponsorship Tiers */
+        .sponsors-section {
+          background: #ffffff;
+        }
+        
+        .sponsors-intro {
+          max-width: 800px;
+          margin: 0 auto 30px;
+          text-align: center;
+          font-size: 1.1em;
+          color: #555;
+          line-height: 1.8;
+        }
+        
+        .sponsor-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 28px;
+          max-width: 1100px;
+          margin: 0 auto 10px;
+        }
+        
+        .sponsor-tier {
+          background: #ffffff;
+          border-radius: 16px;
+          padding: 24px 22px 20px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+          border: 1px solid #ececf2;
+          text-align: left;
+          position: relative;
+        }
+        
+        .sponsor-tier h3 {
+          font-size: 1.4em;
+          margin-bottom: 8px;
+          color: #2c3e50;
+        }
+        
+        .sponsor-amount {
+          font-weight: 800;
+          font-size: 1.2em;
+          color: #27ae60;
+          margin-bottom: 10px;
+        }
+        
+        .sponsor-perks {
+          margin-bottom: 14px;
+          color: #555;
+          font-size: 0.98em;
+        }
+        
+        .sponsor-perks li {
+          margin-bottom: 6px;
+        }
+        
+        .sponsor-label {
+          display: inline-block;
+          font-size: 0.85em;
+          font-weight: 700;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
+          padding: 4px 10px;
+          border-radius: 999px;
+          margin-bottom: 10px;
+        }
+        
+        .sponsor-gold .sponsor-label {
+          background: #fff7dd;
+          color: #b8860b;
+        }
+        
+        .sponsor-silver .sponsor-label {
+          background: #f2f4f7;
+          color: #5c6c80;
+        }
+        
+        .sponsor-bronze .sponsor-label {
+          background: #fff1e4;
+          color: #b56320;
+        }
+        
+        .sponsor-mile .sponsor-label {
+          background: #e9ecff;
+          color: #4b57c3;
+        }
+        
+        .sponsor-friend .sponsor-label {
+          background: #f5f5f5;
+          color: #555;
+        }
+        
+        .sponsor-current {
+          margin-top: 8px;
+          font-size: 0.9em;
+          color: #777;
+        }
+        
+        .sponsor-current strong {
+          font-weight: 700;
+        }
+        
+        .sponsors-note {
+          max-width: 800px;
+          margin: 24px auto 0;
+          font-size: 0.98em;
+          color: #666;
+          text-align: center;
+        }
+        
+        .sponsors-note a {
+          color: #667eea;
+          text-decoration: underline;
+          font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+          .sponsor-tier {
+            text-align: left;
+          }
+        }
+
         
         /* Mobile tweaks */
         @media (max-width: 768px) {
@@ -2053,6 +2175,102 @@
                   </small>
                 </div>
             </div>
+        </section>
+
+        <section class="section sponsors-section" id="sponsors">
+          <div class="container">
+            <h2>Become a Sponsor</h2>
+        
+            <p class="sponsors-intro">
+              In addition to individual donations, you can support Miles for Uncle Edwy as a sponsor.
+              Sponsorships help push this campaign closer to the fundraising goal and honor loved ones
+              who have faced cancer.
+            </p>
+        
+            <div class="sponsor-grid">
+              <!-- Gold Sponsor -->
+              <article class="sponsor-tier sponsor-gold">
+                <span class="sponsor-label">Gold Sponsor</span>
+                <h3>Gold Sponsor</h3>
+                <div class="sponsor-amount">$1,000+</div>
+                <ul class="sponsor-perks">
+                  <li>Name or company logo featured prominently on this page, Race Day Shirt, and Social Media Banners</li>
+                  <li>Dedicated Thank You post on Substack and Instagram</li>
+                  <li>Optional dedication in honor or memory of a loved one</li>
+                </ul>
+                <p class="sponsor-current">
+                  <strong>Current Gold Sponsors:</strong> Coming soon
+                </p>
+              </article>
+        
+              <!-- Silver Sponsor -->
+              <article class="sponsor-tier sponsor-silver">
+                <span class="sponsor-label">Silver Sponsor</span>
+                <h3>Silver Sponsor</h3>
+                <div class="sponsor-amount">$500+</div>
+                <ul class="sponsor-perks">
+                  <li>Name or company logo listed as a Silver Sponsor on this page</li>
+                  <li>Thank you mention on social media</li>
+                  <li>Option to include a short dedication message</li>
+                </ul>
+                <p class="sponsor-current">
+                  <strong>Current Silver Sponsors:</strong> Coming soon
+                </p>
+              </article>
+        
+              <!-- Bronze Sponsor -->
+              <article class="sponsor-tier sponsor-bronze">
+                <span class="sponsor-label">Bronze Sponsor</span>
+                <h3>Bronze Sponsor</h3>
+                <div class="sponsor-amount">$250+</div>
+                <ul class="sponsor-perks">
+                  <li>Name or company logo listed as a Bronze Sponsor</li>
+                  <li>Group thank you in a campaign update</li>
+                  <li>Optional dedication in honor of someone special</li>
+                </ul>
+                <p class="sponsor-current">
+                  <strong>Current Bronze Sponsors:</strong> Coming soon
+                </p>
+              </article>
+        
+              <!-- Mile Sponsor -->
+              <article class="sponsor-tier sponsor-mile">
+                <span class="sponsor-label">Mile Sponsor</span>
+                <h3>Mile Sponsor</h3>
+                <div class="sponsor-amount">$100+</div>
+                <ul class="sponsor-perks">
+                  <li>Sponsor a specific mile of the race in honor of someone</li>
+                  <li>Name and mile listed on the site (for example: "Mile 5 in honor of Dad")</li>
+                  <li>Optional shout out on social media</li>
+                </ul>
+                <p class="sponsor-current">
+                  <strong>Current Mile Sponsors:</strong> Coming soon
+                </p>
+              </article>
+        
+              <!-- Friend of the Run -->
+              <article class="sponsor-tier sponsor-friend">
+                <span class="sponsor-label">Friend of the Run</span>
+                <h3>Friend of the Run</h3>
+                <div class="sponsor-amount">$50+</div>
+                <ul class="sponsor-perks">
+                  <li>Name listed as a Friend of the Run</li>
+                  <li>A heartfelt thank you for supporting this campaign</li>
+                </ul>
+                <p class="sponsor-current">
+                  <strong>Friends of the Run:</strong> Coming soon
+                </p>
+              </article>
+            </div>
+        
+            <p class="sponsors-note">
+              To become a sponsor, make your donation directly to
+              <strong>St. Jude Children&#8217;s Research Hospital</strong> or
+              <strong>Memorial Sloan Kettering Cancer Center</strong> using the links above,
+              then email your donation amount, preferred listing name, tier, and any dedication to
+              <a href="mailto:info@milesforuncleedwy.org.com">info@milesforuncleedwy.org</a>. I will update this section so your support is recognized.
+            </p>
+          </div>
         </section>
 
         <!-- FAQ Section -->
