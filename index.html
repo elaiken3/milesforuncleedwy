@@ -433,51 +433,29 @@
             display: none !important;
         }
 
-        /* Social Share Bar */
-        .social-share {
-            text-align: center;
-            padding: 30px 20px;
-            background: #f9f9f9;
-            border-top: 3px solid #667eea;
+        /* Footer social icons */
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+            font-size: 1.8rem; /* icon size */
         }
-
-        .social-share p {
-            margin-bottom: 15px;
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.1em;
-        }
-
-        .social-share a {
-            margin: 0 10px;
+        
+        .footer-social a {
             text-decoration: none;
-            font-size: 2.5em;
-            transition: all 0.3s ease;
-            display: inline-block;
-            color: #2c3e50;
+            color: #eaeadf; /* same light text as footer */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
         }
         
-        .social-share a:hover {
-            transform: scale(1.2);
-        }
-        
-        .social-share .fa-facebook {
-            color: #1877F2;
-        }
-        
-        .social-share .fa-x-twitter {
-            color: #000000;
-        }
-        
-        .social-share .fa-linkedin {
-            color: #0A66C2;
-        }
-        
-        .social-share .fa-envelope {
-            color: #EA4335;
-        }
-        .social-share a:hover {
-            transform: scale(1.2);
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
         }
 
         /* Impact Statistics */
@@ -1827,28 +1805,6 @@
         </div>
     </div>
 
-    <!-- Social Share Bar -->
-    <div class="social-share">
-        <p>Share Miles For Uncle Edwy:</p>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmilesforuncleedwy.org" 
-           target="_blank" rel="noopener" aria-label="Share on Facebook">
-            <i class="fa-brands fa-facebook"></i>
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmilesforuncleedwy.org&text=Support%20Miles%20For%20Uncle%20Edwy%20%7C%20Running%2013.1%20miles%20for%20cancer%20research%20at%20St.%20Jude%20and%20MSK"
-           target="_blank" rel="noopener" aria-label="Share on X">
-            <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmilesforuncleedwy.org"
-           target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-            <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Join%20me%20in%20honoring%20Uncle%20Edwy%20and%20raising%20funds%20for%20cancer%20research%3A%20https%3A%2F%2Fmilesforuncleedwy.org"
-           aria-label="Share via Email">
-            <i class="fa-solid fa-envelope"></i>
-        </a>
-    </div>
-
-
     <!-- Impact Statistics -->
     <section class="impact-stats">
         <div class="stats-grid">
@@ -2365,6 +2321,26 @@
     </main>
 
     <footer class="footer">
+        <!-- Social Share Bar -->
+        <div class="social-share">
+            <p>Share Miles For Uncle Edwy:</p>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmilesforuncleedwy.org" 
+               target="_blank" rel="noopener" aria-label="Share on Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmilesforuncleedwy.org&text=Support%20Miles%20For%20Uncle%20Edwy%20%7C%20Running%2013.1%20miles%20for%20cancer%20research%20at%20St.%20Jude%20and%20MSK"
+               target="_blank" rel="noopener" aria-label="Share on X">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmilesforuncleedwy.org"
+               target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Join%20me%20in%20honoring%20Uncle%20Edwy%20and%20raising%20funds%20for%20cancer%20research%3A%20https%3A%2F%2Fmilesforuncleedwy.org"
+               aria-label="Share via Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
         <h3>Thank You For Keeping Uncle Edwy's Memory Alive</h3>
         <p style="font-size: 1.2em; margin-top: 20px;">Every mile matters. Every donation counts. Every memory lives on.
         </p>
@@ -2482,7 +2458,7 @@
         });
         
         // Track social share clicks
-        document.querySelectorAll('.social-share a').forEach(link => {
+        document.querySelectorAll('.footer-social a').forEach(link => {
             link.addEventListener('click', function() {
                 const platform = this.getAttribute('aria-label');
                 gtag('event', 'share', {
