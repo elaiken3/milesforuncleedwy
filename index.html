@@ -1433,6 +1433,32 @@
           margin-top: auto; /* keeps spacing consistent above the button */
         }
 
+        /* Keep headings and logos aligned across donation boxes */
+        .donation-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+        }
+        
+        /* Treat the top portion (logo + heading + text) as one block */
+        .donation-card-content {
+          flex-grow: 1; /* makes this area expand equally in both cards */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start; /* keep heading toward the top */
+        }
+        
+        /* Optional: ensure consistent spacing above headings */
+        .donation-card h3 {
+          margin-top: 0;
+          margin-bottom: 20px;
+          min-height: 56px; /* keeps both headings aligned even if one wraps to two lines */
+          display: flex;
+          align-items: center; /* vertically center shorter headings */
+          justify-content: center;
+        }
+
         .donation-card h3 {
             color: #2c3e50;
             margin-bottom: 20px;
