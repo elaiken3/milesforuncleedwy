@@ -849,9 +849,10 @@
         }
 
         .uncle-tribute {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #eaeadf;
+            background: #f9f9f9;
+            color: #2c3e50;
             padding: 80px 20px;
+            border-top: 1px solid #e6e6e6;
         }
 
         .tribute-content {
@@ -1849,58 +1850,70 @@
     </section>
 
     <main id="main-content">
-        <section class="uncle-tribute" id="about">
-            <div class="tribute-content">
-                <h2>In Loving Memory</h2>
-                <div class="tribute-box">
-                    <h3>Edwy Bruce Aiken</h3>
-                    <p class="dates">Forever in Our Hearts | October 22, 1957  -  February 26, 2021</p>
+        <section class="section story" id="why-running">
+            <div class="container">
+                <h2>Why I'm Running</h2>
 
-                    <!-- Uncle Edwy's Photo -->
-                    <div class="photo-frame">
-                        <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
-                        <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="250" height="250">
-                    </div>
-
-                    <div class="heart" aria-label="Heart symbol">❤️</div>
-                      <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
-                      When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
-                      we lost our biggest supporter and the person who brought everyone together.</p>
-                      <p>He had so much more life to live and so much more love to give. His story isn’t unique,
-                      and that’s what makes it so painful. So many families have faced the same loss.
-                      Remembering him has become more than holding onto the past. It’s a reminder to act,
-                      to fight for a cure, and to help others who are still battling this disease.</p>
+                <!-- Runner Photo -->
+                <div class="runner-photo-container">
+                    <img src="runner-photo.jpg" alt="Running for Uncle Edwy" class="runner-photo" loading="lazy">
+                    <p class="runner-photo-caption">Running 13.1 miles to honor Uncle Edwy's memory</p>
                 </div>
-            </div>
-        </section>
+                
+                <div class="story-content">
+                    <p>There was a time when running even a mile felt out of reach. For years, I carried extra weight 
+                      and the limits that came with it — limits I had quietly accepted. Over the past two years, 
+                      I’ve lost more than 100 pounds and found something bigger than fitness. 
+                      I found freedom. I learned that every barrier I thought was permanent could be moved with enough patience, 
+                      effort, and belief.</p>
 
-        <!-- Countdown to Race Day -->
-        <div class="container">
-          <section class="countdown-section" aria-label="Countdown to race day">
-            <h2>Countdown to Race Day</h2>
-            <div class="countdown-grid" id="raceCountdown">
-              <div class="countdown-item">
-                <span class="countdown-number" id="cd-days">0</span>
-                <span class="countdown-label">Days</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="cd-hours">0</span>
-                <span class="countdown-label">Hours</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="cd-minutes">0</span>
-                <span class="countdown-label">Minutes</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="cd-seconds">0</span>
-                <span class="countdown-label">Seconds</span>
-              </div>
-            </div>
-            <p class="countdown-note">
-              Brooklyn Experience Half Marathon on April 26, 2026
-            </p>
-          </section>
-        </div>
+                    <p>Running a half marathon isn’t just about crossing a finish line. It’s about proving to myself that anything 
+                      is possible. And it’s about using that belief to make a difference.</p>
+
+                    <p>In April 2026, I’ll be running the 
+                      <a href="https://brooklynexperience.com" target="_blank" rel="noopener">
+                        <strong>Brooklyn Experience Half Marathon</strong>
+                      </a> in honor of my Uncle Edwy, 
+                      who we lost to colorectal cancer in 2021. Every mile is a tribute to him and to every family 
+                      touched by this disease. Through this race, I’m raising money for 
+                      <a href="https://www.stjude.org" target="_blank" rel="noopener">
+                      <strong>St. Jude Children’s Research Hospital</strong>
+                      </a> and 
+                      <a href="https://www.mskcc.org" target="_blank" rel="noopener">
+                      <strong>Memorial Sloan Kettering Cancer Center</strong>
+                      </a>, two organizations that bring hope, healing, and life-saving care to 
+                      those who need it most.</p>
+
+                    <p>This run is my way of breaking past limits — both mine and the ones that cancer imposes on too many lives.</p>
+                </section>
+
+                <!-- Countdown to Race Day -->
+                <div class="container">
+                  <section class="countdown-section" aria-label="Countdown to race day">
+                    <h2>Countdown to Race Day</h2>
+                    <div class="countdown-grid" id="raceCountdown">
+                      <div class="countdown-item">
+                        <span class="countdown-number" id="cd-days">0</span>
+                        <span class="countdown-label">Days</span>
+                      </div>
+                      <div class="countdown-item">
+                        <span class="countdown-number" id="cd-hours">0</span>
+                        <span class="countdown-label">Hours</span>
+                      </div>
+                      <div class="countdown-item">
+                        <span class="countdown-number" id="cd-minutes">0</span>
+                        <span class="countdown-label">Minutes</span>
+                      </div>
+                      <div class="countdown-item">
+                        <span class="countdown-number" id="cd-seconds">0</span>
+                        <span class="countdown-label">Seconds</span>
+                      </div>
+                    </div>
+                    <p class="countdown-note">
+                      Brooklyn Experience Half Marathon on April 26, 2026
+                    </p>
+                  </section>
+                </div>
 
         <section class="section story" id="why-running">
             <div class="container">
@@ -1937,6 +1950,32 @@
                       those who need it most.</p>
 
                     <p>This run is my way of breaking past limits — both mine and the ones that cancer imposes on too many lives.</p>
+                </section>
+
+                  <section class="uncle-tribute" id="about">
+                    <div class="tribute-content">
+                        <h2>In Loving Memory</h2>
+                        <div class="tribute-box">
+                            <h3>Edwy Bruce Aiken</h3>
+                            <p class="dates">Forever in Our Hearts | October 22, 1957  -  February 26, 2021</p>
+        
+                            <!-- Uncle Edwy's Photo -->
+                            <div class="photo-frame">
+                                <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
+                                <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="250" height="250">
+                            </div>
+        
+                            <div class="heart" aria-label="Heart symbol">❤️</div>
+                              <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
+                              When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
+                              we lost our biggest supporter and the person who brought everyone together.</p>
+                              <p>He had so much more life to live and so much more love to give. His story isn’t unique,
+                              and that’s what makes it so painful. So many families have faced the same loss.
+                              Remembering him has become more than holding onto the past. It’s a reminder to act,
+                              to fight for a cure, and to help others who are still battling this disease.</p>
+                        </div>
+                    </div>
+                </section>
 
                     <section class="section donation-section" id="donate">
                       <div class="container">
