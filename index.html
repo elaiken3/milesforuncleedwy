@@ -433,46 +433,51 @@
             display: none !important;
         }
 
-        /* Footer social icons */
+        /* Footer Social Section */
         .footer-social {
+          text-align: center;
+          margin-bottom: 26px;
+        }
+        
+        .footer-social-label {
+          font-weight: bold;
+          color: #ffffff;
+          font-size: 1.1em;
+          margin-bottom: 14px;
+        }
+        
+        .footer-social-icons {
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 22px;              /* spacing between icons */
-          margin-bottom: 26px;
-          flex-wrap: wrap;        /* allows gentle wrapping on very narrow screens */
+          gap: 22px;
+          flex-wrap: wrap;
         }
         
-        .footer-social a {
-          color: #ffffff;         /* makes icons white */
+        .footer-social-icons a {
+          color: #ffffff;
           text-decoration: none;
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 48px;            /* larger tappable target */
+          width: 48px;
           height: 48px;
-          font-size: 1.9rem;      /* increase icon size */
+          font-size: 1.9rem;
           transition: transform 0.2s ease, opacity 0.2s ease;
         }
         
-        .footer-social a:hover {
+        .footer-social-icons a:hover {
           opacity: 0.8;
           transform: translateY(-2px);
         }
         
-        /* Optional: make sure they stay horizontal on mobile */
         @media (max-width: 768px) {
-          .footer-social {
-            flex-direction: row;      /* keep them horizontal */
+          .footer-social-icons {
+            flex-direction: row;
             flex-wrap: wrap;
             gap: 20px;
           }
-        
-          .footer-social a {
-            font-size: 2rem;          /* slightly larger on mobile for tap comfort */
-          }
         }
-
 
         /* Impact Statistics */
         .impact-stats {
@@ -2339,24 +2344,30 @@
     <footer class="footer">
         <!-- Social Share Bar -->
         <div class="footer-social">
-            <p>Share Miles For Uncle Edwy:</p>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmilesforuncleedwy.org" 
-               target="_blank" rel="noopener" aria-label="Share on Facebook">
-                <i class="fa-brands fa-facebook"></i>
+          <p class="footer-social-label">Share Miles for Uncle Edwy:</p>
+          <div class="footer-social-icons">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmilesforuncleedwy.org&text=Support%20Miles%20For%20Uncle%20Edwy%20%7C%20Running%2013.1%20miles%20for%20cancer%20research%20at%20St.%20Jude%20and%20MSK"
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmilesforuncleedwy.org" 
                target="_blank" rel="noopener" aria-label="Share on X">
-                <i class="fa-brands fa-x-twitter"></i>
+              <i class="fa-brands fa-x-twitter"></i>
             </a>
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmilesforuncleedwy.org"
                target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
             </a>
-            <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Join%20me%20in%20honoring%20Uncle%20Edwy%20and%20raising%20funds%20for%20cancer%20research%3A%20https%3A%2F%2Fmilesforuncleedwy.org"
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmilesforuncleedwy.org"
+               target="_blank" rel="noopener" aria-label="Share on Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Join%20me%20in%20honoring%20Uncle%20Edwy%20and%20raising%20funds%20for%20cancer%20research%20at%20https%3A%2F%2Fmilesforuncleedwy.org"
                aria-label="Share via Email">
-                <i class="fa-solid fa-envelope"></i>
+              <i class="fa-solid fa-envelope"></i>
             </a>
+          </div>
         </div>
+
         <h3>Thank You For Keeping Uncle Edwy's Memory Alive</h3>
         <p style="font-size: 1.2em; margin-top: 20px;">Every mile matters. Every donation counts. Every memory lives on.
         </p>
