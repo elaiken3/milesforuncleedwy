@@ -1368,109 +1368,79 @@
         .donation-section {
             background: #f9f9f9;
             padding-top: 40px;
-        }
-
-        .donation-intro {
+          }
+          
+          .donation-intro {
             text-align: center;
             max-width: 900px;
             margin: 0 auto 50px;
             font-size: 1.2em;
             line-height: 1.8;
-        }
-
-        /* Two-column layout on desktop, stacked on mobile */
-        .donation-cards {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 32px;
-          max-width: 1100px;
-          margin: 0 auto;
-          align-items: start;
-        }
-      
-        .donation-card {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-
-        .donation-cards {
-          align-items: stretch; /* make sure all cards in the row are the same height */
-        }
-        
-        @media (max-width: 768px) {
-          .donation-cards {
-            grid-template-columns: 1fr;
-            gap: 25px;
           }
-        }
-
-        .donation-card {
+          
+          /* Two-column layout on desktop, stacked on mobile */
+          .donation-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: stretch; /* make all cards in a row the same height */
+          }
+          
+          @media (max-width: 768px) {
+            .donation-cards {
+              grid-template-columns: 1fr;
+              gap: 25px;
+            }
+          }
+          
+          /* Each donation card is a flex column */
+          .donation-card {
             background: white;
             padding: 45px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
-        }
-
-        /* Ensure both donation boxes and buttons align evenly */
-        .donation-cards {
-          align-items: stretch; /* make all cards same height */
-        }
-        
-        .donation-card {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between; /* pushes button + callout to bottom */
-          height: 100%;
-        }
-        
-        .donation-card p {
-          flex-grow: 1; /* allows text area to flex and equalize heights */
-        }
-        
-        .match-callout {
-          margin-top: auto; /* keeps spacing consistent above the button */
-        }
-
-        /* Keep headings and logos aligned across donation boxes */
-        .donation-card {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          height: 100%;
-        }
-        
-        /* Treat the top portion (logo + heading + text) as one block */
-        .donation-card-content {
-          flex-grow: 1; /* makes this area expand equally in both cards */
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start; /* keep heading toward the top */
-        }
-        
-        /* Optional: ensure consistent spacing above headings */
-        .donation-card h3 {
-          margin-top: 0;
-          margin-bottom: 20px;
-          min-height: 56px; /* keeps both headings aligned even if one wraps to two lines */
-          display: flex;
-          align-items: center; /* vertically center shorter headings */
-          justify-content: center;
-        }
-
-        .donation-card h3 {
+          
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* fill the grid cell height */
+          }
+          
+          /* Optional: if you add a wrapper div inside (logo + h3 + text) */
+          .donation-card-content {
+            flex-grow: 1; /* lets the top content stretch so buttons align */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          /* Headings inside the boxes: aligned + same visual height */
+          .donation-card h3 {
             color: #2c3e50;
-            margin-bottom: 20px;
+            margin: 0 0 20px;
             font-size: 1.8em;
-        }
-
-        .donation-card p {
+          
+            min-height: 3em;          /* keeps headings lined up even if one wraps */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          /* Main description text flexes to push buttons to the bottom */
+          .donation-card p {
             margin-bottom: 25px;
             color: #666;
             font-size: 1.05em;
             line-height: 1.7;
-        }
+            flex-grow: 1;             /* this is what lets buttons line up */
+          }
+          
+          /* Match note under the button */
+          .match-callout {
+            margin-top: 16px;
+          }
 
         .embed-placeholder {
             background: linear-gradient(135deg, #e8f4f8 0%, #d4e7f2 100%);
@@ -2019,11 +1989,13 @@
                         
                         <div class="donation-cards">
                           <article class="donation-card">
-                            <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
-                                 width="180" height="auto" style="margin-bottom:20px;">
-                            <h3>St. Jude Children's Research Hospital</h3>
-                            <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
-                               travel, housing, or food — so they can focus on helping their child live.</p>
+                            <div class="donation-card-content">
+                              <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
+                                   width="180" height="auto" style="margin-bottom:20px;">
+                              <h3>St. Jude Children's Research Hospital</h3>
+                              <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
+                                 travel, housing, or food — so they can focus on helping their child live.</p>
+                            </div>
                             <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
                                target="_blank" class="donate-button" rel="noopener"
                                style="font-size:1.2em;padding:18px 45px;">
@@ -2037,11 +2009,13 @@
                           </article>
                         
                           <article class="donation-card">
-                            <img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo"
-                                 width="180" height="auto" style="margin-bottom:20px;">
-                            <h3>Memorial Sloan Kettering</h3>
-                            <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
-                               work that gives families like mine more time and hope.</p>
+                            <div class="donation-card-content">
+                              <img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo"
+                                   width="180" height="auto" style="margin-bottom:20px;">
+                              <h3>Memorial Sloan Kettering</h3>
+                              <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
+                                 work that gives families like mine more time and hope.</p>
+                            </div>
                             <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
                                target="_blank" class="donate-button" rel="noopener">
                                Donate to MSK
@@ -2053,7 +2027,7 @@
                             </div>
                           </article>
                         </div>
-                    
+                        
                         <div class="trust-badges" style="margin-top:40px;">
                           <p>
                             🔒 <strong>Secure donations</strong> processed through official St. Jude and MSK pages<br>
