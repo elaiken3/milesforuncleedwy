@@ -1413,6 +1413,26 @@
             text-align: center;
         }
 
+        /* Ensure both donation boxes and buttons align evenly */
+        .donation-cards {
+          align-items: stretch; /* make all cards same height */
+        }
+        
+        .donation-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* pushes button + callout to bottom */
+          height: 100%;
+        }
+        
+        .donation-card p {
+          flex-grow: 1; /* allows text area to flex and equalize heights */
+        }
+        
+        .match-callout {
+          margin-top: auto; /* keeps spacing consistent above the button */
+        }
+
         .donation-card h3 {
             color: #2c3e50;
             margin-bottom: 20px;
