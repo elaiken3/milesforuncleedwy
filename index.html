@@ -689,57 +689,137 @@
           border-top: 1px solid #ececf2;
         }
         
-        .sponsor-logos h3 {
+        /* Overall heading for the logo area */
+        .sponsor-logos > h3 {
           text-align: center;
           font-size: 1.8em;
           color: #2c3e50;
           margin-bottom: 24px;
         }
         
+        /* Each tier gets its own group/section */
+        .sponsor-tier-group {
+          margin-bottom: 28px;
+        }
+        
+        /* Tier heading (Gold Sponsors, Silver Sponsors, etc.) */
+        .sponsor-tier-group__heading {
+          font-size: 1.1em;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #555;
+          margin: 0 0 14px;
+          text-align: left;
+        }
+        
+        /* Color accents per tier */
+        .sponsor-tier-group--gold  .sponsor-tier-group__heading { color: #b8860b; }
+        .sponsor-tier-group--silver .sponsor-tier-group__heading { color: #5c6c80; }
+        .sponsor-tier-group--bronze .sponsor-tier-group__heading { color: #b56320; }
+        .sponsor-tier-group--mile   .sponsor-tier-group__heading { color: #4b57c3; }
+        .sponsor-tier-group--friend .sponsor-tier-group__heading { color: #555; }
+        
+        /* Grid of smaller logo cards */
         .sponsor-logos-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          gap: 24px;
-          max-width: 900px;
-          margin: 0 auto;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 18px;
         }
         
+        /* Individual logo card — smaller + compact */
         .sponsor-logo-card {
           background: #ffffff;
-          border-radius: 14px;
-          padding: 16px 18px;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+          border-radius: 10px;
+          padding: 10px 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
           border: 1px solid #ececf2;
+        
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          min-height: 110px;
         }
         
+        /* Make Gold tier logos stand out a touch more */
+        .sponsor-tier-group--gold .sponsor-logo-card {
+          border-color: #f2d58b;
+        }
+        
+        /* Logo image — smaller & constrained */
         .sponsor-logo-card img {
           max-width: 100%;
-          max-height: 70px;
+          max-height: 50px; /* smaller logos */
           width: auto;
           height: auto;
           object-fit: contain;
           display: block;
         }
         
+        /* Text under the logo */
         .sponsor-logo-card figcaption {
-          margin-top: 8px;
-          font-size: 0.85em;
+          margin-top: 6px;
+          font-size: 0.9em;
+          line-height: 1.4;
           text-align: center;
-          color: #666;
         }
         
-        /* Mobile tweak */
+        /* Company name – bolder */
+        .sponsor-logo-name {
+          display: block;
+          font-weight: 700;
+          color: #2c3e50;
+        }
+        
+        /* Tier label – bold-ish, all caps, with tier color */
+        .sponsor-logo-tier {
+          display: block;
+          margin-top: 2px;
+          font-weight: 600;
+          font-size: 0.78em;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #777;
+        }
+        
+        /* Tier-specific colors for the label */
+        .sponsor-tier-group--gold   .sponsor-logo-tier { color: #b8860b; }
+        .sponsor-tier-group--silver .sponsor-logo-tier { color: #5c6c80; }
+        .sponsor-tier-group--bronze .sponsor-logo-tier { color: #b56320; }
+        .sponsor-tier-group--mile   .sponsor-logo-tier { color: #4b57c3; }
+        .sponsor-tier-group--friend .sponsor-logo-tier { color: #555; }
+        
+        /* Responsive tweaks */
         @media (max-width: 768px) {
+          .sponsor-logos {
+            padding-top: 24px;
+          }
+        
+          .sponsor-logos > h3 {
+            font-size: 1.5em;
+            margin-bottom: 18px;
+          }
+        
           .sponsor-logos-grid {
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 14px;
           }
         }
-
+        
+        @media (max-width: 480px) {
+          .sponsor-logos-grid {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+          }
+        
+          .sponsor-logo-card {
+            padding: 8px 10px;
+          }
+        
+          .sponsor-logo-card img {
+            max-height: 44px;
+          }
+        }
         
         @media (max-width: 768px) {
           .sponsor-tier {
@@ -2355,43 +2435,81 @@
                 <!-- Current Sponsors Logo Wall -->
                 <div class="sponsor-logos">
                   <h3>Current Sponsors</h3>
-            
-                  <div class="sponsor-logos-grid">
-                    <!-- Gold Sponsor example -->
-                    <figure class="sponsor-logo-card">
-                      <img src="aleighsolutions-logo.jpg"
-                           alt="A. Leigh Solutions – Gold Sponsor"
-                           loading="lazy">
-                      <figcaption>A. Leigh Solutions – Gold Sponsor</figcaption>
-                    </figure>
-            
-                    <!-- Silver Sponsor example -->
-                   <!-- <figure class="sponsor-logo-card">
-                      <img src="sponsor-silver-1.png"
-                           alt="Company Name – Silver Sponsor"
-                           loading="lazy">
-                      <figcaption>Silver Sponsor</figcaption>
-                    </figure> -->
-            
-                    <!-- Bronze Sponsor example -->
-                    <!--<figure class="sponsor-logo-card">
-                      <img src="sponsor-bronze-1.png"
-                           alt="Company Name – Bronze Sponsor"
-                           loading="lazy">
-                      <figcaption>Bronze Sponsor</figcaption>
-                    </figure> -->
-            
-                    <!-- Add or remove logos as needed -->
-                    <!--
-                    <figure class="sponsor-logo-card">
-                      <img src="sponsor-xyz.png"
-                           alt="XYZ Corp – Mile Sponsor"
-                           loading="lazy">
-                      <figcaption>Mile Sponsor</figcaption>
-                    </figure>
-                    -->
-                  </div>
+                
+                  <!-- Gold Sponsors -->
+                  <section class="sponsor-tier-group sponsor-tier-group--gold" aria-label="Gold Sponsors">
+                    <h4 class="sponsor-tier-group__heading">Gold Sponsors</h4>
+                    <div class="sponsor-logos-grid">
+                      <!-- A. Leigh Solutions - Gold Sponsor -->
+                      <figure class="sponsor-logo-card">
+                        <img src="aleighsolutions-logo.jpg"
+                             alt="A. Leigh Solutions — Gold Sponsor"
+                             loading="lazy">
+                        <figcaption>
+                          <span class="sponsor-logo-name">A. Leigh Solutions</span>
+                          <span class="sponsor-logo-tier">Gold Sponsor</span>
+                        </figcaption>
+                      </figure>
+                
+                      <!-- Add more Gold sponsors here as needed -->
+                      <!--
+                      <figure class="sponsor-logo-card">
+                        <img src="another-gold-logo.png"
+                             alt="Another Company — Gold Sponsor"
+                             loading="lazy">
+                        <figcaption>
+                          <span class="sponsor-logo-name">Another Company</span>
+                          <span class="sponsor-logo-tier">Gold Sponsor</span>
+                        </figcaption>
+                      </figure>
+                      -->
+                    </div>
+                  </section>
+                
+                  <!-- Silver Sponsors -->
+                  <section class="sponsor-tier-group sponsor-tier-group--silver" aria-label="Silver Sponsors">
+                    <h4 class="sponsor-tier-group__heading">Silver Sponsors</h4>
+                    <div class="sponsor-logos-grid">
+                      <!-- Example placeholder; remove if none yet -->
+                      <!--
+                      <figure class="sponsor-logo-card">
+                        <img src="placeholder-silver.png"
+                             alt="Your Company — Silver Sponsor"
+                             loading="lazy">
+                        <figcaption>
+                          <span class="sponsor-logo-name">Your Company Here</span>
+                          <span class="sponsor-logo-tier">Silver Sponsor</span>
+                        </figcaption>
+                      </figure>
+                      -->
+                    </div>
+                  </section>
+                
+                  <!-- Bronze Sponsors -->
+                  <section class="sponsor-tier-group sponsor-tier-group--bronze" aria-label="Bronze Sponsors">
+                    <h4 class="sponsor-tier-group__heading">Bronze Sponsors</h4>
+                    <div class="sponsor-logos-grid">
+                      <!-- Add Bronze sponsors here as they sign on -->
+                    </div>
+                  </section>
+                
+                  <!-- Mile Sponsors -->
+                  <section class="sponsor-tier-group sponsor-tier-group--mile" aria-label="Mile Sponsors">
+                    <h4 class="sponsor-tier-group__heading">Mile Sponsors</h4>
+                    <div class="sponsor-logos-grid">
+                      <!-- Add Mile sponsors here -->
+                    </div>
+                  </section>
+                
+                  <!-- Friends of the Run -->
+                  <section class="sponsor-tier-group sponsor-tier-group--friend" aria-label="Friends of the Run">
+                    <h4 class="sponsor-tier-group__heading">Friends of the Run</h4>
+                    <div class="sponsor-logos-grid">
+                      <!-- Add Friends of the Run here -->
+                    </div>
+                  </section>
                 </div>
+
           </div>
         </section>
 
