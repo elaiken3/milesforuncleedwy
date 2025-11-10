@@ -681,6 +681,65 @@
           text-decoration: underline;
           font-weight: 600;
         }
+
+        /* Logo wall for current sponsors */
+        .sponsor-logos {
+          margin-top: 40px;
+          padding-top: 30px;
+          border-top: 1px solid #ececf2;
+        }
+        
+        .sponsor-logos h3 {
+          text-align: center;
+          font-size: 1.8em;
+          color: #2c3e50;
+          margin-bottom: 24px;
+        }
+        
+        .sponsor-logos-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 24px;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        
+        .sponsor-logo-card {
+          background: #ffffff;
+          border-radius: 14px;
+          padding: 16px 18px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+          border: 1px solid #ececf2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 110px;
+        }
+        
+        .sponsor-logo-card img {
+          max-width: 100%;
+          max-height: 70px;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          display: block;
+        }
+        
+        .sponsor-logo-card figcaption {
+          margin-top: 8px;
+          font-size: 0.85em;
+          text-align: center;
+          color: #666;
+        }
+        
+        /* Mobile tweak */
+        @media (max-width: 768px) {
+          .sponsor-logos-grid {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 18px;
+          }
+        }
+
         
         @media (max-width: 768px) {
           .sponsor-tier {
@@ -2293,6 +2352,46 @@
               then email your donation amount, preferred listing name, tier, and any dedication to
               <a href="mailto:info@milesforuncleedwy.org.com">info@milesforuncleedwy.org</a>. I will update this section so your support is recognized.
             </p>
+                <!-- Current Sponsors Logo Wall -->
+                <div class="sponsor-logos">
+                  <h3>Current Sponsors</h3>
+            
+                  <div class="sponsor-logos-grid">
+                    <!-- Gold Sponsor example -->
+                    <figure class="sponsor-logo-card">
+                      <img src="aleighsolutions-logo.jpg"
+                           alt="A. Leigh Solutions – Gold Sponsor"
+                           loading="lazy">
+                      <figcaption>A. Leigh Solutions – Gold Sponsor</figcaption>
+                    </figure>
+            
+                    <!-- Silver Sponsor example -->
+                   <!-- <figure class="sponsor-logo-card">
+                      <img src="sponsor-silver-1.png"
+                           alt="Company Name – Silver Sponsor"
+                           loading="lazy">
+                      <figcaption>Silver Sponsor</figcaption>
+                    </figure> -->
+            
+                    <!-- Bronze Sponsor example -->
+                    <!--<figure class="sponsor-logo-card">
+                      <img src="sponsor-bronze-1.png"
+                           alt="Company Name – Bronze Sponsor"
+                           loading="lazy">
+                      <figcaption>Bronze Sponsor</figcaption>
+                    </figure> -->
+            
+                    <!-- Add or remove logos as needed -->
+                    <!--
+                    <figure class="sponsor-logo-card">
+                      <img src="sponsor-xyz.png"
+                           alt="XYZ Corp – Mile Sponsor"
+                           loading="lazy">
+                      <figcaption>Mile Sponsor</figcaption>
+                    </figure>
+                    -->
+                  </div>
+                </div>
           </div>
         </section>
 
