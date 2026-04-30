@@ -87,6 +87,61 @@
 
 
     <style>
+    /* ========== DESIGN TOKENS ========== */
+    :root {
+      /* — Color: navy palette — */
+      --c-navy:       #1B2A41;
+      --c-navy-deep:  #111D2C;
+      --c-navy-mid:   #2E4A6B;
+
+      /* — Color: gold/amber memorial accent — */
+      --c-gold:       #C8932A;
+      --c-gold-lt:    #E8B455;
+      --c-gold-bg:    #FDF8EE;
+      --c-gold-bdr:   #E5CFA0;
+
+      /* — Color: race orange — */
+      --c-orange:     #F26B3A;
+
+      /* — Color: neutrals — */
+      --c-cream:      #FAF8F4;
+      --c-cream-dk:   #F2EEE7;
+      --c-white:      #FFFFFF;
+      --c-text:       #1E1E1E;
+      --c-text-mid:   #444444;
+      --c-text-muted: #666666;
+      --c-border:     #E0DAD0;
+      --c-green:      #2E8B57;
+
+      /* — Color: charity tints — */
+      --c-stjude:     #D71920;
+      --c-stjude-bg:  #FFF5F5;
+      --c-msk:        #003E51;
+      --c-msk-bg:     #EEF6FA;
+
+      /* — Gradients — */
+      --grad-navy:  linear-gradient(135deg, #1B2A41 0%, #2E4A6B 100%);
+      --grad-gold:  linear-gradient(135deg, #C8932A 0%, #E8B455 100%);
+      --grad-race:  linear-gradient(135deg, #F26B3A 0%, #C8932A 100%);
+
+      /* — Spacing (4-point scale) — */
+      --sp-1:  4px;   --sp-2:  8px;   --sp-3: 12px;  --sp-4: 16px;
+      --sp-5: 24px;   --sp-6: 32px;   --sp-7: 48px;  --sp-8: 64px;
+
+      /* — Border radius — */
+      --r-sm: 6px;  --r-md: 12px;  --r-lg: 20px;  --r-pill: 999px;
+
+      /* — Type scale (1.25 ratio) — */
+      --tx-xs:  0.8rem;   --tx-sm:  0.9rem;   --tx-base: 1rem;
+      --tx-md:  1.15rem;  --tx-lg:  1.25rem;  --tx-xl:   1.563rem;
+      --tx-2xl: 1.953rem; --tx-3xl: 2.441rem; --tx-4xl:  3.052rem;
+
+      /* — Shadows — */
+      --sh-sm: 0 2px 8px rgba(0,0,0,.06);
+      --sh-md: 0 6px 20px rgba(0,0,0,.09);
+      --sh-lg: 0 12px 36px rgba(0,0,0,.12);
+    }
+
         * {
             margin: 0;
             padding: 0;
@@ -102,7 +157,7 @@
         }
 
         body {
-            font-family: 'Arimo', Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             /* Improve font rendering on mobile */
@@ -130,8 +185,8 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #667eea;
-            color: white;
+            background: var(--c-navy);
+            color: var(--c-gold-lt);
             padding: 8px;
             text-decoration: none;
             z-index: 100;
@@ -139,22 +194,18 @@
 
         .skip-link:focus {
             top: 0;
+            outline: 3px solid var(--c-gold);
         }
 
         /* Focus styles for accessibility */
         a:focus,
         button:focus {
-            outline: 3px solid #667eea;
+            outline: 3px solid var(--c-gold);
             outline-offset: 2px;
         }
 
-        /* Headers and Titles use Impact */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
+        /* Headings: Fraunces (serif display); stat numbers keep Impact via own rule */
+        h1, h2, h3, h4, h5, h6,
         .section h2,
         .tribute-content h2,
         .tribute-box h3,
@@ -163,9 +214,9 @@
         .tracker-header h3,
         .donation-card h3,
         .footer h3 {
-            font-family: Impact, 'Arial Black', sans-serif;
-            font-weight: 900;
-            letter-spacing: 0.5px;
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         /* Fade in animation */
@@ -187,26 +238,27 @@
 
         /* Sticky Navigation */
         .nav-menu {
-            background: #f9f9f9;
-            padding: 15px 20px;
+            background: var(--c-white);
+            padding: 14px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,.08);
+            border-bottom: 2px solid var(--c-gold-bdr);
         }
 
         .nav-menu a {
             margin: 0 15px;
             text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
+            color: var(--c-navy);
+            font-weight: 600;
             transition: color 0.3s ease;
             font-size: 0.95em;
         }
 
         .nav-menu a:hover {
-            color: #667eea;
+            color: var(--c-gold);
         }
 
         /* Back to Top Button */
@@ -216,15 +268,15 @@
             bottom: 20px;
             right: 20px;
             z-index: 99;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--grad-navy);
+            color: var(--c-gold-lt);
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             cursor: pointer;
-            font-size: 1.5em;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-size: 1.4em;
+            box-shadow: var(--sh-md);
             transition: all 0.3s ease;
         }
 
@@ -238,7 +290,7 @@
             overflow: hidden;
             padding: 0;
             margin: 0;
-            background: #2c3e50;
+            background: var(--c-navy-deep);
         }
 
         .race-logo {
@@ -263,14 +315,14 @@
           margin-top: 16px;
           padding: 14px 16px;
           border-radius: 12px;
-          background: #f4f6ff;
-          border: 1px solid #dfe6ff;
+          background: var(--c-gold-bg);
+          border: 1px solid var(--c-gold-bdr);
           font-size: .98em;
-          color: #2c3e50;
+          color: var(--c-navy);
         }
         .match-callout strong { font-weight: 800; }
         .match-callout a {
-          color: #667eea;
+          color: var(--c-gold);
           text-decoration: underline;
           font-weight: 700;
         }
@@ -282,7 +334,7 @@
           font-family: inherit;
         }
         .dual-meters__title { 
-          font-size:1.4rem; margin:0 0 10px; color:#2c3e50;
+          font-size:1.4rem; margin:0 0 10px; color:var(--c-navy);
         }
         .dual-meters__totals { 
           display:flex; gap:18px; flex-wrap:wrap;
@@ -295,7 +347,7 @@
           display:block; font-size:.85rem; color:#667; margin-bottom:2px;
         }
         .dual-meters__value { 
-          font-weight:700; color:#2c3e50;
+          font-weight:700; color:var(--c-navy);
         }
         
         .dual-meters__grid { 
@@ -305,10 +357,10 @@
           border:1px solid #ececf2; border-radius:14px; padding:18px; background:#fff;
         }
         .dual-meters__card-title { 
-          margin:0; font-size:1.05rem; color:#2c3e50;
+          margin:0; font-size:1.05rem; color:var(--c-navy);
         }
         .dual-meters__amount { 
-          font-weight:700; color:#27ae60; font-size:1.25rem;
+          font-weight:700; color:var(--c-green); font-size:var(--tx-lg);
         }
         .dual-meters__card-head { 
           display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:10px;
@@ -319,27 +371,27 @@
         }
         .dual-meters__bar { 
           height:100%; width:0; border-radius:999px; 
-          background: linear-gradient(90deg, rgba(0,132,255,.95), rgba(0,180,120,.95)); 
+          background: linear-gradient(90deg, var(--c-stjude), var(--c-green)); 
           transition:width .6s ease;
         }
         .dual-meters__bar--msk { 
-          background: linear-gradient(90deg, rgba(0,90,200,.95), rgba(0,60,140,.95));
+          background: linear-gradient(90deg, var(--c-msk), #005A7A);
         }
         .dual-meters__bar--combo {
-          background: linear-gradient(90deg, rgba(120,80,220,.95), rgba(255,80,160,.95));
+          background: var(--grad-race);
         }
         .dual-meters__pct { 
-          margin-top:8px; font-weight:600; color:#2c3e50; font-size:.95rem;
+          margin-top:8px; font-weight:600; color:var(--c-navy); font-size:.95rem;
         }
         
-        .dual-meters__btn { 
+        .dual-meters__btn {
           display:inline-block; margin-top:14px; padding:12px 20px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color:#fff; text-decoration:none; border-radius:999px; font-weight:700;
+          background: var(--grad-race);
+          color:var(--c-white); text-decoration:none; border-radius:var(--r-pill); font-weight:700;
           transition:transform .2s ease, box-shadow .2s ease;
         }
-        .dual-meters__btn:hover { 
-          transform:translateY(-2px); box-shadow:0 6px 16px rgba(102,126,234,.35);
+        .dual-meters__btn:hover {
+          transform:translateY(-2px); box-shadow:0 6px 16px rgba(242,107,58,.35);
         }
         
         .dual-meters__combined { 
@@ -349,10 +401,10 @@
           display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;
         }
         .dual-meters__combined-label { 
-          font-weight:700; color:#2c3e50;
+          font-weight:700; color:var(--c-navy);
         }
         .dual-meters__combined-val { 
-          font-weight:800; color:#2c3e50;
+          font-weight:800; color:var(--c-navy);
         }
         .dual-meters__barwrap--combined { 
           height:18px;
@@ -416,8 +468,7 @@
             height: auto;
             border-radius: 0;
             box-shadow: none;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
+
         }
 
         /* Desktop: show desktop image, hide mobile */
@@ -477,8 +528,8 @@
 
         /* Impact Statistics */
         .impact-stats {
-            background: #2c3e50;
-            color: #eaeadf;
+            background: var(--c-navy);
+            color: #F5F0E8;
             padding: 60px 20px;
             text-align: center;
         }
@@ -496,16 +547,17 @@
         }
 
         .stat-number {
-            font-size: 3.5em;
-            font-weight: bold;
-            color: #76ff03;
+            font-size: var(--tx-4xl);
+            font-weight: 700;
+            color: var(--c-gold-lt);
             font-family: Impact, sans-serif;
         }
 
         .stat-label {
-            font-size: 1.1em;
+            font-size: var(--tx-base);
             margin-top: 10px;
-            opacity: 0.9;
+            opacity: 0.85;
+            letter-spacing: 0.03em;
         }
 
         /* Countdown Section */
@@ -522,7 +574,7 @@
         .countdown-section h2 {
           font-size: 2rem;
           margin-bottom: 20px;
-          color: #2c3e50;
+          color: var(--c-navy);
         }
         
         .countdown-grid {
@@ -536,15 +588,15 @@
           min-width: 90px;
           padding: 10px 12px;
           border-radius: 10px;
-          background: #f4f6ff;
-          border: 1px solid #dfe6ff;
+          background: var(--c-gold-bg);
+          border: 1px solid var(--c-gold-bdr);
         }
         
         .countdown-number {
           display: block;
           font-size: 2.5rem;
           font-weight: 800;
-          color: #667eea;
+          color: var(--c-orange);
           line-height: 1.1;
         }
         
@@ -598,7 +650,7 @@
         .sponsor-tier h3 {
           font-size: 1.4em;
           margin-bottom: 8px;
-          color: #2c3e50;
+          color: var(--c-navy);
         }
         
         .sponsor-amount {
@@ -673,7 +725,7 @@
         }
         
         .sponsors-note a {
-          color: #667eea;
+          color: var(--c-gold);
           text-decoration: underline;
           font-weight: 600;
         }
@@ -689,7 +741,7 @@
         .sponsor-logos > h3 {
           text-align: center;
           font-size: 1.8em;
-          color: #2c3e50;
+          color: var(--c-navy);
           margin-bottom: 24px;
         }
         
@@ -764,7 +816,7 @@
         .sponsor-logo-name {
           display: block;
           font-weight: 700;
-          color: #2c3e50;
+          color: var(--c-navy);
         }
         
         /* Tier label – bold-ish, all caps, with tier color */
@@ -856,14 +908,14 @@
 
         /* Email Signup */
         .email-signup {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 60px 20px;
+            background: var(--grad-navy);
+            padding: var(--sp-8) 20px;
             text-align: center;
-            color: #eaeadf;
+            color: #F5F0E8;
         }
 
         .email-signup h2 {
-            color: #eaeadf;
+            color: #F5F0E8;
             margin-bottom: 15px;
         }
 
@@ -893,17 +945,17 @@
         
         .signup-form button {
             padding: 15px 30px;
-            background: #2c3e50;
-            color: white;
+            background: var(--c-navy);
+            color: var(--c-gold-lt);
             border: none;
-            border-radius: 25px;
-            font-weight: bold;
+            border-radius: var(--r-pill);
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .signup-form button:hover {
-            background: #1a252f;
+            background: var(--c-navy-mid);
             transform: translateY(-2px);
         }
         
@@ -924,7 +976,7 @@
 
         /* FAQ Section */
         .faq-section {
-            background: #f9f9f9;
+            background: var(--c-cream);
             padding: 80px 20px;
         }
 
@@ -948,7 +1000,7 @@
             background: white;
             transition: background 0.3s ease;
             font-size: 1.1em;
-            color: #2c3e50;
+            color: var(--c-navy);
         }
 
         summary:hover {
@@ -956,8 +1008,8 @@
         }
 
         details[open] summary {
-            background: #667eea;
-            color: white;
+            background: var(--c-navy);
+            color: var(--c-gold-lt);
         }
 
         details p {
@@ -977,18 +1029,18 @@
         }
 
         .section h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
+            font-size: var(--tx-3xl);
+            margin-bottom: var(--sp-6);
             text-align: center;
-            color: #2c3e50;
+            color: var(--c-navy);
         }
 
         .uncle-tribute {
-            background: #f9f9f9;
-            color: #2c3e50;
-            padding: 20px 20px;
-            border-top: 1px solid #e6e6e6;
-            border-bottom: 1px solid #e6e6e6;
+            background: var(--c-gold-bg);
+            color: var(--c-navy);
+            padding: var(--sp-7) 20px;
+            border-top: 1px solid var(--c-gold-bdr);
+            border-bottom: 1px solid var(--c-gold-bdr);
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
         }
 
@@ -999,18 +1051,18 @@
         }
 
         .tribute-content h2 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            color: var(--c-navy);
+            font-size: var(--tx-3xl);
+            margin-bottom: var(--sp-3);
         }
 
         .tribute-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 0px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: var(--c-white);
+            padding: var(--sp-7) var(--sp-6);
+            border-radius: var(--r-lg);
+            margin: var(--sp-6) 0;
+            border-left: 5px solid var(--c-gold);
+            box-shadow: var(--sh-sm);
         }
 
         .tribute-box h3 {
@@ -1067,7 +1119,7 @@
         .heart {
             font-size: 3em;
             margin: 30px 0;
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulse 3.5s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -1078,12 +1130,12 @@
             }
 
             50% {
-                transform: scale(1.1);
+                transform: scale(1.06);
             }
         }
 
         .story {
-            background: #f9f9f9;
+            background: var(--c-cream);
         }
 
         .story-content {
@@ -1098,7 +1150,7 @@
         }
 
         .story-content strong {
-            color: #667eea;
+            color: var(--c-gold);
         }
 
         /* Runner photo styling */
@@ -1132,7 +1184,7 @@
         }
         
         .impact-section h3 {
-            color: #2c3e50;
+            color: var(--c-navy);
             font-size: 1.8em;
             margin-bottom: 25px;
             text-align: center;
@@ -1147,9 +1199,9 @@
         
         .impact-item {
             padding: 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #eaeadf;
-            border-radius: 10px;
+            background: var(--grad-navy);
+            color: #F5F0E8;
+            border-radius: var(--r-md);
             text-align: center;
             min-height: 200px;
             display: flex;
@@ -1194,12 +1246,12 @@
         .gallery-placeholder {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--grad-navy);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #eaeadf;
-            font-size: 1.2em;
+            color: #F5F0E8;
+            font-size: var(--tx-md);
             text-align: center;
             padding: 20px;
         }
@@ -1224,7 +1276,7 @@
         }
 
         .race-photo-section h3 {
-            color: #2c3e50;
+            color: var(--c-navy);
             font-size: 1.8em;
             margin-bottom: 30px;
             text-align: center;
@@ -1272,12 +1324,12 @@
         .slide .gallery-placeholder {
             width: 100%;
             height: 500px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--grad-navy);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #eaeadf;
-            font-size: 1.5em;
+            color: #F5F0E8;
+            font-size: var(--tx-xl);
             text-align: center;
             padding: 20px;
         }
@@ -1372,7 +1424,7 @@
 
         .thumbnail.active {
             opacity: 1;
-            border: 3px solid #667eea;
+            border: 3px solid var(--c-gold);
         }
 
         .thumbnail img {
@@ -1385,7 +1437,7 @@
         .thumbnail-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--grad-navy);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1401,20 +1453,21 @@
         }
 
         #playPauseBtn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--c-navy);
+            color: var(--c-gold-lt);
             border: none;
-            padding: 12px 30px;
-            font-size: 1em;
-            border-radius: 25px;
+            padding: 10px 28px;
+            font-size: var(--tx-sm);
+            border-radius: var(--r-pill);
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         #playPauseBtn:hover {
+            background: var(--c-navy-mid);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: var(--sh-sm);
         }
 
 
@@ -1433,15 +1486,15 @@
         }
 
         .tracker-header h3 {
-            color: #2c3e50;
+            color: var(--c-navy);
             font-size: 1.8em;
             margin-bottom: 20px;
         }
 
         .total-raised {
-            font-size: 4em;
-            color: #27ae60;
-            font-weight: bold;
+            font-size: var(--tx-4xl);
+            color: var(--c-green);
+            font-weight: 700;
         }
 
         .goal-text {
@@ -1460,7 +1513,7 @@
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: var(--grad-race);
             height: 100%;
             border-radius: 25px;
             transition: width 1s ease;
@@ -1489,15 +1542,15 @@
         }
 
         .charity-item h4 {
-            color: #2c3e50;
+            color: var(--c-navy);
             margin-bottom: 15px;
             font-size: 1.2em;
         }
 
         .charity-amount {
-            font-size: 2.5em;
-            color: #27ae60;
-            font-weight: bold;
+            font-size: var(--tx-3xl);
+            color: var(--c-green);
+            font-weight: 700;
         }
 
         .donation-section {
@@ -1553,7 +1606,7 @@
           
           /* Headings inside the boxes: aligned + same visual height */
           .donation-card h3 {
-            color: #2c3e50;
+            color: var(--c-navy);
             margin: 0 0 20px;
             font-size: 1.8em;
           
@@ -1579,19 +1632,19 @@
 
         .embed-placeholder {
             background: linear-gradient(135deg, #e8f4f8 0%, #d4e7f2 100%);
-            border: 3px dashed #667eea;
+            border: 3px dashed var(--c-gold-bdr);
             padding: 70px 20px;
             border-radius: 10px;
-            color: #667eea;
-            font-weight: bold;
+            color: var(--c-navy);
+            font-weight: 600;
             margin: 25px 0;
-            font-size: 1.1em;
+            font-size: var(--tx-md);
         }
 
         .donate-button {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #eaeadf;
+            background: var(--grad-race);
+            color: var(--c-white);
             padding: 18px 45px;
             text-decoration: none;
             border-radius: 30px;
@@ -1603,20 +1656,20 @@
 
         .donate-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(242,107,58,.40);
         }
 
         .footer {
-            background: #2c3e50;
-            color: #eaeadf;
+            background: var(--c-navy-deep);
+            color: #F5F0E8;
             text-align: center;
             padding: 50px 20px;
         }
 
         .footer h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            font-weight: 300;
+            font-size: var(--tx-2xl);
+            margin-bottom: var(--sp-4);
+            font-weight: 600;
         }
 
         /* MOBILE STYLES */
@@ -1667,13 +1720,18 @@
             }
 
             .nav-menu {
-                padding: 10px;
+                padding: 8px 6px;
+                overflow-x: auto;
+                white-space: nowrap;
+                text-align: left;
+                -webkit-overflow-scrolling: touch;
             }
 
             .nav-menu a {
                 display: inline-block;
-                margin: 5px 8px;
-                font-size: 0.85em;
+                margin: 4px 8px;
+                font-size: 0.82em;
+                white-space: nowrap;
             }
 
             .donation-cards,
@@ -1823,7 +1881,7 @@
             }
             
             .thumbnail-container::-webkit-scrollbar-thumb {
-                background: #667eea;
+                background: var(--c-gold);
                 border-radius: 10px;
             }
             
@@ -1925,12 +1983,15 @@
                 font-size: 0.85em;
             }
 
+        }
+
         @media (prefers-reduced-motion: reduce) {
-              * { animation-duration: .001ms !important; 
-                 animation-iteration-count: 1 !important; 
-                 transition-duration: .001ms !important; 
-                 scroll-behavior: auto !important; }
-            }
+          * {
+            animation-duration: .001ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: .001ms !important;
+            scroll-behavior: auto !important;
+          }
         }
 
         .faq-anchor { 
@@ -1961,36 +2022,46 @@
             <!-- Brooklyn Experience Half Marathon Logo -->
             <a href="https://brooklynexperience.com" target="_blank" rel="noopener"
                 aria-label="Brooklyn Experience Half Marathon">
-                <img src="brooklyn-logo.png" alt="NYCRUNS Brooklyn Experience Half Marathon logo" class="brooklyn-logo"
-                    width="220" height="auto">
+                <picture>
+                  <source srcset="brooklyn-logo.webp" type="image/webp">
+                  <img src="brooklyn-logo.png" alt="NYCRUNS Brooklyn Experience Half Marathon logo" class="brooklyn-logo" width="220" height="172" loading="lazy">
+                </picture>
             </a>
 
             <!-- St. Jude Logo -->
             <a href="https://www.stjude.org" target="_blank" rel="noopener"
                 aria-label="St. Jude Children's Research Hospital">
-                <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital logo" class="charity-logo"
-                    width="220" height="auto">
+                <picture>
+                  <source srcset="stjude-logo.webp" type="image/webp">
+                  <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital logo" class="charity-logo" width="220" height="88" loading="lazy">
+                </picture>
             </a>
 
             <!-- Memorial Sloan Kettering Logo -->
             <a href="https://www.mskcc.org" target="_blank" rel="noopener"
                 aria-label="Memorial Sloan Kettering Cancer Center">
-                <img src="msk-logo.png" alt="Memorial Sloan Kettering Cancer Center logo" class="charity-logo"
-                    width="220" height="auto">
+                <picture>
+                  <source srcset="msk-logo.webp" type="image/webp">
+                  <img src="msk-logo.png" alt="Memorial Sloan Kettering Cancer Center logo" class="charity-logo" width="220" height="220" loading="lazy">
+                </picture>
             </a>
         </div>
 
-        <!-- Hero Images - Desktop and Mobile versions -->
+        <!-- Hero Images - responsive <picture> with WebP + JPG fallbacks -->
         <div class="hero-image-container">
-            <!-- Desktop Image -->
-            <img src="hero-image-desktop.png"
-                alt="Miles For Uncle Edwy Brooklyn Experience Half Marathon 2026 fundraising banner"
-                class="hero-image-desktop" loading="eager" width="1200" height="675">
-
-            <!-- Mobile Image -->
-            <img src="hero-image-mobile.png"
-                alt="Miles For Uncle Edwy Brooklyn Experience Half Marathon 2026 mobile banner"
-                class="hero-image-mobile" loading="eager" width="1080" height="1920">
+            <picture>
+                <!-- Mobile WebP -->
+                <source media="(max-width: 768px)" srcset="hero-image-mobile.webp" type="image/webp">
+                <!-- Mobile JPG fallback -->
+                <source media="(max-width: 768px)" srcset="hero-image-mobile.jpg" type="image/jpeg">
+                <!-- Desktop WebP -->
+                <source media="(min-width: 769px)" srcset="hero-image-desktop.webp" type="image/webp">
+                <!-- Desktop JPG fallback -->
+                <source media="(min-width: 769px)" srcset="hero-image-desktop.jpg" type="image/jpeg">
+                <img src="hero-image-desktop.jpg"
+                    alt="Miles For Uncle Edwy Brooklyn Experience Half Marathon 2026 fundraising banner"
+                    loading="eager" width="2000" height="1124" style="width:100%;height:auto;border-radius:0;">
+            </picture>
         </div>
     </div>
 
@@ -2023,7 +2094,10 @@
 
                 <!-- Runner Photo -->
                 <div class="runner-photo-container">
-                    <img src="runner-photo.jpg" alt="Running for Uncle Edwy" class="runner-photo" loading="lazy">
+                    <picture>
+                      <source srcset="runner-photo.webp" type="image/webp">
+                      <img src="runner-photo.jpg" alt="Running for Uncle Edwy" class="runner-photo" loading="lazy" width="1200" height="1799">
+                    </picture>
                     <p class="runner-photo-caption">Running 13.1 miles to honor Uncle Edwy's memory</p>
                 </div>
                 
@@ -2092,7 +2166,10 @@
                             <!-- Uncle Edwy's Photo -->
                             <div class="photo-frame">
                                 <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
-                                <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="250" height="250">
+                                <picture>
+                                  <source srcset="uncle-edwy.webp" type="image/webp">
+                                  <img src="uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="720" height="720">
+                                </picture>
                             </div>
         
                             <div class="heart" aria-label="Heart symbol">❤️</div>
@@ -2118,23 +2195,30 @@
                           make a difference in his name.</p>
                         </div>
                     
-                        <h2 style="text-align:center;color:#2c3e50;margin:0 0 20px;">Fighting Cancer on Two Fronts</h2>
+                        <h3 style="text-align:center;color:var(--c-navy);margin:0 0 20px;font-family:'Fraunces',Georgia,serif;font-size:var(--tx-xl);">Fighting Cancer on Two Fronts</h3>
                         <p style="text-align:center;margin-bottom:30px;color:#666;">
                           All donations go directly to two extraordinary organizations saving lives every day.
                         </p>
                         
+                        <div class="trust-badges" style="margin-bottom:32px;margin-top:0;">
+                          <p>
+                            🔒 <strong>Secure donations</strong> processed through official St. Jude and MSK pages<br>
+                            💯 <strong>100% of your gift</strong> supports cancer research and patient care<br>
+                            ❤️ <strong>Tax-deductible</strong> charitable contributions
+                          </p>
+                        </div>
+
                         <div class="donation-cards">
                           <article class="donation-card">
                             <div class="donation-card-content">
-                              <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo"
-                                   width="180" height="auto" style="margin-bottom:20px;">
+<picture><source srcset="stjude-logo.webp" type="image/webp"><img src="stjude-logo.png" alt="St. Jude Children's Research Hospital Logo" width="180" height="72" loading="lazy" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"></picture>
                               <h3>St. Jude Children's Research Hospital</h3>
                               <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
                                  travel, housing, or food — so they can focus on helping their child live.</p>
                             </div>
                             <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
                                target="_blank" class="donate-button" rel="noopener"
-                               style="font-size:1.2em;padding:18px 45px;">
+>
                                Donate to St. Jude
                             </a>
                             <div class="match-callout">
@@ -2146,8 +2230,7 @@
                         
                           <article class="donation-card">
                             <div class="donation-card-content">
-                              <img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo"
-                                   width="180" height="auto" style="margin-bottom:20px;">
+<picture><source srcset="msk-logo-2.webp" type="image/webp"><img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo" width="180" height="38" loading="lazy" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"></picture>
                               <h3>Memorial Sloan Kettering</h3>
                               <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
                                  work that gives families like mine more time and hope.</p>
@@ -2164,13 +2247,7 @@
                           </article>
                         </div>
                         
-                        <div class="trust-badges" style="margin-top:40px;">
-                          <p>
-                            🔒 <strong>Secure donations</strong> processed through official St. Jude and MSK pages<br>
-                            💯 <strong>100% of your gift</strong> supports cancer research and patient care<br>
-                            ❤️ <strong>Tax-deductible</strong> charitable contributions
-                          </p>
-                        </div>
+
                       </div>
                     </section>
 
@@ -2184,27 +2261,27 @@
                         <div class="slideshow-container">
                             <!-- Slides -->
                             <div class="slide fade active">
-                                <img src="photo1.jpg" alt="Uncle Edwy Toast" loading="lazy">
+    <picture><source srcset="photo1.webp" type="image/webp"><img src="photo1.jpg" alt="Uncle Edwy Toast" loading="lazy" width="1800" height="2400"></picture>
                                 <div class="slide-caption">A toast to you Uncle Edwy!</div>
                             </div>
 
                             <div class="slide fade">
-                                <img src="photo2.jpg" alt="Uncle Edwy Dinner" loading="lazy">
+    <picture><source srcset="photo2.webp" type="image/webp"><img src="photo2.jpg" alt="Uncle Edwy Dinner" loading="lazy" width="1800" height="1350"></picture>
                                 <div class="slide-caption">At dinner with Uncle Edwy</div>
                             </div>
 
                             <div class="slide fade">
-                                <img src="photo3.jpg" alt="Holiday Memories" loading="lazy">
+    <picture><source srcset="photo3.webp" type="image/webp"><img src="photo3.jpg" alt="Holiday Memories" loading="lazy" width="1800" height="1350"></picture>
                                 <div class="slide-caption">Holiday memories with Uncle Edwy, Dad, and Aunt Donna</div>
                             </div>
 
                             <div class="slide fade">
-                                <img src="photo4.jpg" alt="Uncle Edwy Treatment" loading="lazy">
+    <picture><source srcset="photo4.webp" type="image/webp"><img src="photo4.jpg" alt="Uncle Edwy Treatment" loading="lazy" width="1800" height="2400"></picture>
                                 <div class="slide-caption">Uncle Edwy before getting treatment</div>
                             </div>
 
                             <div class="slide fade">
-                                <img src="photo5.jpg" alt="Christmas Eve" loading="lazy">
+    <picture><source srcset="photo5.webp" type="image/webp"><img src="photo5.jpg" alt="Christmas Eve" loading="lazy" width="1800" height="1350"></picture>
                                 <div class="slide-caption">Christmas Eve Service with Mom, Dad, and Uncle Edwy</div>
                             </div>
 
@@ -2220,17 +2297,17 @@
 
                         <!-- Thumbnail navigation -->
                         <div class="thumbnail-container">
-                            <img src="photo1.jpg" class="thumbnail active" onclick="goToSlide(1)" alt="Thumbnail 1">
-                            <img src="photo2.jpg" class="thumbnail" onclick="goToSlide(2)" alt="Thumbnail 2">
-                            <img src="photo3.jpg" class="thumbnail" onclick="goToSlide(3)" alt="Thumbnail 3">
-                            <img src="photo4.jpg" class="thumbnail" onclick="goToSlide(4)" alt="Thumbnail 4">
-                            <img src="photo5.jpg" class="thumbnail" onclick="goToSlide(5)" alt="Thumbnail 5">
+                            <img src="photo1.jpg" class="thumbnail active" onclick="goToSlide(1)" alt="Thumbnail 1" loading="lazy" width="100" height="70">
+                            <img src="photo2.jpg" class="thumbnail" onclick="goToSlide(2)" alt="Thumbnail 2" loading="lazy" width="100" height="70">
+                            <img src="photo3.jpg" class="thumbnail" onclick="goToSlide(3)" alt="Thumbnail 3" loading="lazy" width="100" height="70">
+                            <img src="photo4.jpg" class="thumbnail" onclick="goToSlide(4)" alt="Thumbnail 4" loading="lazy" width="100" height="70">
+                            <img src="photo5.jpg" class="thumbnail" onclick="goToSlide(5)" alt="Thumbnail 5" loading="lazy" width="100" height="70">
                         </div>
 
                         <!-- Auto-play controls -->
                         <div class="slideshow-controls">
                             <button id="playPauseBtn" onclick="toggleAutoPlay()" aria-label="Play/Pause slideshow">
-                                <span id="playPauseIcon">⏸</span> <span id="playPauseText">Pause</span>
+                                <span id="playPauseIcon">▶</span> <span id="playPauseText">Play</span>
                             </button>
                         </div>
                     </div>
@@ -2265,7 +2342,7 @@
                     <!-- St. Jude -->
                     <section class="dual-meters__card" aria-labelledby="dm-stjude-h">
                       <header class="dual-meters__card-head" style="flex-direction:column;align-items:flex-start">
-                        <img src="stjude-logo.png" alt="St. Jude Children's Research Hospital logo" class="dual-meters__logo">
+<picture><source srcset="stjude-logo.webp" type="image/webp"><img src="stjude-logo.png" alt="St. Jude Children's Research Hospital logo" class="dual-meters__logo" width="160" height="64" loading="lazy"></picture>
                         <div style="display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:10px">
                           <h4 id="dm-stjude-h" class="dual-meters__card-title">St. Jude Children’s Research Hospital</h4>
                           <div class="dual-meters__amount"><span id="dm-stjude-amt">$0</span></div>
@@ -2290,7 +2367,7 @@
                     <!-- MSK -->
                     <section class="dual-meters__card" aria-labelledby="dm-msk-h">
                       <header class="dual-meters__card-head" style="flex-direction:column;align-items:flex-start">
-                        <img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center logo" class="dual-meters__logo">
+<picture><source srcset="msk-logo-2.webp" type="image/webp"><img src="msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center logo" class="dual-meters__logo" width="160" height="34" loading="lazy"></picture>
                         <div style="display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:10px">
                           <h4 id="dm-msk-h" class="dual-meters__card-title">Memorial Sloan Kettering (Colorectal Cancer Research)</h4>
                           <div class="dual-meters__amount"><span id="dm-msk-amt">$0</span></div>
@@ -2313,21 +2390,7 @@
                     </section>
                   </div>
                 
-                  <!-- Combined progress -->
-                  <div class="dual-meters__combined">
-                    <div class="dual-meters__combined-head">
-                      <span class="dual-meters__combined-label">Combined Progress</span>
-                      <span id="dm-combined-pct" class="dual-meters__combined-val">0%</span>
-                    </div>
-                    <div class="dual-meters__barwrap dual-meters__barwrap--combined"
-                         role="progressbar"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         aria-valuenow="0"
-                         aria-label="Combined fundraising progress">
-                      <div id="dm-combined-bar" class="dual-meters__bar dual-meters__bar--combo"></div>
-                    </div>
-                  </div>
+
                 
                   <small class="dual-meters__note">
                     * Totals reflect gifts made directly on the official St. Jude and MSK pages.
@@ -2439,9 +2502,7 @@
                     <div class="sponsor-logos-grid">
                       <!-- A. Leigh Solutions - Gold Sponsor -->
                       <figure class="sponsor-logo-card">
-                        <img src="aleighsolutions-logo.jpg"
-                             alt="A. Leigh Solutions — Gold Sponsor"
-                             loading="lazy">
+<picture><source srcset="aleighsolutions-logo.webp" type="image/webp"><img src="aleighsolutions-logo.jpg" alt="A. Leigh Solutions — Gold Sponsor" loading="lazy" width="600" height="448"></picture>
                         <figcaption>
                           <span class="sponsor-logo-name">A. Leigh Solutions</span>
                           <span class="sponsor-logo-tier">Gold Sponsor</span>
@@ -2464,7 +2525,7 @@
                   </section>
                 
                   <!-- Silver Sponsors -->
-                  <section class="sponsor-tier-group sponsor-tier-group--silver" aria-label="Silver Sponsors">
+                  <section class="sponsor-tier-group sponsor-tier-group--silver" aria-label="Silver Sponsors" style="display:none">
                     <h4 class="sponsor-tier-group__heading">Silver Sponsors</h4>
                     <div class="sponsor-logos-grid">
                       <!-- Example placeholder; remove if none yet -->
@@ -2483,7 +2544,7 @@
                   </section>
                 
                   <!-- Bronze Sponsors -->
-                  <section class="sponsor-tier-group sponsor-tier-group--bronze" aria-label="Bronze Sponsors">
+                  <section class="sponsor-tier-group sponsor-tier-group--bronze" aria-label="Bronze Sponsors" style="display:none">
                     <h4 class="sponsor-tier-group__heading">Bronze Sponsors</h4>
                     <div class="sponsor-logos-grid">
                       <!-- Add Bronze sponsors here as they sign on -->
@@ -2491,7 +2552,7 @@
                   </section>
                 
                   <!-- Mile Sponsors -->
-                  <section class="sponsor-tier-group sponsor-tier-group--mile" aria-label="Mile Sponsors">
+                  <section class="sponsor-tier-group sponsor-tier-group--mile" aria-label="Mile Sponsors" style="display:none">
                     <h4 class="sponsor-tier-group__heading">Mile Sponsors</h4>
                     <div class="sponsor-logos-grid">
                       <!-- Add Mile sponsors here -->
@@ -2499,7 +2560,7 @@
                   </section>
                 
                   <!-- Friends of the Run -->
-                  <section class="sponsor-tier-group sponsor-tier-group--friend" aria-label="Friends of the Run">
+                  <section class="sponsor-tier-group sponsor-tier-group--friend" aria-label="Friends of the Run" style="display:none">
                     <h4 class="sponsor-tier-group__heading">Friends of the Run</h4>
                     <div class="sponsor-logos-grid">
                       <!-- Add Friends of the Run here -->
@@ -2598,23 +2659,23 @@
           <p class="footer-social-label">Share Miles for Uncle Edwy:</p>
           <div class="footer-social-icons">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
             <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmilesforuncleedwy.org" 
                target="_blank" rel="noopener" aria-label="Share on X">
-              <i class="fa-brands fa-x-twitter"></i>
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmilesforuncleedwy.org"
                target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmilesforuncleedwy.org"
                target="_blank" rel="noopener" aria-label="Share on Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="mailto:?subject=Support%20Miles%20For%20Uncle%20Edwy&body=Join%20me%20in%20honoring%20Uncle%20Edwy%20and%20raising%20funds%20for%20cancer%20research%20at%20https%3A%2F%2Fmilesforuncleedwy.org"
                aria-label="Share via Email">
-              <i class="fa-solid fa-envelope"></i>
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </a>
           </div>
         </div>
@@ -2821,7 +2882,7 @@
         
         let currentSlideIndex = 1;
         let autoPlayInterval;
-        let isAutoPlaying = true;
+        let isAutoPlaying = false;
         const slides = document.querySelectorAll('.slide');
         const thumbnails = document.querySelectorAll('.thumbnail');
         const totalSlidesCount = slides.length;
@@ -2879,7 +2940,7 @@
             autoPlayInterval = setInterval(() => {
                 currentSlideIndex++;
                 showSlide(currentSlideIndex);
-            }, 4000); // Change slide every 4 seconds
+            }, 6000); // Change slide every 6 seconds
         }
         
         function stopAutoPlay() {
@@ -3015,7 +3076,7 @@
         
         // Reduce auto-play speed on mobile for better UX
         function getAutoPlaySpeed() {
-            return window.innerWidth <= 768 ? 5000 : 4000; // 5 seconds on mobile, 4 on desktop
+            return window.innerWidth <= 768 ? 7000 : 6000; // 7 seconds on mobile, 6 on desktop
         }
         
         // Update startAutoPlay to use dynamic speed
@@ -3026,9 +3087,16 @@
             }, getAutoPlaySpeed());
         }
         
-        // Initialize slideshow
+        // Initialize slideshow (default paused — respect viewer attention for memorial photos)
         showSlide(currentSlideIndex);
-        startAutoPlay();
+        // Do not auto-start; user opts in via Play button
+    </script>
+
+    <!-- Google Analytics (deferred) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS7HZR134V"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-SS7HZR134V');
     </script>
 </body>
 
