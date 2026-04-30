@@ -1430,18 +1430,27 @@
         }
 
         .race-photo-section {
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: var(--c-ink);
+            padding: 72px 24px;
+            margin: 0;
+        }
+
+        .race-photo-section .section-eyebrow {
+            text-align: center;
         }
 
         .race-photo-section h3 {
-            color: var(--c-navy);
-            font-size: 1.8em;
-            margin-bottom: 30px;
+            color: #fff;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            margin-bottom: 10px;
             text-align: center;
+        }
+
+        .race-photo-section > p {
+            text-align: center;
+            color: rgba(255,255,255,0.55);
+            font-size: 0.95rem;
+            margin-bottom: 36px;
         }
 
         /* Slideshow Styles */
@@ -1857,17 +1866,51 @@
         /* .donate-button replaced by .btn--stjude / .btn--msk */
 
         .footer {
-            background: var(--c-navy-deep);
-            color: #F5F0E8;
+            background: var(--c-ink);
+            color: rgba(255,255,255,0.7);
             text-align: center;
-            padding: 50px 20px;
+            padding: 64px 24px 48px;
+            border-top: 1px solid rgba(255,255,255,0.06);
         }
 
-        .footer h3 {
-            font-size: var(--tx-2xl);
-            margin-bottom: var(--sp-4);
-            font-weight: 600;
+        .footer__title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 14px;
         }
+
+        .footer__tagline {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .footer__race-note {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.38);
+            margin-bottom: 24px;
+        }
+
+        .footer__heart {
+            font-size: 1.5rem;
+            color: var(--c-amber);
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        .footer__contact a {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .footer__contact a:hover { color: #fff; }
 
         /* MOBILE STYLES */
         @media (max-width: 768px) {
@@ -2459,11 +2502,10 @@
                     </div>
                 </section>
                     <!-- Photo Slideshow Section -->
-                    <div class="race-photo-section">
-                        <h3>Memories & Training Journey</h3>
-                        <p style="text-align: center; margin-bottom: 30px; color: #666;">
-                            Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy's memory with every mile.
-                        </p>
+                <section class="race-photo-section">
+                        <p class="section-eyebrow">Gallery</p>
+                        <h3>Memories &amp; Training Journey</h3>
+                        <p>Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy&#8217;s memory with every mile.</p>
                         
                         <div class="slideshow-container">
                             <!-- Slides -->
@@ -2522,9 +2564,10 @@
             </div>
         </section>
 
-        <section class="section" id="progress">
+        <section class="section" id="progress" style="background:var(--c-cream);">
             <div class="container">
-                <h2>Fundraising Progress</h2>
+                <p class="section-eyebrow" style="text-align:center;">Miles on the Board</p>
+                <h2 style="text-align:center;color:var(--c-ink);font-size:clamp(2rem,4.5vw,3rem);margin-bottom:8px;">Fundraising Progress</h2>
 
                 <div class="dual-meters">
                   <div class="dual-meters__header" aria-live="polite">
@@ -2887,13 +2930,12 @@
           </div>
         </div>
 
-        <h3>Thank You For Keeping Uncle Edwy's Memory Alive</h3>
-        <p style="font-size: 1.2em; margin-top: 20px;">Every mile matters. Every donation counts. Every memory lives on.
-        </p>
-        <p style="margin-top: 30px; opacity: 0.8;">Brooklyn Experience Half Marathon | April 26, 2026</p>
-        <div class="heart" style="font-size: 2em; margin-top: 20px;" aria-label="Heart symbol">❤️</div>
-        <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.7;">
-            <a href="mailto:info@milesforuncleedwy.org" style="color: #eaeadf; text-decoration: underline; margin: 0 10px;">Contact</a>
+        <h3 class="footer__title">Thank You For Keeping Uncle Edwy&#8217;s Memory Alive</h3>
+        <p class="footer__tagline">Every mile matters. Every donation counts. Every memory lives on.</p>
+        <p class="footer__race-note">Brooklyn Experience Half Marathon &middot; April 26, 2026</p>
+        <div class="footer__heart" aria-label="Heart symbol">&#10084;</div>
+        <p class="footer__contact">
+            <a href="mailto:info@milesforuncleedwy.org">Contact</a>
         </p>
     </footer>
 
