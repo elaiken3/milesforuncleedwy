@@ -389,13 +389,15 @@
             align-items: center;
         }
 
-        /* Transparent runner figure, anchored to the right edge */
+        /* Transparent runner figure, centered as an atmospheric backdrop */
         .hero-figure {
             position: absolute;
-            right: -2%;
+            left: 50%;
+            transform: translateX(-50%);
             bottom: 0;
             height: 100%;
             z-index: 1;
+            opacity: 0.45;
             pointer-events: none;
             display: flex;
             align-items: flex-end;
@@ -406,11 +408,11 @@
             width: auto;
             display: block;
             object-fit: contain;
-            object-position: right bottom;
-            filter: drop-shadow(0 24px 48px rgba(0,0,0,0.5));
+            object-position: center bottom;
+            filter: drop-shadow(0 24px 48px rgba(0,0,0,0.55));
         }
 
-        /* Soft left-side vignette: keeps title legible if runner overlaps text */
+        /* Soft left-side vignette: keeps title legible over centered runner */
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -418,9 +420,9 @@
             pointer-events: none;
             background: linear-gradient(
                 90deg,
-                rgba(13,27,42,0.55) 0%,
-                rgba(13,27,42,0.18) 45%,
-                rgba(13,27,42,0)    72%
+                rgba(13,27,42,0.65) 0%,
+                rgba(13,27,42,0.30) 38%,
+                rgba(13,27,42,0)    65%
             );
         }
 
@@ -1937,11 +1939,12 @@
             .hero { height: 88vh; min-height: 520px; }
             .hero-content { max-width: 100%; }
             .hero-title__name { font-size: clamp(3rem, 13vw, 4.5rem); }
-            /* Runner sits behind text, larger drop, dimmer so the type stays readable */
+            /* Runner sits behind text, dimmer so the type stays readable */
             .hero-figure {
-                right: -22%;
+                left: 50%;
+                transform: translateX(-50%);
                 height: 78%;
-                opacity: 0.55;
+                opacity: 0.30;
             }
             .hero-overlay {
                 background: linear-gradient(
