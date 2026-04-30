@@ -213,15 +213,7 @@
         }
 
         /* Headings: Cormorant Garamond (display serif); stat numbers keep Impact via own rule */
-        h1, h2, h3, h4, h5, h6,
-        .section h2,
-        .tribute-content h2,
-        .tribute-box h3,
-        .impact-section h3,
-        .race-photo-section h3,
-        .tracker-header h3,
-        .donation-card h3,
-        .footer h3 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-weight: 700;
             letter-spacing: -0.01em;
@@ -1254,201 +1246,97 @@
             color: var(--c-navy);
         }
 
-        .uncle-tribute {
-            background: var(--c-gold-bg);
-            color: var(--c-navy);
-            padding: var(--sp-7) 20px;
-            border-top: 1px solid var(--c-gold-bdr);
-            border-bottom: 1px solid var(--c-gold-bdr);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-        }
-
-        .tribute-content {
-            max-width: 900px;
-            margin: 0 auto;
+        /* ── Memorial zone ──────────────────────────────────────── */
+        .memorial-zone {
+            background: var(--c-ink);
+            padding: 88px 24px 80px;
             text-align: center;
-        }
-
-        .tribute-content h2 {
-            color: var(--c-navy);
-            font-size: var(--tx-3xl);
-            margin-bottom: var(--sp-3);
-        }
-
-        .tribute-box {
-            background: var(--c-white);
-            padding: var(--sp-7) var(--sp-6);
-            border-radius: var(--r-lg);
-            margin: var(--sp-6) 0;
-            border-left: 5px solid var(--c-gold);
-            box-shadow: var(--sh-sm);
-        }
-
-        .tribute-box h3 {
-            font-size: 2em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-
-        .tribute-box .dates {
-            font-size: 1.3em;
-            margin-bottom: 25px;
-            font-style: italic;
-            opacity: 0.95;
-        }
-
-        .tribute-box p {
-            font-size: 1.2em;
-            line-height: 1.9;
-            margin-bottom: 20px;
-        }
-
-         .photo-frame {
-            width: 400px;
-            max-width: 90%;
-            height: auto;
-            border-radius: 15px;
+            position: relative;
             overflow: hidden;
-            margin: 30px auto;
-            border: none;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        
-        .photo-frame img {
+
+        .memorial-zone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 600px 400px at 50% 40%, rgba(200,147,42,0.09) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .memorial-zone__portrait {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 32px;
+            box-shadow: 0 0 0 3px var(--c-amber),
+                        0 0 0 6px rgba(200,147,42,0.22),
+                        0 0 60px rgba(200,147,42,0.28);
+        }
+
+        .memorial-zone__portrait picture { display: block; width: 100%; height: 100%; }
+
+        .memorial-zone__portrait img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
+        .memorial-zone__eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 12px;
         }
 
-        .heart {
-            font-size: 3em;
-            margin: 30px 0;
+        .memorial-zone__name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .memorial-zone__dates {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 28px;
+        }
+
+        .memorial-zone__heart {
+            font-size: 1.4rem;
+            color: var(--c-amber);
+            margin-bottom: 28px;
+            line-height: 1;
             animation: pulse 3.5s ease-in-out infinite;
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.06);
-            }
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.08); }
         }
 
-        /* ── Story zone ──────────────────────────────────────────── */
-        .story-zone {
-            background: var(--c-cream);
-            padding: 80px 0 0;
-        }
-
-        .story-zone__inner {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 64px;
-            max-width: 1100px;
+        .memorial-zone__body {
+            max-width: 640px;
             margin: 0 auto;
-            padding: 0 48px;
-            align-items: start;
         }
 
-        .section-eyebrow {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--c-amber);
-            margin-bottom: 14px;
-        }
-
-        .story-zone__heading {
+        .memorial-zone__body p {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            line-height: 1.15;
-            color: var(--c-ink);
-            margin-bottom: 28px;
-        }
-
-        .story-zone__pullquote {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(1.15rem, 2vw, 1.45rem);
-            font-weight: 600;
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
             font-style: italic;
-            color: var(--c-navy-mid);
-            border-left: 3px solid var(--c-amber);
-            padding-left: 20px;
-            margin: 0 0 28px;
-            line-height: 1.55;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.85;
+            margin-bottom: 20px;
         }
-
-        .story-zone__body p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--c-text-mid);
-            margin-bottom: 18px;
-        }
-
-        .story-zone__body a {
-            color: var(--c-navy);
-            font-weight: 600;
-            text-decoration: underline;
-            text-decoration-color: var(--c-amber);
-            text-underline-offset: 3px;
-        }
-
-        .btn--dark {
-            background: var(--c-ink);
-            color: #fff;
-            margin-top: 8px;
-        }
-
-        .btn--dark:hover {
-            background: var(--c-navy-mid);
-            box-shadow: none;
-        }
-
-        .story-zone__photo {
-            position: sticky;
-            top: calc(var(--nav-h) + 20px);
-        }
-
-        .story-zone__photo picture { display: block; }
-
-        .story-zone__photo img {
-            width: 100%;
-            height: auto;
-            border-radius: var(--r-lg);
-            display: block;
-            box-shadow: var(--sh-lg);
-        }
-
-        .story-zone__caption {
-            font-size: 0.82rem;
-            color: var(--c-text-muted);
-            text-align: center;
-            margin-top: 12px;
-            font-style: italic;
-        }
-
         .impact-section {
             background: white;
             padding: 50px;
@@ -2035,11 +1923,7 @@
 
             /* story-zone photo resets at 900px — see below */
             
-            .photo-frame {
-                width: 300px;
-                max-width: 85%;
-                height: auto;
-            }
+
             
             .gallery-item img,
             .gallery-placeholder {
@@ -2157,9 +2041,7 @@
                 border-radius: 10px;
             }
             
-            .tribute-box {
-                padding: 30px;
-            }
+
             .total-raised {
                 font-size: 3em;
             }
@@ -2230,11 +2112,7 @@
                 padding: 15px 10px;
             }
             
-            /* Photo frame on small phones */
-            .photo-frame {
-                width: 250px;
-                max-width: 90%;
-            }
+
 
 
 
@@ -2453,34 +2331,26 @@
             </div>
         </section>
 
-                  <section class="uncle-tribute" id="about">
-                    <div class="tribute-content">
-                        <h2>In Loving Memory</h2>
-                        <div class="tribute-box">
-                            <h3>Edwy Bruce Aiken</h3>
-                            <p class="dates">Forever in Our Hearts | October 22, 1957  -  February 26, 2021</p>
-        
-                            <!-- Uncle Edwy's Photo -->
-                            <div class="photo-frame">
-                                <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
-                                <picture>
-                                  <source srcset="images/uncle-edwy.webp" type="image/webp">
-                                  <img src="images/uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="720" height="720">
-                                </picture>
-                            </div>
-        
-                            <div class="heart" aria-label="Heart symbol">❤️</div>
-                              <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
-                              When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
-                              we lost our biggest supporter and the person who brought everyone together.</p>
-                              <p>He had so much more life to live and so much more love to give. His story isn’t unique,
-                              and that’s what makes it so painful. So many families have faced the same loss.
-                              Remembering him has become more than holding onto the past. It’s a reminder to act,
-                              to fight for a cure, and to help others who are still battling this disease.</p>
-                        </div>
+                <section class="memorial-zone" id="about">
+                    <div class="memorial-zone__portrait">
+                        <picture>
+                            <source srcset="images/uncle-edwy.webp" type="image/webp">
+                            <img src="images/uncle-edwy.jpg" alt="Edwy Bruce Aiken smiling at family gathering" loading="lazy" width="720" height="720">
+                        </picture>
+                    </div>
+                    <p class="memorial-zone__eyebrow">In Loving Memory</p>
+                    <h2 class="memorial-zone__name">Edwy Bruce Aiken</h2>
+                    <p class="memorial-zone__dates">October 22, 1957 &ndash; February 26, 2021</p>
+                    <div class="memorial-zone__heart" aria-label="Heart symbol">&#10084;</div>
+                    <div class="memorial-zone__body">
+                        <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
+                        When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
+                        we lost our biggest supporter and the person who brought everyone together.</p>
+                        <p>He had so much more life to live and so much more love to give. His story isn&#8217;t unique,
+                        and that&#8217;s what makes it so painful. Remembering him has become more than holding onto the past.
+                        It&#8217;s a reminder to act, to fight for a cure, and to help others who are still battling this disease.</p>
                     </div>
                 </section>
-
                     <section class="section donation-section" id="donate">
                       <div class="container">
                         <h2>Honoring Uncle Edwy's Memory</h2>
