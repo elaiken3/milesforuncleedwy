@@ -9,10 +9,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.milesforuncleedwy.org/hero-image-desktop.jpg</image:loc>
+      <image:loc>https://www.milesforuncleedwy.org/images/hero-image-desktop.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.milesforuncleedwy.org/hero-image-mobile.jpg</image:loc>
+      <image:loc>https://www.milesforuncleedwy.org/images/hero-image-mobile.jpg</image:loc>
     </image:image>
   </url>
 
