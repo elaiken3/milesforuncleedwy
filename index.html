@@ -336,6 +336,8 @@
             min-width: 44px;
             justify-content: center;
             align-items: center;
+            position: relative;
+            z-index: 1001;
         }
 
         .nav-burger span {
@@ -527,21 +529,22 @@
             color: #fff;
         }
 
-        /* Race + charity logos — frosted pill, bottom-center */
+        /* Race + charity logos — frosted pill, bottom-right (desktop) */
         .hero-logos {
             position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 48px;
+            right: 56px;
+            left: auto;
+            transform: none;
             z-index: 3;
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 32px;
+            gap: 44px;
             background: rgba(13,27,42,0.62);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 18px 32px;
+            padding: 28px 44px;
             border-radius: var(--r-md);
             border: 1px solid rgba(255,255,255,0.14);
         }
@@ -550,15 +553,15 @@
         .hero-logos a:hover { opacity: 0.85; }
         .hero-logos picture { display: block; }
         .hero-logos img { filter: brightness(1.05) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
-        .hero-logos .brooklyn-logo { height: 60px; width: auto; }
-        .hero-logos .charity-logo  { height: 40px; width: auto; }
+        .hero-logos .brooklyn-logo { height: 110px; width: auto; }
+        .hero-logos .charity-logo  { height: 72px;  width: auto; }
 
         /* Scroll indicator */
         .hero-scroll {
             position: absolute;
-            bottom: 132px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 36px;
+            left: 56px;
+            transform: none;
             z-index: 3;
             opacity: 0.45;
         }
@@ -1263,7 +1266,7 @@
         /* ── Memorial zone ──────────────────────────────────────── */
         .memorial-zone {
             background: var(--c-ink);
-            padding: 88px 24px 80px;
+            padding: 0 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -1273,20 +1276,21 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 600px 400px at 50% 40%, rgba(200,147,42,0.09) 0%, transparent 70%);
+            background: radial-gradient(ellipse 600px 400px at 50% 60%, rgba(200,147,42,0.10) 0%, transparent 70%);
             pointer-events: none;
+            z-index: 0;
         }
 
+        /* Full-bleed banner portrait that fades into the section background */
         .memorial-zone__portrait {
             position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+            width: 100%;
+            height: clamp(320px, 56vh, 560px);
+            margin: 0;
             overflow: hidden;
-            margin: 0 auto 32px;
-            box-shadow: 0 0 0 3px var(--c-amber),
-                        0 0 0 6px rgba(200,147,42,0.22),
-                        0 0 60px rgba(200,147,42,0.28);
+            border-radius: 0;
+            box-shadow: none;
+            z-index: 0;
         }
 
         .memorial-zone__portrait picture { display: block; width: 100%; height: 100%; }
@@ -1295,7 +1299,34 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 28%;
             display: block;
+        }
+
+        /* Bottom-fade gradient that bleeds the photo into the dark section */
+        .memorial-zone__portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(13,27,42,0)    0%,
+                rgba(13,27,42,0)    35%,
+                rgba(13,27,42,0.55) 70%,
+                var(--c-ink)        100%
+            );
+            pointer-events: none;
+        }
+
+        /* Content wrapper lifts up into the fade zone for visual continuity */
+        .memorial-zone__content {
+            position: relative;
+            z-index: 1;
+            margin-top: -72px;
+            padding: 0 24px;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .memorial-zone__eyebrow {
@@ -1937,25 +1968,44 @@
                 align-items: center;
             }
 
-            /* Mobile hero */
-            .hero { height: 88vh; min-height: 520px; }
-            .hero-content { max-width: 100%; }
+            /* Mobile hero — text → runner → pill, stacked vertically */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                padding-top: calc(var(--nav-h) + 28px);
+                padding-bottom: 110px;
+            }
+            .hero-content {
+                max-width: 100%;
+                padding-top: 0;
+                padding-bottom: 8px;
+            }
             .hero-title__name { font-size: clamp(3rem, 13vw, 4.5rem); }
-            /* Runner sits behind text, dimmer so the type stays readable */
+            /* Runner sits in flow below the text, full opacity */
             .hero-figure {
-                left: 50%;
-                transform: translateX(-50%);
-                height: 78%;
-                opacity: 0.30;
+                position: relative;
+                left: auto;
+                right: auto;
+                transform: none;
+                width: 100%;
+                height: auto;
+                max-height: 50vh;
+                margin-top: 12px;
+                opacity: 0.95;
+                align-self: center;
             }
-            .hero-overlay {
-                background: linear-gradient(
-                    180deg,
-                    rgba(13,27,42,0.45) 0%,
-                    rgba(13,27,42,0.65) 60%,
-                    rgba(13,27,42,0.85) 100%
-                );
+            .hero-figure picture { height: auto; }
+            .hero-figure img {
+                height: auto;
+                max-height: 50vh;
+                margin: 0 auto;
             }
+            /* Overlay no longer needed — no text/runner overlap on mobile */
+            .hero-overlay { display: none; }
+            .hero-scroll  { display: none; }
             .hero-logos {
                 bottom: 22px;
                 left: 50%;
@@ -1967,7 +2017,6 @@
             }
             .hero-logos .brooklyn-logo { height: 42px; }
             .hero-logos .charity-logo  { height: 28px; }
-            .hero-scroll { display: none; }
 
             /* Mobile nav */
             .nav-inner { padding: 0 20px; }
@@ -2550,6 +2599,7 @@
                             <img src="images/uncle-edwy.jpg" alt="Edwy Bruce Aiken smiling at family gathering" loading="lazy" width="720" height="720">
                         </picture>
                     </div>
+                    <div class="memorial-zone__content">
                     <p class="memorial-zone__eyebrow" data-reveal data-reveal-delay="1">In Loving Memory</p>
                     <h2 class="memorial-zone__name" data-reveal data-reveal-delay="2">Edwy Bruce Aiken</h2>
                     <p class="memorial-zone__dates" data-reveal data-reveal-delay="2">October 22, 1957 &ndash; February 26, 2021</p>
@@ -2561,6 +2611,7 @@
                         <p>He had so much more life to live and so much more love to give. His story isn&#8217;t unique,
                         and that&#8217;s what makes it so painful. Remembering him has become more than holding onto the past.
                         It&#8217;s a reminder to act, to fight for a cure, and to help others who are still battling this disease.</p>
+                    </div>
                     </div>
                 </section>
                 <section class="donate-zone" id="donate">
