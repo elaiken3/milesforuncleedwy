@@ -41,7 +41,7 @@
   <link rel="preload" as="image" href="/images/hero-image-mobile.webp" type="image/webp" media="(max-width: 768px)">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google tag (gtag.js) deferred to end of body -->
   <script>
@@ -140,6 +140,14 @@
       --sh-sm: 0 2px 8px rgba(0,0,0,.06);
       --sh-md: 0 6px 20px rgba(0,0,0,.09);
       --sh-lg: 0 12px 36px rgba(0,0,0,.12);
+
+      /* — Redesign tokens — */
+      --c-ink:        #0D1B2A;
+      --c-amber:      #C8932A;
+      --c-amber-lt:   #E8B04A;
+      --c-coral:      #E85D30;
+      --c-parchment:  #F2ECD9;
+      --nav-h:        64px;
     }
 
         * {
@@ -204,17 +212,9 @@
             outline-offset: 2px;
         }
 
-        /* Headings: Playfair Display (serif); stat numbers keep Impact via own rule */
-        h1, h2, h3, h4, h5, h6,
-        .section h2,
-        .tribute-content h2,
-        .tribute-box h3,
-        .impact-section h3,
-        .race-photo-section h3,
-        .tracker-header h3,
-        .donation-card h3,
-        .footer h3 {
-            font-family: 'Playfair Display', Georgia, serif;
+        /* Headings: Cormorant Garamond (display serif); stat numbers keep Impact via own rule */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-weight: 700;
             letter-spacing: -0.01em;
         }
@@ -236,30 +236,120 @@
             animation: fadeIn 0.8s ease-out;
         }
 
-        /* Sticky Navigation */
-        .nav-menu {
-            background: var(--c-white);
-            padding: 14px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,.08);
-            border-bottom: 2px solid var(--c-gold-bdr);
+        /* ── Navigation ──────────────────────────────────────────── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
         }
 
-        .nav-menu a {
-            margin: 0 15px;
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 32px;
+            height: var(--nav-h);
+        }
+
+        .nav-brand {
             text-decoration: none;
-            color: var(--c-navy);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            font-size: 0.95em;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
         }
 
-        .nav-menu a:hover {
-            color: var(--c-gold);
+        .nav-brand__miles {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-amber);
         }
+
+        .nav-brand__name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            transition: color 0.35s;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 8px 14px;
+            border-radius: var(--r-pill);
+            transition: color 0.2s, background 0.2s;
+            min-height: unset;
+            min-width: unset;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .nav-link--cta {
+            background: var(--c-amber);
+            color: var(--c-ink) !important;
+            font-weight: 700;
+            padding: 9px 22px;
+        }
+
+        .nav-link--cta:hover {
+            background: var(--c-amber-lt);
+        }
+
+        /* Scrolled state: solid dark background */
+        .nav--solid {
+            background: rgba(13, 27, 42, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.35);
+            border-bottom: 1px solid rgba(200,147,42,0.25);
+        }
+
+        /* Hamburger button */
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            min-height: 44px;
+            min-width: 44px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* Back to Top Button */
         #backToTop {
@@ -285,23 +375,193 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
 
+        /* ── Hero: full-viewport, bg image + overlay + HTML text ── */
         .hero {
             position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 620px;
             overflow: hidden;
-            padding: 0;
-            margin: 0;
-            background: var(--c-navy-deep);
+            background: var(--c-ink);
+            display: flex;
+            align-items: center;
         }
 
-        .race-logo {
+        .hero-bg {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg picture,
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 65% center;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(
+                110deg,
+                rgba(13,27,42,0.93) 0%,
+                rgba(13,27,42,0.78) 45%,
+                rgba(13,27,42,0.28) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 clamp(28px, 8vw, 100px);
+            padding-top: var(--nav-h);
+            max-width: 680px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .hero-title__label {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 4px;
+        }
+
+        .hero-title__name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(3.5rem, 9vw, 7.5rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 0.92;
+            text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: rgba(255,255,255,0.72);
+            line-height: 1.65;
+            margin-bottom: 40px;
+            max-width: 460px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--r-pill);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 52px;
+            min-width: unset;
+        }
+
+        .btn--primary {
+            background: var(--c-amber);
+            color: var(--c-ink);
+        }
+
+        .btn--primary:hover {
+            background: var(--c-amber-lt);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(200,147,42,0.45);
+        }
+
+        .btn--ghost {
+            background: transparent;
+            color: rgba(255,255,255,0.88);
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+
+        .btn--ghost:hover {
+            border-color: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+
+        /* Charity logos — frosted pill, bottom-right */
+        .hero-logos {
+            position: absolute;
+            bottom: 36px;
+            right: 36px;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            background: rgba(13,27,42,0.58);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 12px 22px;
+            border-radius: var(--r-md);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-logos a { display: block; transition: opacity 0.2s; }
+        .hero-logos a:hover { opacity: 0.85; }
+        .hero-logos picture { display: block; }
+        .hero-logos img { filter: brightness(1.05) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+        .hero-logos .brooklyn-logo { height: 40px; width: auto; }
+        .hero-logos .charity-logo  { height: 26px; width: auto; }
+
+        /* Scroll indicator */
+        .hero-scroll {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .hero-scroll__line {
+            display: block;
+            width: 1px;
+            height: 52px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+            animation: heroScrollLine 2.2s ease-in-out infinite;
+        }
+
+        @keyframes heroScrollLine {
+            0%   { transform: scaleY(0); transform-origin: top;    }
+            49%  { transform: scaleY(1); transform-origin: top;    }
+            50%  { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
         }
 
         .donation-card img {
@@ -430,62 +690,6 @@
         }
 
 
-        .race-logo a {
-            transition: transform 0.3s ease;
-            display: block;
-        }
-
-        .race-logo a:hover {
-            transform: scale(1.05);
-        }
-
-        .race-logo picture {
-            display: block;
-        }
-
-        .race-logo img {
-            height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-            background: transparent;
-            padding: 8px;
-            border-radius: var(--r-sm);
-            display: block;
-        }
-
-        .brooklyn-logo {
-            width: 160px;
-        }
-
-        .charity-logo {
-            width: 160px;
-        }
-
-        .hero-image-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            padding: 40px 20px;
-            /* prevent picture/img from blowing out the container */
-            overflow: hidden;
-        }
-
-        /* picture must be block so it doesn't create inline whitespace */
-        .hero-image-container picture {
-            display: block;
-            width: 100%;
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            box-shadow: none;
-            display: block;
-        }
-
-        /* prevent any child from causing horizontal scroll */
-        .hero { overflow-x: hidden; }
 
 
         /* Footer Social Section */
@@ -535,92 +739,103 @@
         }
 
         /* Impact Statistics */
+        /* ── Stats anchor bar ──────────────────────────────────── */
         .impact-stats {
-            background: var(--c-navy);
-            color: #F5F0E8;
-            padding: 60px 20px;
+            background: var(--c-ink);
+            color: rgba(255,255,255,0.8);
+            padding: 22px 20px;
             text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 880px;
             margin: 0 auto;
         }
 
         .stat-item {
-            padding: 20px;
+            padding: 8px 16px;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
 
+        .stat-item:last-child { border-right: none; }
+
         .stat-number {
-            font-size: var(--tx-4xl);
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 700;
-            color: var(--c-gold-lt);
+            color: var(--c-amber-lt);
             font-family: Impact, sans-serif;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: var(--tx-base);
-            margin-top: 10px;
-            opacity: 0.85;
-            letter-spacing: 0.03em;
+            font-size: 0.68rem;
+            margin-top: 5px;
+            opacity: 0.6;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        /* Countdown Section */
-        .countdown-section {
-          margin: 30px auto 10px;
-          max-width: 800px;
-          text-align: center;
-          padding: 30px 20px;
-          background: #ffffff;
-          border-radius: 12px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        /* ── Story-zone countdown strip ────────────────────────── */
+        .story-countdown {
+            background: var(--c-ink);
+            padding: 36px 20px;
+            text-align: center;
+            margin-top: 0;
         }
-        
-        .countdown-section h2 {
-          font-size: 2rem;
-          margin-bottom: 20px;
-          color: var(--c-navy);
+
+        .story-countdown__label-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 20px;
         }
-        
-        .countdown-grid {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          flex-wrap: wrap;
+
+        .story-countdown__grid {
+            display: flex;
+            justify-content: center;
+            max-width: 560px;
+            margin: 0 auto 16px;
         }
-        
-        .countdown-item {
-          min-width: 90px;
-          padding: 10px 12px;
-          border-radius: 10px;
-          background: var(--c-gold-bg);
-          border: 1px solid var(--c-gold-bdr);
+
+        .story-countdown__item {
+            flex: 1;
+            padding: 12px 8px;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .countdown-number {
-          display: block;
-          font-size: 2.5rem;
-          font-weight: 800;
-          color: var(--c-orange);
-          line-height: 1.1;
+
+        .story-countdown__item:last-child { border-right: none; }
+
+        .story-countdown__num {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--c-amber-lt);
+            line-height: 1;
         }
-        
-        .countdown-label {
-          display: block;
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: #555;
-          margin-top: 4px;
+
+        .story-countdown__lbl {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-top: 6px;
         }
-        
-        .countdown-note {
-          margin-top: 18px;
-          font-size: 0.95rem;
-          color: #666;
+
+        .story-countdown__note {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
         }
 
         /* Sponsor / Sponsorship Tiers */
@@ -884,18 +1099,6 @@
         }
 
         
-        /* Mobile tweaks */
-        @media (max-width: 768px) {
-          .countdown-section {
-            padding: 24px 18px;
-          }
-          .countdown-number {
-            font-size: 2rem;
-          }
-          .countdown-item {
-            min-width: 80px;
-          }
-        }
 
 
         /* Trust Badges */
@@ -1043,146 +1246,97 @@
             color: var(--c-navy);
         }
 
-        .uncle-tribute {
-            background: var(--c-gold-bg);
-            color: var(--c-navy);
-            padding: var(--sp-7) 20px;
-            border-top: 1px solid var(--c-gold-bdr);
-            border-bottom: 1px solid var(--c-gold-bdr);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-        }
-
-        .tribute-content {
-            max-width: 900px;
-            margin: 0 auto;
+        /* ── Memorial zone ──────────────────────────────────────── */
+        .memorial-zone {
+            background: var(--c-ink);
+            padding: 88px 24px 80px;
             text-align: center;
-        }
-
-        .tribute-content h2 {
-            color: var(--c-navy);
-            font-size: var(--tx-3xl);
-            margin-bottom: var(--sp-3);
-        }
-
-        .tribute-box {
-            background: var(--c-white);
-            padding: var(--sp-7) var(--sp-6);
-            border-radius: var(--r-lg);
-            margin: var(--sp-6) 0;
-            border-left: 5px solid var(--c-gold);
-            box-shadow: var(--sh-sm);
-        }
-
-        .tribute-box h3 {
-            font-size: 2em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-
-        .tribute-box .dates {
-            font-size: 1.3em;
-            margin-bottom: 25px;
-            font-style: italic;
-            opacity: 0.95;
-        }
-
-        .tribute-box p {
-            font-size: 1.2em;
-            line-height: 1.9;
-            margin-bottom: 20px;
-        }
-
-         .photo-frame {
-            width: 400px;
-            max-width: 90%;
-            height: auto;
-            border-radius: 15px;
+            position: relative;
             overflow: hidden;
-            margin: 30px auto;
-            border: none;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        
-        .photo-frame img {
+
+        .memorial-zone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 600px 400px at 50% 40%, rgba(200,147,42,0.09) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .memorial-zone__portrait {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 32px;
+            box-shadow: 0 0 0 3px var(--c-amber),
+                        0 0 0 6px rgba(200,147,42,0.22),
+                        0 0 60px rgba(200,147,42,0.28);
+        }
+
+        .memorial-zone__portrait picture { display: block; width: 100%; height: 100%; }
+
+        .memorial-zone__portrait img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
+        .memorial-zone__eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 12px;
         }
 
-        .heart {
-            font-size: 3em;
-            margin: 30px 0;
+        .memorial-zone__name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .memorial-zone__dates {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 28px;
+        }
+
+        .memorial-zone__heart {
+            font-size: 1.4rem;
+            color: var(--c-amber);
+            margin-bottom: 28px;
+            line-height: 1;
             animation: pulse 3.5s ease-in-out infinite;
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.06);
-            }
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.08); }
         }
 
-        .story {
-            background: var(--c-cream);
-        }
-
-        .story-content {
-            max-width: 900px;
+        .memorial-zone__body {
+            max-width: 640px;
             margin: 0 auto;
-            font-size: 1.15em;
-            line-height: 1.9;
         }
 
-        .story-content p {
-            margin-bottom: 25px;
-        }
-
-        .story-content strong {
-            color: var(--c-gold);
-        }
-
-        /* Runner photo styling */
-        .runner-photo-container {
-            max-width: 500px;
-            margin: 40px auto;
-            text-align: center;
-        }
-        
-        .runner-photo {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            display: block;
-        }
-        
-        .runner-photo-caption {
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #666;
+        .memorial-zone__body p {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
             font-style: italic;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.85;
+            margin-bottom: 20px;
         }
-
         .impact-section {
             background: white;
             padding: 50px;
@@ -1276,18 +1430,27 @@
         }
 
         .race-photo-section {
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: var(--c-ink);
+            padding: 72px 24px;
+            margin: 0;
+        }
+
+        .race-photo-section .section-eyebrow {
+            text-align: center;
         }
 
         .race-photo-section h3 {
-            color: var(--c-navy);
-            font-size: 1.8em;
-            margin-bottom: 30px;
+            color: #fff;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            margin-bottom: 10px;
             text-align: center;
+        }
+
+        .race-photo-section > p {
+            text-align: center;
+            color: rgba(255,255,255,0.55);
+            font-size: 0.95rem;
+            margin-bottom: 36px;
         }
 
         /* Slideshow Styles */
@@ -1561,124 +1724,193 @@
             font-weight: 700;
         }
 
-        .donation-section {
-            background: #f9f9f9;
-            padding-top: 40px;
-          }
-          
-          .donation-intro {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 50px;
-            font-size: 1.2em;
-            line-height: 1.8;
-          }
-          
-          /* Two-column layout on desktop, stacked on mobile */
-          .donation-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            max-width: 1100px;
+        /* ── Donate zone ────────────────────────────────────────── */
+        .donate-zone {
+            background: var(--c-cream);
+            padding: 88px 24px;
+        }
+
+        .donate-zone__inner {
+            max-width: 880px;
             margin: 0 auto;
-            align-items: stretch; /* make all cards in a row the same height */
-          }
-          
-          @media (max-width: 768px) {
-            .donation-cards {
-              grid-template-columns: 1fr;
-              gap: 25px;
-            }
-          }
-          
-          /* Each donation card is a flex column */
-          .donation-card {
-            background: white;
-            padding: 45px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
-          
+        }
+
+        .donate-zone__heading {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            color: var(--c-ink);
+            margin-bottom: 16px;
+        }
+
+        .donate-zone__sub {
+            font-size: 1.05rem;
+            color: var(--c-text-muted);
+            max-width: 520px;
+            margin: 0 auto 52px;
+            line-height: 1.7;
+        }
+
+        .donate-zone__cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            text-align: left;
+        }
+
+        .charity-card {
+            background: #fff;
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            box-shadow: var(--sh-md);
             display: flex;
             flex-direction: column;
-            height: 100%; /* fill the grid cell height */
-          }
-          
-          /* Optional: if you add a wrapper div inside (logo + h3 + text) */
-          .donation-card-content {
-            flex-grow: 1; /* lets the top content stretch so buttons align */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          /* Headings inside the boxes: aligned + same visual height */
-          .donation-card h3 {
-            color: var(--c-navy);
-            margin: 0 0 20px;
-            font-size: 1.8em;
-          
-            min-height: 3em;          /* keeps headings lined up even if one wraps */
+        }
+
+        .charity-card__header {
+            padding: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-          }
-          
-          /* Main description text flexes to push buttons to the bottom */
-          .donation-card p {
-            margin-bottom: 25px;
-            color: #666;
-            font-size: 1.05em;
+            min-height: 90px;
+        }
+
+        .charity-card--stjude .charity-card__header { background: var(--c-stjude); }
+        .charity-card--msk   .charity-card__header { background: var(--c-msk); }
+
+        .charity-card__header picture { display: block; }
+
+        .charity-card__header img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+
+        .charity-card__body {
+            padding: 24px 28px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .charity-card__body h3 {
+            font-size: 1.25rem;
+            color: var(--c-ink);
+            margin-bottom: 12px;
+        }
+
+        .charity-card__body > p {
+            font-size: 0.97rem;
+            color: var(--c-text-mid);
             line-height: 1.7;
-            flex-grow: 1;             /* this is what lets buttons line up */
-          }
-          
-          /* Match note under the button */
-          .match-callout {
-            margin-top: 16px;
-          }
+            margin-bottom: 18px;
+        }
 
-        .embed-placeholder {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4e7f2 100%);
-            border: 3px dashed var(--c-gold-bdr);
-            padding: 70px 20px;
-            border-radius: 10px;
-            color: var(--c-navy);
+        .charity-card__trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 22px;
+        }
+
+        .charity-card__trust span {
+            font-size: 0.76rem;
             font-weight: 600;
-            margin: 25px 0;
-            font-size: var(--tx-md);
+            color: var(--c-text-muted);
+            background: var(--c-cream);
+            padding: 4px 10px;
+            border-radius: var(--r-pill);
+            border: 1px solid var(--c-border);
         }
 
-        .donate-button {
-            display: inline-block;
-            background: var(--grad-race);
-            color: var(--c-white);
-            padding: 18px 45px;
+        .btn--stjude, .btn--msk {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 16px;
+            border-radius: var(--r-pill);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 14px 24px;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.15em;
-            transition: all 0.3s ease;
-            margin-top: 25px;
+            transition: filter 0.2s, transform 0.2s;
+            min-height: 50px;
+            color: #fff;
         }
 
-        .donate-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(242,107,58,.40);
+        .btn--stjude { background: var(--c-stjude); }
+        .btn--msk    { background: var(--c-msk); }
+        .btn--stjude:hover, .btn--msk:hover {
+            filter: brightness(1.12);
+            transform: translateY(-1px);
         }
+
+        .charity-card__match {
+            font-size: 0.82rem;
+            color: var(--c-text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .charity-card__match strong { color: var(--c-text); }
+
+        .charity-card__match a {
+            color: var(--c-amber);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        /* .donate-button replaced by .btn--stjude / .btn--msk */
 
         .footer {
-            background: var(--c-navy-deep);
-            color: #F5F0E8;
+            background: var(--c-ink);
+            color: rgba(255,255,255,0.7);
             text-align: center;
-            padding: 50px 20px;
+            padding: 64px 24px 48px;
+            border-top: 1px solid rgba(255,255,255,0.06);
         }
 
-        .footer h3 {
-            font-size: var(--tx-2xl);
-            margin-bottom: var(--sp-4);
-            font-weight: 600;
+        .footer__title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 14px;
         }
+
+        .footer__tagline {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .footer__race-note {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.38);
+            margin-bottom: 24px;
+        }
+
+        .footer__heart {
+            font-size: 1.5rem;
+            color: var(--c-amber);
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        .footer__contact a {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .footer__contact a:hover { color: #fff; }
 
         /* MOBILE STYLES */
         @media (max-width: 768px) {
@@ -1691,48 +1923,65 @@
                 align-items: center;
             }
 
-            /* Main hero image comes first */
-            .hero-image-container {
-                max-width: 100%;
-                padding: 20px 10px;
-                order: 1;
+            /* Mobile hero */
+            .hero { height: 88vh; min-height: 520px; }
+            .hero-bg img { object-position: 68% center; }
+            .hero-content { max-width: 100%; }
+            .hero-title__name { font-size: clamp(3rem, 13vw, 4.5rem); }
+            .hero-logos {
+                bottom: auto;
+                top: calc(var(--nav-h) + 10px);
+                right: 12px;
+                left: auto;
+                padding: 8px 14px;
+                gap: 12px;
             }
-        
-            /* Logos sit *below* the hero image, in a horizontal row */
-            .race-logo {
-                position: static;
-                order: 2;
-                margin: 10px auto 20px;
-                display: flex;
-                flex-direction: row;
+            .hero-logos .brooklyn-logo { height: 30px; }
+            .hero-logos .charity-logo  { height: 20px; }
+            .hero-scroll { display: none; }
+
+            /* Mobile nav */
+            .nav-inner { padding: 0 20px; }
+            .nav-burger { display: flex; }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(13,27,42,0.97);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 12px;
-                flex-wrap: wrap; /* so they wrap nicely on very small phones */
-            }
-        
-            .race-logo a {
-                text-align: center;
-            }
-        
-            .brooklyn-logo,
-            .charity-logo {
-                width: 110px; /* tweak as needed */
+                gap: 4px;
+                z-index: 999;
             }
 
-            .nav-menu {
-                padding: 8px 6px;
-                overflow-x: auto;
-                white-space: nowrap;
-                text-align: left;
-                -webkit-overflow-scrolling: touch;
+            .nav-links.open { display: flex; }
+
+            .nav-link {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 2rem;
+                font-weight: 600;
+                color: rgba(255,255,255,0.9);
+                padding: 14px 32px;
+                letter-spacing: 0.01em;
+                border-radius: var(--r-md);
             }
 
-            .nav-menu a {
-                display: inline-block;
-                margin: 4px 8px;
-                font-size: 0.82em;
-                white-space: nowrap;
+            .nav-link:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+            .nav-link--cta {
+                background: var(--c-amber);
+                color: var(--c-ink) !important;
+                font-size: 1.6rem;
+                margin-top: 16px;
+                font-family: 'Inter', sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
             }
 
             .donation-cards,
@@ -1750,25 +1999,9 @@
                 padding: 30px 20px;
             }
 
-            /* Runner photo mobile */
-            .runner-photo-container {
-                max-width: 350px;
-                margin: 30px auto;
-            }
+            /* story-zone photo resets at 900px — see below */
             
-            .runner-photo {
-                border-radius: 10px;
-            }
-            
-            .runner-photo-caption {
-                font-size: 0.9em;
-            }
-            
-            .photo-frame {
-                width: 300px;
-                max-width: 85%;
-                height: auto;
-            }
+
             
             .gallery-item img,
             .gallery-placeholder {
@@ -1886,15 +2119,13 @@
                 border-radius: 10px;
             }
             
-            .tribute-box {
-                padding: 30px;
-            }
+
             .total-raised {
                 font-size: 3em;
             }
 
             .stat-number {
-                font-size: 2.5em;
+                font-size: 1.4rem;
             }
 
             .signup-form {
@@ -1959,34 +2190,39 @@
                 padding: 15px 10px;
             }
             
-            /* Hero adjustments */
-            .hero h1 {
-                font-size: 1.75em;
-            }
-            
-            .hero-tagline {
-                font-size: 1em;
-            }
-            
-            /* Photo frame on small phones */
-            .photo-frame {
-                width: 250px;
-                max-width: 90%;
-            }
 
-            /* Runner photo on small phones */
-            .runner-photo-container {
-                max-width: 280px;
-                margin: 25px auto;
-            }
-            
-            .runner-photo-caption {
-                font-size: 0.85em;
-            }
+
+
 
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @media (max-width: 700px) {
+            .donate-zone__cards { grid-template-columns: 1fr; }
+        }
+
+                /* ── Story zone: mobile stack ──────────────────────── */
+        @media (max-width: 900px) {
+            .story-zone__inner {
+                grid-template-columns: 1fr;
+                padding: 0 28px;
+                gap: 36px;
+            }
+            .story-zone__photo {
+                position: static;
+                max-width: 320px;
+                margin: 0 auto;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .story-zone { padding: 48px 0 0; }
+            .story-zone__inner { padding: 0 20px; gap: 24px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+        }
+
+                @media (prefers-reduced-motion: reduce) {
           * {
             animation-duration: .001ms !important;
             animation-iteration-count: 1 !important;
@@ -2006,65 +2242,85 @@
     <!-- Skip to content link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Sticky Navigation Menu -->
-    <nav class="nav-menu" role="navigation" aria-label="Main navigation">
-        <a href="#why-running">Why I'm Running</a>
-        <a href="#about">About Uncle Edwy</a>
-        <a href="#donate">Donate</a>
-        <a href="#progress">Fundraising Progress</a>
-        <a href="#sponsors">Become A Sponsor</a>
-        <a href="#current-sponsors">Current Sponsors</a>
-        <a href="#matching">Corporate Matching</a>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand" aria-label="Miles For Uncle Edwy — home">
+                <span class="nav-brand__miles">Miles For</span>
+                <span class="nav-brand__name">Uncle Edwy</span>
+            </a>
+            <button class="nav-burger" id="navBurger"
+                    aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks" role="list">
+                <a href="#why-running" class="nav-link">Story</a>
+                <a href="#about" class="nav-link">Tribute</a>
+                <a href="#progress" class="nav-link">Progress</a>
+                <a href="#donate" class="nav-link nav-link--cta">Donate Now</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="hero">
-        <!-- Logo Stack: Brooklyn Experience Half Marathon + Charity Logos -->
-        <div class="race-logo">
-            <!-- Brooklyn Experience Half Marathon Logo -->
-            <a href="https://brooklynexperience.com" target="_blank" rel="noopener"
-                aria-label="Brooklyn Experience Half Marathon">
-                <picture>
-                  <source srcset="images/brooklyn-logo.webp" type="image/webp">
-                  <img src="images/brooklyn-logo.png" alt="NYCRUNS Brooklyn Experience Half Marathon logo" class="brooklyn-logo" width="220" height="172" loading="lazy">
-                </picture>
-            </a>
-
-            <!-- St. Jude Logo -->
-            <a href="https://www.stjude.org" target="_blank" rel="noopener"
-                aria-label="St. Jude Children's Research Hospital">
-                <picture>
-                  <source srcset="images/stjude-logo.webp" type="image/webp">
-                  <img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital logo" class="charity-logo" width="220" height="88" loading="lazy">
-                </picture>
-            </a>
-
-            <!-- Memorial Sloan Kettering Logo -->
-            <a href="https://www.mskcc.org" target="_blank" rel="noopener"
-                aria-label="Memorial Sloan Kettering Cancer Center">
-                <picture>
-                  <source srcset="images/msk-logo.webp" type="image/webp">
-                  <img src="images/msk-logo.png" alt="Memorial Sloan Kettering Cancer Center logo" class="charity-logo" width="220" height="220" loading="lazy">
-                </picture>
-            </a>
-        </div>
-
-        <!-- Hero Images - responsive <picture> with WebP + JPG fallbacks -->
-        <div class="hero-image-container">
+    <section class="hero" id="hero">
+        <!-- Background photo (decorative — title is in HTML below) -->
+        <div class="hero-bg" aria-hidden="true">
             <picture>
-                <!-- Mobile WebP -->
                 <source media="(max-width: 768px)" srcset="images/hero-image-mobile.webp" type="image/webp">
-                <!-- Mobile JPG fallback -->
                 <source media="(max-width: 768px)" srcset="images/hero-image-mobile.jpg" type="image/jpeg">
-                <!-- Desktop WebP -->
                 <source media="(min-width: 769px)" srcset="images/hero-image-desktop.webp" type="image/webp">
-                <!-- Desktop JPG fallback -->
                 <source media="(min-width: 769px)" srcset="images/hero-image-desktop.jpg" type="image/jpeg">
-                <img src="images/hero-image-desktop.jpg"
-                    alt="Miles For Uncle Edwy Brooklyn Experience Half Marathon 2026 fundraising banner"
-                    loading="eager" width="2000" height="1124" style="width:100%;height:auto;border-radius:0;">
+                <img src="images/hero-image-desktop.jpg" alt="" loading="eager" width="2000" height="1124">
             </picture>
         </div>
-    </div>
+
+        <!-- Gradient overlay -->
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <!-- Hero content: title + CTA -->
+        <div class="hero-content">
+            <p class="hero-eyebrow">Brooklyn Experience Half Marathon &middot; April 26, 2026</p>
+            <h1 class="hero-title">
+                <span class="hero-title__label">Miles For</span>
+                <span class="hero-title__name">Uncle Edwy</span>
+            </h1>
+            <p class="hero-subtitle">Running 13.1 miles to honor his memory and raise funds fighting colorectal cancer</p>
+            <div class="hero-ctas">
+                <a href="#donate" class="btn btn--primary">Donate Now</a>
+                <a href="#why-running" class="btn btn--ghost">Our Story</a>
+            </div>
+        </div>
+
+        <!-- Race + charity logos: frosted pill, bottom-right -->
+        <div class="hero-logos">
+            <a href="https://brooklynexperience.com" target="_blank" rel="noopener"
+               aria-label="Brooklyn Experience Half Marathon">
+                <picture>
+                    <source srcset="images/brooklyn-logo.webp" type="image/webp">
+                    <img src="images/brooklyn-logo.png" alt="Brooklyn Experience Half Marathon" class="brooklyn-logo" loading="lazy" width="220" height="172">
+                </picture>
+            </a>
+            <a href="https://www.stjude.org" target="_blank" rel="noopener"
+               aria-label="St. Jude Children's Research Hospital">
+                <picture>
+                    <source srcset="images/stjude-logo.webp" type="image/webp">
+                    <img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital" class="charity-logo" loading="lazy" width="220" height="88">
+                </picture>
+            </a>
+            <a href="https://www.mskcc.org" target="_blank" rel="noopener"
+               aria-label="Memorial Sloan Kettering Cancer Center">
+                <picture>
+                    <source srcset="images/msk-logo.webp" type="image/webp">
+                    <img src="images/msk-logo.png" alt="Memorial Sloan Kettering Cancer Center" class="charity-logo" loading="lazy" width="220" height="220">
+                </picture>
+            </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll" aria-hidden="true">
+            <span class="hero-scroll__line"></span>
+        </div>
+    </section>
 
     <!-- Impact Statistics -->
     <section class="impact-stats">
@@ -2089,175 +2345,167 @@
     </section>
 
     <main id="main-content">
-        <section class="section story" id="why-running">
-            <div class="container">
-                <h2>Why I'm Running</h2>
+        <!-- Story Zone: editorial two-column layout -->
+        <section class="story-zone" id="why-running">
+            <div class="story-zone__inner">
 
-                <!-- Runner Photo -->
-                <div class="runner-photo-container">
+                <!-- Left column: text -->
+                <div class="story-zone__text">
+                    <p class="section-eyebrow">Why I'm Running</p>
+                    <h2 class="story-zone__heading">Running for something<br>bigger than a finish line.</h2>
+                    <blockquote class="story-zone__pullquote">
+                        &#8220;Over the past two years, I&#8217;ve lost more than 100 pounds
+                        and found something bigger than fitness. I found freedom.&#8221;
+                    </blockquote>
+                    <div class="story-zone__body">
+                        <p>There was a time when running even a mile felt out of reach. For years, I carried extra weight
+                          and the limits that came with it &#8212; limits I had quietly accepted. I learned that every barrier
+                          I thought was permanent could be moved with enough patience, effort, and belief.</p>
+
+                        <p>Running a half marathon isn&#8217;t just about crossing a finish line. It&#8217;s about proving to myself
+                          that anything is possible. And it&#8217;s about using that belief to make a difference.</p>
+
+                        <p>In April 2026, I&#8217;ll be running the
+                          <a href="https://brooklynexperience.com" target="_blank" rel="noopener"><strong>Brooklyn Experience Half Marathon</strong></a>
+                          in honor of my Uncle Edwy, who we lost to colorectal cancer in 2021. Every mile is a tribute
+                          to him and to every family touched by this disease. Through this race, I&#8217;m raising money for
+                          <a href="https://www.stjude.org" target="_blank" rel="noopener"><strong>St. Jude Children&#8217;s Research Hospital</strong></a>
+                          and <a href="https://www.mskcc.org" target="_blank" rel="noopener"><strong>Memorial Sloan Kettering Cancer Center</strong></a>,
+                          two organizations that bring hope, healing, and life-saving care to those who need it most.</p>
+
+                        <p>This run is my way of breaking past limits &#8212; both mine and the ones that cancer imposes on too many lives.</p>
+                    </div>
+                    <a href="#donate" class="btn btn--dark">Support This Race &rarr;</a>
+                </div>
+
+                <!-- Right column: runner photo (sticky on desktop) -->
+                <div class="story-zone__photo">
                     <picture>
-                      <source srcset="images/runner-photo.webp" type="image/webp">
-                      <img src="images/runner-photo.jpg" alt="Running for Uncle Edwy" class="runner-photo" loading="lazy" width="1200" height="1799">
+                        <source srcset="images/runner-photo.webp" type="image/webp">
+                        <img src="images/runner-photo.jpg" alt="Running for Uncle Edwy" loading="lazy" width="1200" height="1799">
                     </picture>
-                    <p class="runner-photo-caption">Running 13.1 miles to honor Uncle Edwy's memory</p>
+                    <p class="story-zone__caption">Running 13.1 miles to honor Uncle Edwy&#8217;s memory</p>
                 </div>
-                
-                <div class="story-content">
-                    <p>There was a time when running even a mile felt out of reach. For years, I carried extra weight 
-                      and the limits that came with it — limits I had quietly accepted. Over the past two years, 
-                      I’ve lost more than 100 pounds and found something bigger than fitness. 
-                      I found freedom. I learned that every barrier I thought was permanent could be moved with enough patience, 
-                      effort, and belief.</p>
+            </div>
 
-                    <p>Running a half marathon isn’t just about crossing a finish line. It’s about proving to myself that anything 
-                      is possible. And it’s about using that belief to make a difference.</p>
-
-                    <p>In April 2026, I’ll be running the 
-                      <a href="https://brooklynexperience.com" target="_blank" rel="noopener">
-                        <strong>Brooklyn Experience Half Marathon</strong>
-                      </a> in honor of my Uncle Edwy, 
-                      who we lost to colorectal cancer in 2021. Every mile is a tribute to him and to every family 
-                      touched by this disease. Through this race, I’m raising money for 
-                      <a href="https://www.stjude.org" target="_blank" rel="noopener">
-                      <strong>St. Jude Children’s Research Hospital</strong>
-                      </a> and 
-                      <a href="https://www.mskcc.org" target="_blank" rel="noopener">
-                      <strong>Memorial Sloan Kettering Cancer Center</strong>
-                      </a>, two organizations that bring hope, healing, and life-saving care to 
-                      those who need it most.</p>
-
-                    <p>This run is my way of breaking past limits — both mine and the ones that cancer imposes on too many lives.</p>
-                </section>
-
-                <!-- Countdown to Race Day -->
-                <div class="container">
-                  <section class="countdown-section" aria-label="Countdown to race day">
-                    <h2>Countdown to Race Day</h2>
-                    <div class="countdown-grid" id="raceCountdown">
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-days">0</span>
-                        <span class="countdown-label">Days</span>
-                      </div>
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-hours">0</span>
-                        <span class="countdown-label">Hours</span>
-                      </div>
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-minutes">0</span>
-                        <span class="countdown-label">Minutes</span>
-                      </div>
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-seconds">0</span>
-                        <span class="countdown-label">Seconds</span>
-                      </div>
+            <!-- Countdown strip -->
+            <div class="story-countdown">
+                <p class="story-countdown__label-text">Race Day Countdown</p>
+                <div class="story-countdown__grid">
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-days">0</span>
+                        <span class="story-countdown__lbl">Days</span>
                     </div>
-                    <p class="countdown-note">
-                      Brooklyn Experience Half Marathon on April 26, 2026
-                    </p>
-                  </section>
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-hours">0</span>
+                        <span class="story-countdown__lbl">Hours</span>
+                    </div>
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-minutes">0</span>
+                        <span class="story-countdown__lbl">Minutes</span>
+                    </div>
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-seconds">0</span>
+                        <span class="story-countdown__lbl">Seconds</span>
+                    </div>
                 </div>
+                <p class="story-countdown__note">Brooklyn Experience Half Marathon &middot; April 26, 2026</p>
+            </div>
+        </section>
 
-                  <section class="uncle-tribute" id="about">
-                    <div class="tribute-content">
-                        <h2>In Loving Memory</h2>
-                        <div class="tribute-box">
-                            <h3>Edwy Bruce Aiken</h3>
-                            <p class="dates">Forever in Our Hearts | October 22, 1957  -  February 26, 2021</p>
-        
-                            <!-- Uncle Edwy's Photo -->
-                            <div class="photo-frame">
-                                <!-- TO ADD PHOTO: Upload image to GitHub and replace src below -->
-                                <picture>
-                                  <source srcset="images/uncle-edwy.webp" type="image/webp">
-                                  <img src="images/uncle-edwy.jpg" alt="Uncle Edwy smiling at family gathering" loading="lazy" width="720" height="720">
-                                </picture>
-                            </div>
-        
-                            <div class="heart" aria-label="Heart symbol">❤️</div>
-                              <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
-                              When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
-                              we lost our biggest supporter and the person who brought everyone together.</p>
-                              <p>He had so much more life to live and so much more love to give. His story isn’t unique,
-                              and that’s what makes it so painful. So many families have faced the same loss.
-                              Remembering him has become more than holding onto the past. It’s a reminder to act,
-                              to fight for a cure, and to help others who are still battling this disease.</p>
-                        </div>
+                <section class="memorial-zone" id="about">
+                    <div class="memorial-zone__portrait">
+                        <picture>
+                            <source srcset="images/uncle-edwy.webp" type="image/webp">
+                            <img src="images/uncle-edwy.jpg" alt="Edwy Bruce Aiken smiling at family gathering" loading="lazy" width="720" height="720">
+                        </picture>
+                    </div>
+                    <p class="memorial-zone__eyebrow">In Loving Memory</p>
+                    <h2 class="memorial-zone__name">Edwy Bruce Aiken</h2>
+                    <p class="memorial-zone__dates">October 22, 1957 &ndash; February 26, 2021</p>
+                    <div class="memorial-zone__heart" aria-label="Heart symbol">&#10084;</div>
+                    <div class="memorial-zone__body">
+                        <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
+                        When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
+                        we lost our biggest supporter and the person who brought everyone together.</p>
+                        <p>He had so much more life to live and so much more love to give. His story isn&#8217;t unique,
+                        and that&#8217;s what makes it so painful. Remembering him has become more than holding onto the past.
+                        It&#8217;s a reminder to act, to fight for a cure, and to help others who are still battling this disease.</p>
                     </div>
                 </section>
+                <section class="donate-zone" id="donate">
+                    <div class="donate-zone__inner">
+                        <p class="section-eyebrow">Join the Fight</p>
+                        <h2 class="donate-zone__heading">Give in Uncle Edwy&#8217;s Memory</h2>
+                        <p class="donate-zone__sub">Every dollar funds life-saving cancer research and care.
+                        Your gift goes directly to one of two extraordinary organizations.</p>
 
-                    <section class="section donation-section" id="donate">
-                      <div class="container">
-                        <h2>Honoring Uncle Edwy's Memory</h2>
-                        <div class="donation-intro">
-                          <p><strong>Miles for Uncle Edwy</strong> is more than a race — it’s a promise. 
-                          A promise to keep his memory alive, to honor his strength, and to help others who need hope.</p>
-                          
-                          <p>Every mile matters. Every donation counts. Thank you for being part of this journey and helping 
-                          make a difference in his name.</p>
+                        <div class="donate-zone__cards">
+                            <!-- St. Jude -->
+                            <article class="charity-card charity-card--stjude">
+                                <div class="charity-card__header">
+                                    <picture>
+                                        <source srcset="images/stjude-logo.webp" type="image/webp">
+                                        <img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital" loading="lazy" width="220" height="88">
+                                    </picture>
+                                </div>
+                                <div class="charity-card__body">
+                                    <h3>St. Jude Children&#8217;s Research Hospital</h3>
+                                    <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for
+                                    treatment, travel, housing, or food &#8212; so they can focus on helping their child live.</p>
+                                    <div class="charity-card__trust">
+                                        <span>&#128274; Secure</span>
+                                        <span>&#128175; 100% to charity</span>
+                                        <span>&#10004; Tax-deductible</span>
+                                    </div>
+                                    <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
+                                       target="_blank" rel="noopener" class="btn btn--stjude">
+                                        Donate to St. Jude
+                                    </a>
+                                    <p class="charity-card__match">
+                                        <strong>Corporate match:</strong> Many employers double your gift via
+                                        Benevity/YourCause/CyberGrants.
+                                        <a href="#matching">See instructions &rarr;</a>
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- MSK -->
+                            <article class="charity-card charity-card--msk">
+                                <div class="charity-card__header">
+                                    <picture>
+                                        <source srcset="images/msk-logo-2.webp" type="image/webp">
+                                        <img src="images/msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center" loading="lazy" width="180" height="38">
+                                    </picture>
+                                </div>
+                                <div class="charity-card__body">
+                                    <h3>Memorial Sloan Kettering</h3>
+                                    <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care &#8212;
+                                    work that gives families like mine more time and hope.</p>
+                                    <div class="charity-card__trust">
+                                        <span>&#128274; Secure</span>
+                                        <span>&#128175; 100% to charity</span>
+                                        <span>&#10004; Tax-deductible</span>
+                                    </div>
+                                    <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
+                                       target="_blank" rel="noopener" class="btn btn--msk">
+                                        Donate to MSK
+                                    </a>
+                                    <p class="charity-card__match">
+                                        <strong>Corporate match:</strong> Many employers double your gift via
+                                        Benevity/YourCause/CyberGrants.
+                                        <a href="#matching">See instructions &rarr;</a>
+                                    </p>
+                                </div>
+                            </article>
                         </div>
-                    
-                        <h3 style="text-align:center;color:var(--c-navy);margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-size:var(--tx-xl);">Fighting Cancer on Two Fronts</h3>
-                        <p style="text-align:center;margin-bottom:30px;color:#666;">
-                          All donations go directly to two extraordinary organizations saving lives every day.
-                        </p>
-                        
-                        <div class="trust-badges" style="margin-bottom:32px;margin-top:0;">
-                          <p>
-                            🔒 <strong>Secure donations</strong> processed through official St. Jude and MSK pages<br>
-                            💯 <strong>100% of your gift</strong> supports cancer research and patient care<br>
-                            ❤️ <strong>Tax-deductible</strong> charitable contributions
-                          </p>
-                        </div>
-
-                        <div class="donation-cards">
-                          <article class="donation-card">
-                            <div class="donation-card-content">
-<picture><source srcset="images/stjude-logo.webp" type="image/webp"><img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital Logo" width="180" height="72" loading="lazy" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"></picture>
-                              <h3>St. Jude Children's Research Hospital</h3>
-                              <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
-                                 travel, housing, or food — so they can focus on helping their child live.</p>
-                            </div>
-                            <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
-                               target="_blank" class="donate-button" rel="noopener"
->
-                               Donate to St. Jude
-                            </a>
-                            <div class="match-callout">
-                              <strong>Corporate match:</strong> Many employers will match your gift.
-                              After donating, request a match through your company (Benevity/YourCause/CyberGrants),
-                              then <a href="#matching">see matching instructions</a>.
-                            </div>
-                          </article>
-                        
-                          <article class="donation-card">
-                            <div class="donation-card-content">
-<picture><source srcset="images/msk-logo-2.webp" type="image/webp"><img src="images/msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo" width="180" height="38" loading="lazy" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"></picture>
-                              <h3>Memorial Sloan Kettering</h3>
-                              <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
-                                 work that gives families like mine more time and hope.</p>
-                            </div>
-                            <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
-                               target="_blank" class="donate-button" rel="noopener">
-                               Donate to MSK
-                            </a>
-                            <div class="match-callout">
-                              <strong>Corporate match:</strong> Many employers will match your gift.
-                              After donating, request a match through your company (Benevity/YourCause/CyberGrants),
-                              then <a href="#matching">see matching instructions</a>.
-                            </div>
-                          </article>
-                        </div>
-                        
-
-                      </div>
-                    </section>
-
+                    </div>
+                </section>
                     <!-- Photo Slideshow Section -->
-                    <div class="race-photo-section">
-                        <h3>Memories & Training Journey</h3>
-                        <p style="text-align: center; margin-bottom: 30px; color: #666;">
-                            Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy's memory with every mile.
-                        </p>
+                <section class="race-photo-section">
+                        <p class="section-eyebrow">Gallery</p>
+                        <h3>Memories &amp; Training Journey</h3>
+                        <p>Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy&#8217;s memory with every mile.</p>
                         
                         <div class="slideshow-container">
                             <!-- Slides -->
@@ -2316,9 +2564,10 @@
             </div>
         </section>
 
-        <section class="section" id="progress">
+        <section class="section" id="progress" style="background:var(--c-cream);">
             <div class="container">
-                <h2>Fundraising Progress</h2>
+                <p class="section-eyebrow" style="text-align:center;">Miles on the Board</p>
+                <h2 style="text-align:center;color:var(--c-ink);font-size:clamp(2rem,4.5vw,3rem);margin-bottom:8px;">Fundraising Progress</h2>
 
                 <div class="dual-meters">
                   <div class="dual-meters__header" aria-live="polite">
@@ -2681,13 +2930,12 @@
           </div>
         </div>
 
-        <h3>Thank You For Keeping Uncle Edwy's Memory Alive</h3>
-        <p style="font-size: 1.2em; margin-top: 20px;">Every mile matters. Every donation counts. Every memory lives on.
-        </p>
-        <p style="margin-top: 30px; opacity: 0.8;">Brooklyn Experience Half Marathon | April 26, 2026</p>
-        <div class="heart" style="font-size: 2em; margin-top: 20px;" aria-label="Heart symbol">❤️</div>
-        <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.7;">
-            <a href="mailto:info@milesforuncleedwy.org" style="color: #eaeadf; text-decoration: underline; margin: 0 10px;">Contact</a>
+        <h3 class="footer__title">Thank You For Keeping Uncle Edwy&#8217;s Memory Alive</h3>
+        <p class="footer__tagline">Every mile matters. Every donation counts. Every memory lives on.</p>
+        <p class="footer__race-note">Brooklyn Experience Half Marathon &middot; April 26, 2026</p>
+        <div class="footer__heart" aria-label="Heart symbol">&#10084;</div>
+        <p class="footer__contact">
+            <a href="mailto:info@milesforuncleedwy.org">Contact</a>
         </p>
     </footer>
 
@@ -2785,7 +3033,7 @@
         };
 
         // Track donation button clicks (for analytics)
-        document.querySelectorAll('.donate-button').forEach(button => {
+        document.querySelectorAll('.btn--stjude, .btn--msk').forEach(button => {
             button.addEventListener('click', function() {
                 // Google Analytics event tracking
                 gtag('event', 'click', {
@@ -3091,6 +3339,42 @@
         // Initialize slideshow (default paused — respect viewer attention for memorial photos)
         showSlide(currentSlideIndex);
         // Do not auto-start; user opts in via Play button
+    </script>
+
+    <!-- Navigation: transparent → solid on scroll + hamburger -->
+    <script>
+    (function() {
+        const nav    = document.getElementById('mainNav');
+        const burger = document.getElementById('navBurger');
+        const links  = document.getElementById('navLinks');
+
+        // Go solid once the hero section exits the viewport
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const obs = new IntersectionObserver(([entry]) => {
+                nav.classList.toggle('nav--solid', !entry.isIntersecting);
+            }, { threshold: 0 });
+            obs.observe(hero);
+        }
+
+        // Hamburger open/close
+        burger.addEventListener('click', () => {
+            const open = links.classList.toggle('open');
+            burger.classList.toggle('open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+
+        // Close drawer when a link is tapped
+        links.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                links.classList.remove('open');
+                burger.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    })();
     </script>
 
     <!-- Google Analytics (deferred) -->
