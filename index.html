@@ -2031,7 +2031,11 @@
             .nav-links {
                 display: none;
                 position: fixed;
-                inset: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100vh;
+                height: 100dvh;
                 background: rgba(13,27,42,0.97);
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(12px);
@@ -2040,6 +2044,7 @@
                 align-items: center;
                 gap: 4px;
                 z-index: 999;
+                overflow-y: auto;
             }
 
             .nav-links.open { display: flex; }
