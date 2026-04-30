@@ -2200,6 +2200,25 @@
             .donate-zone__cards { grid-template-columns: 1fr; }
         }
 
+        /* ── Scroll reveal ──────────────────────────────────────── */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-reveal].is-visible {
+            opacity: 1;
+            transform: none;
+        }
+        [data-reveal-delay="1"] { transition-delay: 0.10s; }
+        [data-reveal-delay="2"] { transition-delay: 0.20s; }
+        [data-reveal-delay="3"] { transition-delay: 0.30s; }
+        [data-reveal-delay="4"] { transition-delay: 0.40s; }
+        @media (prefers-reduced-motion: reduce) {
+            [data-reveal] { opacity: 1; transform: none; transition: none; }
+        }
+
         /* ── Story zone ─────────────────────────────────────────── */
         .story-zone {
             background: var(--c-cream);
@@ -2409,19 +2428,19 @@
     <!-- Impact Statistics -->
     <section class="impact-stats">
         <div class="stats-grid">
-            <div class="stat-item">
+            <div class="stat-item" data-reveal data-reveal-delay="1">
                 <div class="stat-number">13.1</div>
                 <div class="stat-label">Miles to Run</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" data-reveal data-reveal-delay="2">
                 <div class="stat-number" id="donorCount">3</div>
                 <div class="stat-label">Donors</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" data-reveal data-reveal-delay="3">
                 <div class="stat-number">2</div>
                 <div class="stat-label">Life-Saving Organizations</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" data-reveal data-reveal-delay="4">
                 <div class="stat-number">APR 26</div>
                 <div class="stat-label">Race Day 2026</div>
             </div>
@@ -2434,7 +2453,7 @@
             <div class="story-zone__inner">
 
                 <!-- Left column: text -->
-                <div class="story-zone__text">
+                <div class="story-zone__text" data-reveal>
                     <p class="section-eyebrow">Why I'm Running</p>
                     <h2 class="story-zone__heading">Running for something<br>bigger than a finish line.</h2>
                     <blockquote class="story-zone__pullquote">
@@ -2463,7 +2482,7 @@
                 </div>
 
                 <!-- Right column: runner photo (sticky on desktop) -->
-                <div class="story-zone__photo">
+                <div class="story-zone__photo" data-reveal data-reveal-delay="2">
                     <picture>
                         <source srcset="images/runner-photo.webp" type="image/webp">
                         <img src="images/runner-photo.jpg" alt="Running for Uncle Edwy" loading="lazy" width="1200" height="1799">
@@ -2473,7 +2492,7 @@
             </div>
 
             <!-- Countdown strip -->
-            <div class="story-countdown">
+            <div class="story-countdown" data-reveal>
                 <p class="story-countdown__label-text">Race Day Countdown</p>
                 <div class="story-countdown__grid">
                     <div class="story-countdown__item">
@@ -2498,17 +2517,17 @@
         </section>
 
                 <section class="memorial-zone" id="about">
-                    <div class="memorial-zone__portrait">
+                    <div class="memorial-zone__portrait" data-reveal>
                         <picture>
                             <source srcset="images/uncle-edwy.webp" type="image/webp">
                             <img src="images/uncle-edwy.jpg" alt="Edwy Bruce Aiken smiling at family gathering" loading="lazy" width="720" height="720">
                         </picture>
                     </div>
-                    <p class="memorial-zone__eyebrow">In Loving Memory</p>
-                    <h2 class="memorial-zone__name">Edwy Bruce Aiken</h2>
-                    <p class="memorial-zone__dates">October 22, 1957 &ndash; February 26, 2021</p>
-                    <div class="memorial-zone__heart" aria-label="Heart symbol">&#10084;</div>
-                    <div class="memorial-zone__body">
+                    <p class="memorial-zone__eyebrow" data-reveal data-reveal-delay="1">In Loving Memory</p>
+                    <h2 class="memorial-zone__name" data-reveal data-reveal-delay="2">Edwy Bruce Aiken</h2>
+                    <p class="memorial-zone__dates" data-reveal data-reveal-delay="2">October 22, 1957 &ndash; February 26, 2021</p>
+                    <div class="memorial-zone__heart" aria-label="Heart symbol" data-reveal data-reveal-delay="3">&#10084;</div>
+                    <div class="memorial-zone__body" data-reveal data-reveal-delay="3">
                         <p>Uncle Edwy was more than family. He was laughter, joy, and the heart of every gathering.
                         When colorectal cancer took him from us in 2021 at 63 years old, our family lost more than an uncle;
                         we lost our biggest supporter and the person who brought everyone together.</p>
@@ -2519,14 +2538,14 @@
                 </section>
                 <section class="donate-zone" id="donate">
                     <div class="donate-zone__inner">
-                        <p class="section-eyebrow">Join the Fight</p>
-                        <h2 class="donate-zone__heading">Give in Uncle Edwy&#8217;s Memory</h2>
-                        <p class="donate-zone__sub">Every dollar funds life-saving cancer research and care.
+                        <p class="section-eyebrow" data-reveal>Join the Fight</p>
+                        <h2 class="donate-zone__heading" data-reveal data-reveal-delay="1">Give in Uncle Edwy&#8217;s Memory</h2>
+                        <p class="donate-zone__sub" data-reveal data-reveal-delay="2">Every dollar funds life-saving cancer research and care.
                         Your gift goes directly to one of two extraordinary organizations.</p>
 
                         <div class="donate-zone__cards">
                             <!-- St. Jude -->
-                            <article class="charity-card charity-card--stjude">
+                            <article class="charity-card charity-card--stjude" data-reveal data-reveal-delay="1">
                                 <div class="charity-card__header">
                                     <picture>
                                         <source srcset="images/stjude-logo.webp" type="image/webp">
@@ -2555,7 +2574,7 @@
                             </article>
 
                             <!-- MSK -->
-                            <article class="charity-card charity-card--msk">
+                            <article class="charity-card charity-card--msk" data-reveal data-reveal-delay="2">
                                 <div class="charity-card__header">
                                     <picture>
                                         <source srcset="images/msk-logo-2.webp" type="image/webp">
@@ -2586,7 +2605,7 @@
                     </div>
                 </section>
                     <!-- Photo Slideshow Section -->
-                <section class="race-photo-section">
+                <section class="race-photo-section" data-reveal>
                         <p class="section-eyebrow">Gallery</p>
                         <h3>Memories &amp; Training Journey</h3>
                         <p>Follow along as I train for the Brooklyn Experience Half Marathon and honor Uncle Edwy&#8217;s memory with every mile.</p>
@@ -2653,7 +2672,7 @@
                 <p class="section-eyebrow" style="text-align:center;">Miles on the Board</p>
                 <h2 style="text-align:center;color:var(--c-ink);font-size:clamp(2rem,4.5vw,3rem);margin-bottom:8px;">Fundraising Progress</h2>
 
-                <div class="dual-meters">
+                <div class="dual-meters" data-reveal>
                   <div class="dual-meters__header" aria-live="polite">
                     <h3 class="dual-meters__title">Miles For Uncle Edwy — Fundraising Totals</h3>
                     <div class="dual-meters__totals">
@@ -2906,7 +2925,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq-section">
+        <section class="faq-section" data-reveal>
             <div class="container">
                 <h2>Frequently Asked Questions</h2>
                 <div class="faq-container">
@@ -2978,7 +2997,7 @@
         </section>
 
         <!-- Email Signup Section -->
-        <section class="email-signup">
+        <section class="email-signup" data-reveal>
             <h2>Stay Updated on My Journey</h2>
             <p>Get updates on training progress, fundraising milestones, and race day! Join the Miles For Uncle Edwy community.</p>
             <div class="substack-embed">
@@ -3457,6 +3476,30 @@
                 burger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             });
+        });
+    })();
+    </script>
+
+    <!-- Scroll reveal -->
+    <script>
+    (function () {
+        if (!('IntersectionObserver' in window)) {
+            // Fallback: just show everything immediately
+            document.querySelectorAll('[data-reveal]').forEach(function (el) {
+                el.classList.add('is-visible');
+            });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('[data-reveal]').forEach(function (el) {
+            io.observe(el);
         });
     })();
     </script>
