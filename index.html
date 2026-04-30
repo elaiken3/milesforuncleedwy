@@ -383,23 +383,193 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
 
+        /* ── Hero: full-viewport, bg image + overlay + HTML text ── */
         .hero {
             position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 620px;
             overflow: hidden;
-            padding: 0;
-            margin: 0;
-            background: var(--c-navy-deep);
+            background: var(--c-ink);
+            display: flex;
+            align-items: center;
         }
 
-        .race-logo {
+        .hero-bg {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg picture,
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 65% center;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(
+                110deg,
+                rgba(13,27,42,0.93) 0%,
+                rgba(13,27,42,0.78) 45%,
+                rgba(13,27,42,0.28) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 clamp(28px, 8vw, 100px);
+            padding-top: var(--nav-h);
+            max-width: 680px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .hero-title__label {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 4px;
+        }
+
+        .hero-title__name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(3.5rem, 9vw, 7.5rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 0.92;
+            text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: rgba(255,255,255,0.72);
+            line-height: 1.65;
+            margin-bottom: 40px;
+            max-width: 460px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--r-pill);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 52px;
+            min-width: unset;
+        }
+
+        .btn--primary {
+            background: var(--c-amber);
+            color: var(--c-ink);
+        }
+
+        .btn--primary:hover {
+            background: var(--c-amber-lt);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(200,147,42,0.45);
+        }
+
+        .btn--ghost {
+            background: transparent;
+            color: rgba(255,255,255,0.88);
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+
+        .btn--ghost:hover {
+            border-color: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+
+        /* Charity logos — frosted pill, bottom-right */
+        .hero-logos {
+            position: absolute;
+            bottom: 36px;
+            right: 36px;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            background: rgba(13,27,42,0.58);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 12px 22px;
+            border-radius: var(--r-md);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-logos a { display: block; transition: opacity 0.2s; }
+        .hero-logos a:hover { opacity: 0.85; }
+        .hero-logos picture { display: block; }
+        .hero-logos img { filter: brightness(1.05) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+        .hero-logos .brooklyn-logo { height: 40px; width: auto; }
+        .hero-logos .charity-logo  { height: 26px; width: auto; }
+
+        /* Scroll indicator */
+        .hero-scroll {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .hero-scroll__line {
+            display: block;
+            width: 1px;
+            height: 52px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+            animation: heroScrollLine 2.2s ease-in-out infinite;
+        }
+
+        @keyframes heroScrollLine {
+            0%   { transform: scaleY(0); transform-origin: top;    }
+            49%  { transform: scaleY(1); transform-origin: top;    }
+            50%  { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
         }
 
         .donation-card img {
@@ -528,62 +698,6 @@
         }
 
 
-        .race-logo a {
-            transition: transform 0.3s ease;
-            display: block;
-        }
-
-        .race-logo a:hover {
-            transform: scale(1.05);
-        }
-
-        .race-logo picture {
-            display: block;
-        }
-
-        .race-logo img {
-            height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-            background: transparent;
-            padding: 8px;
-            border-radius: var(--r-sm);
-            display: block;
-        }
-
-        .brooklyn-logo {
-            width: 160px;
-        }
-
-        .charity-logo {
-            width: 160px;
-        }
-
-        .hero-image-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            padding: 40px 20px;
-            /* prevent picture/img from blowing out the container */
-            overflow: hidden;
-        }
-
-        /* picture must be block so it doesn't create inline whitespace */
-        .hero-image-container picture {
-            display: block;
-            width: 100%;
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            box-shadow: none;
-            display: block;
-        }
-
-        /* prevent any child from causing horizontal scroll */
-        .hero { overflow-x: hidden; }
 
 
         /* Footer Social Section */
@@ -1789,34 +1903,22 @@
                 align-items: center;
             }
 
-            /* Main hero image comes first */
-            .hero-image-container {
-                max-width: 100%;
-                padding: 20px 10px;
-                order: 1;
-            }
-        
-            /* Logos sit *below* the hero image, in a horizontal row */
-            .race-logo {
-                position: static;
-                order: 2;
-                margin: 10px auto 20px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
+            /* Mobile hero */
+            .hero { height: 88vh; min-height: 520px; }
+            .hero-bg img { object-position: 68% center; }
+            .hero-content { max-width: 100%; }
+            .hero-title__name { font-size: clamp(3rem, 13vw, 4.5rem); }
+            .hero-logos {
+                bottom: auto;
+                top: calc(var(--nav-h) + 10px);
+                right: 12px;
+                left: auto;
+                padding: 8px 14px;
                 gap: 12px;
-                flex-wrap: wrap; /* so they wrap nicely on very small phones */
             }
-        
-            .race-logo a {
-                text-align: center;
-            }
-        
-            .brooklyn-logo,
-            .charity-logo {
-                width: 110px; /* tweak as needed */
-            }
+            .hero-logos .brooklyn-logo { height: 30px; }
+            .hero-logos .charity-logo  { height: 20px; }
+            .hero-scroll { display: none; }
 
             /* Mobile nav */
             .nav-inner { padding: 0 20px; }
@@ -2086,15 +2188,6 @@
                 padding: 15px 10px;
             }
             
-            /* Hero adjustments */
-            .hero h1 {
-                font-size: 1.75em;
-            }
-            
-            .hero-tagline {
-                font-size: 1em;
-            }
-            
             /* Photo frame on small phones */
             .photo-frame {
                 width: 250px;
@@ -2153,54 +2246,65 @@
         </div>
     </nav>
 
-    <div class="hero">
-        <!-- Logo Stack: Brooklyn Experience Half Marathon + Charity Logos -->
-        <div class="race-logo">
-            <!-- Brooklyn Experience Half Marathon Logo -->
-            <a href="https://brooklynexperience.com" target="_blank" rel="noopener"
-                aria-label="Brooklyn Experience Half Marathon">
-                <picture>
-                  <source srcset="images/brooklyn-logo.webp" type="image/webp">
-                  <img src="images/brooklyn-logo.png" alt="NYCRUNS Brooklyn Experience Half Marathon logo" class="brooklyn-logo" width="220" height="172" loading="lazy">
-                </picture>
-            </a>
-
-            <!-- St. Jude Logo -->
-            <a href="https://www.stjude.org" target="_blank" rel="noopener"
-                aria-label="St. Jude Children's Research Hospital">
-                <picture>
-                  <source srcset="images/stjude-logo.webp" type="image/webp">
-                  <img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital logo" class="charity-logo" width="220" height="88" loading="lazy">
-                </picture>
-            </a>
-
-            <!-- Memorial Sloan Kettering Logo -->
-            <a href="https://www.mskcc.org" target="_blank" rel="noopener"
-                aria-label="Memorial Sloan Kettering Cancer Center">
-                <picture>
-                  <source srcset="images/msk-logo.webp" type="image/webp">
-                  <img src="images/msk-logo.png" alt="Memorial Sloan Kettering Cancer Center logo" class="charity-logo" width="220" height="220" loading="lazy">
-                </picture>
-            </a>
-        </div>
-
-        <!-- Hero Images - responsive <picture> with WebP + JPG fallbacks -->
-        <div class="hero-image-container">
+    <section class="hero" id="hero">
+        <!-- Background photo (decorative — title is in HTML below) -->
+        <div class="hero-bg" aria-hidden="true">
             <picture>
-                <!-- Mobile WebP -->
                 <source media="(max-width: 768px)" srcset="images/hero-image-mobile.webp" type="image/webp">
-                <!-- Mobile JPG fallback -->
                 <source media="(max-width: 768px)" srcset="images/hero-image-mobile.jpg" type="image/jpeg">
-                <!-- Desktop WebP -->
                 <source media="(min-width: 769px)" srcset="images/hero-image-desktop.webp" type="image/webp">
-                <!-- Desktop JPG fallback -->
                 <source media="(min-width: 769px)" srcset="images/hero-image-desktop.jpg" type="image/jpeg">
-                <img src="images/hero-image-desktop.jpg"
-                    alt="Miles For Uncle Edwy Brooklyn Experience Half Marathon 2026 fundraising banner"
-                    loading="eager" width="2000" height="1124" style="width:100%;height:auto;border-radius:0;">
+                <img src="images/hero-image-desktop.jpg" alt="" loading="eager" width="2000" height="1124">
             </picture>
         </div>
-    </div>
+
+        <!-- Gradient overlay -->
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <!-- Hero content: title + CTA -->
+        <div class="hero-content">
+            <p class="hero-eyebrow">Brooklyn Experience Half Marathon &middot; April 26, 2026</p>
+            <h1 class="hero-title">
+                <span class="hero-title__label">Miles For</span>
+                <span class="hero-title__name">Uncle Edwy</span>
+            </h1>
+            <p class="hero-subtitle">Running 13.1 miles to honor his memory and raise funds fighting colorectal cancer</p>
+            <div class="hero-ctas">
+                <a href="#donate" class="btn btn--primary">Donate Now</a>
+                <a href="#why-running" class="btn btn--ghost">Our Story</a>
+            </div>
+        </div>
+
+        <!-- Race + charity logos: frosted pill, bottom-right -->
+        <div class="hero-logos">
+            <a href="https://brooklynexperience.com" target="_blank" rel="noopener"
+               aria-label="Brooklyn Experience Half Marathon">
+                <picture>
+                    <source srcset="images/brooklyn-logo.webp" type="image/webp">
+                    <img src="images/brooklyn-logo.png" alt="Brooklyn Experience Half Marathon" class="brooklyn-logo" loading="lazy" width="220" height="172">
+                </picture>
+            </a>
+            <a href="https://www.stjude.org" target="_blank" rel="noopener"
+               aria-label="St. Jude Children's Research Hospital">
+                <picture>
+                    <source srcset="images/stjude-logo.webp" type="image/webp">
+                    <img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital" class="charity-logo" loading="lazy" width="220" height="88">
+                </picture>
+            </a>
+            <a href="https://www.mskcc.org" target="_blank" rel="noopener"
+               aria-label="Memorial Sloan Kettering Cancer Center">
+                <picture>
+                    <source srcset="images/msk-logo.webp" type="image/webp">
+                    <img src="images/msk-logo.png" alt="Memorial Sloan Kettering Cancer Center" class="charity-logo" loading="lazy" width="220" height="220">
+                </picture>
+            </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll" aria-hidden="true">
+            <span class="hero-scroll__line"></span>
+        </div>
+    </section>
 
     <!-- Impact Statistics -->
     <section class="impact-stats">
