@@ -1715,111 +1715,146 @@
             font-weight: 700;
         }
 
-        .donation-section {
-            background: #f9f9f9;
-            padding-top: 40px;
-          }
-          
-          .donation-intro {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 50px;
-            font-size: 1.2em;
-            line-height: 1.8;
-          }
-          
-          /* Two-column layout on desktop, stacked on mobile */
-          .donation-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            max-width: 1100px;
+        /* ── Donate zone ────────────────────────────────────────── */
+        .donate-zone {
+            background: var(--c-cream);
+            padding: 88px 24px;
+        }
+
+        .donate-zone__inner {
+            max-width: 880px;
             margin: 0 auto;
-            align-items: stretch; /* make all cards in a row the same height */
-          }
-          
-          @media (max-width: 768px) {
-            .donation-cards {
-              grid-template-columns: 1fr;
-              gap: 25px;
-            }
-          }
-          
-          /* Each donation card is a flex column */
-          .donation-card {
-            background: white;
-            padding: 45px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
-          
+        }
+
+        .donate-zone__heading {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            color: var(--c-ink);
+            margin-bottom: 16px;
+        }
+
+        .donate-zone__sub {
+            font-size: 1.05rem;
+            color: var(--c-text-muted);
+            max-width: 520px;
+            margin: 0 auto 52px;
+            line-height: 1.7;
+        }
+
+        .donate-zone__cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            text-align: left;
+        }
+
+        .charity-card {
+            background: #fff;
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            box-shadow: var(--sh-md);
             display: flex;
             flex-direction: column;
-            height: 100%; /* fill the grid cell height */
-          }
-          
-          /* Optional: if you add a wrapper div inside (logo + h3 + text) */
-          .donation-card-content {
-            flex-grow: 1; /* lets the top content stretch so buttons align */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          /* Headings inside the boxes: aligned + same visual height */
-          .donation-card h3 {
-            color: var(--c-navy);
-            margin: 0 0 20px;
-            font-size: 1.8em;
-          
-            min-height: 3em;          /* keeps headings lined up even if one wraps */
+        }
+
+        .charity-card__header {
+            padding: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-          }
-          
-          /* Main description text flexes to push buttons to the bottom */
-          .donation-card p {
-            margin-bottom: 25px;
-            color: #666;
-            font-size: 1.05em;
+            min-height: 90px;
+        }
+
+        .charity-card--stjude .charity-card__header { background: var(--c-stjude); }
+        .charity-card--msk   .charity-card__header { background: var(--c-msk); }
+
+        .charity-card__header picture { display: block; }
+
+        .charity-card__header img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+
+        .charity-card__body {
+            padding: 24px 28px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .charity-card__body h3 {
+            font-size: 1.25rem;
+            color: var(--c-ink);
+            margin-bottom: 12px;
+        }
+
+        .charity-card__body > p {
+            font-size: 0.97rem;
+            color: var(--c-text-mid);
             line-height: 1.7;
-            flex-grow: 1;             /* this is what lets buttons line up */
-          }
-          
-          /* Match note under the button */
-          .match-callout {
-            margin-top: 16px;
-          }
+            margin-bottom: 18px;
+        }
 
-        .embed-placeholder {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4e7f2 100%);
-            border: 3px dashed var(--c-gold-bdr);
-            padding: 70px 20px;
-            border-radius: 10px;
-            color: var(--c-navy);
+        .charity-card__trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 22px;
+        }
+
+        .charity-card__trust span {
+            font-size: 0.76rem;
             font-weight: 600;
-            margin: 25px 0;
-            font-size: var(--tx-md);
+            color: var(--c-text-muted);
+            background: var(--c-cream);
+            padding: 4px 10px;
+            border-radius: var(--r-pill);
+            border: 1px solid var(--c-border);
         }
 
-        .donate-button {
-            display: inline-block;
-            background: var(--grad-race);
-            color: var(--c-white);
-            padding: 18px 45px;
+        .btn--stjude, .btn--msk {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 16px;
+            border-radius: var(--r-pill);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 14px 24px;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.15em;
-            transition: all 0.3s ease;
-            margin-top: 25px;
+            transition: filter 0.2s, transform 0.2s;
+            min-height: 50px;
+            color: #fff;
         }
 
-        .donate-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(242,107,58,.40);
+        .btn--stjude { background: var(--c-stjude); }
+        .btn--msk    { background: var(--c-msk); }
+        .btn--stjude:hover, .btn--msk:hover {
+            filter: brightness(1.12);
+            transform: translateY(-1px);
         }
+
+        .charity-card__match {
+            font-size: 0.82rem;
+            color: var(--c-text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .charity-card__match strong { color: var(--c-text); }
+
+        .charity-card__match a {
+            color: var(--c-amber);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        /* .donate-button replaced by .btn--stjude / .btn--msk */
 
         .footer {
             background: var(--c-navy-deep);
@@ -2118,7 +2153,11 @@
 
         }
 
-        /* ── Story zone: mobile stack ──────────────────────── */
+        @media (max-width: 700px) {
+            .donate-zone__cards { grid-template-columns: 1fr; }
+        }
+
+                /* ── Story zone: mobile stack ──────────────────────── */
         @media (max-width: 900px) {
             .story-zone__inner {
                 grid-template-columns: 1fr;
@@ -2351,73 +2390,74 @@
                         It&#8217;s a reminder to act, to fight for a cure, and to help others who are still battling this disease.</p>
                     </div>
                 </section>
-                    <section class="section donation-section" id="donate">
-                      <div class="container">
-                        <h2>Honoring Uncle Edwy's Memory</h2>
-                        <div class="donation-intro">
-                          <p><strong>Miles for Uncle Edwy</strong> is more than a race — it’s a promise. 
-                          A promise to keep his memory alive, to honor his strength, and to help others who need hope.</p>
-                          
-                          <p>Every mile matters. Every donation counts. Thank you for being part of this journey and helping 
-                          make a difference in his name.</p>
-                        </div>
-                    
-                        <h3 style="text-align:center;color:var(--c-navy);margin:0 0 20px;font-family:'Cormorant Garamond',Georgia,serif;font-size:var(--tx-xl);">Fighting Cancer on Two Fronts</h3>
-                        <p style="text-align:center;margin-bottom:30px;color:#666;">
-                          All donations go directly to two extraordinary organizations saving lives every day.
-                        </p>
-                        
-                        <div class="trust-badges" style="margin-bottom:32px;margin-top:0;">
-                          <p>
-                            🔒 <strong>Secure donations</strong> processed through official St. Jude and MSK pages<br>
-                            💯 <strong>100% of your gift</strong> supports cancer research and patient care<br>
-                            ❤️ <strong>Tax-deductible</strong> charitable contributions
-                          </p>
-                        </div>
+                <section class="donate-zone" id="donate">
+                    <div class="donate-zone__inner">
+                        <p class="section-eyebrow">Join the Fight</p>
+                        <h2 class="donate-zone__heading">Give in Uncle Edwy&#8217;s Memory</h2>
+                        <p class="donate-zone__sub">Every dollar funds life-saving cancer research and care.
+                        Your gift goes directly to one of two extraordinary organizations.</p>
 
-                        <div class="donation-cards">
-                          <article class="donation-card">
-                            <div class="donation-card-content">
-<picture><source srcset="images/stjude-logo.webp" type="image/webp"><img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital Logo" width="180" height="72" loading="lazy" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"></picture>
-                              <h3>St. Jude Children's Research Hospital</h3>
-                              <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for treatment,
-                                 travel, housing, or food — so they can focus on helping their child live.</p>
-                            </div>
-                            <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
-                               target="_blank" class="donate-button" rel="noopener"
->
-                               Donate to St. Jude
-                            </a>
-                            <div class="match-callout">
-                              <strong>Corporate match:</strong> Many employers will match your gift.
-                              After donating, request a match through your company (Benevity/YourCause/CyberGrants),
-                              then <a href="#matching">see matching instructions</a>.
-                            </div>
-                          </article>
-                        
-                          <article class="donation-card">
-                            <div class="donation-card-content">
-<picture><source srcset="images/msk-logo-2.webp" type="image/webp"><img src="images/msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center Logo" width="180" height="38" loading="lazy" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;"></picture>
-                              <h3>Memorial Sloan Kettering</h3>
-                              <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care —
-                                 work that gives families like mine more time and hope.</p>
-                            </div>
-                            <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
-                               target="_blank" class="donate-button" rel="noopener">
-                               Donate to MSK
-                            </a>
-                            <div class="match-callout">
-                              <strong>Corporate match:</strong> Many employers will match your gift.
-                              After donating, request a match through your company (Benevity/YourCause/CyberGrants),
-                              then <a href="#matching">see matching instructions</a>.
-                            </div>
-                          </article>
+                        <div class="donate-zone__cards">
+                            <!-- St. Jude -->
+                            <article class="charity-card charity-card--stjude">
+                                <div class="charity-card__header">
+                                    <picture>
+                                        <source srcset="images/stjude-logo.webp" type="image/webp">
+                                        <img src="images/stjude-logo.png" alt="St. Jude Children's Research Hospital" loading="lazy" width="220" height="88">
+                                    </picture>
+                                </div>
+                                <div class="charity-card__body">
+                                    <h3>St. Jude Children&#8217;s Research Hospital</h3>
+                                    <p>St. Jude ensures that no child faces cancer alone. Families never receive a bill for
+                                    treatment, travel, housing, or food &#8212; so they can focus on helping their child live.</p>
+                                    <div class="charity-card__trust">
+                                        <span>&#128274; Secure</span>
+                                        <span>&#128175; 100% to charity</span>
+                                        <span>&#10004; Tax-deductible</span>
+                                    </div>
+                                    <a href="http://fundraising.stjude.org/goto/milesforuncleedwy"
+                                       target="_blank" rel="noopener" class="btn btn--stjude">
+                                        Donate to St. Jude
+                                    </a>
+                                    <p class="charity-card__match">
+                                        <strong>Corporate match:</strong> Many employers double your gift via
+                                        Benevity/YourCause/CyberGrants.
+                                        <a href="#matching">See instructions &rarr;</a>
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- MSK -->
+                            <article class="charity-card charity-card--msk">
+                                <div class="charity-card__header">
+                                    <picture>
+                                        <source srcset="images/msk-logo-2.webp" type="image/webp">
+                                        <img src="images/msk-logo-2.png" alt="Memorial Sloan Kettering Cancer Center" loading="lazy" width="180" height="38">
+                                    </picture>
+                                </div>
+                                <div class="charity-card__body">
+                                    <h3>Memorial Sloan Kettering</h3>
+                                    <p>At MSK, every dollar funds groundbreaking colorectal cancer research and patient care &#8212;
+                                    work that gives families like mine more time and hope.</p>
+                                    <div class="charity-card__trust">
+                                        <span>&#128274; Secure</span>
+                                        <span>&#128175; 100% to charity</span>
+                                        <span>&#10004; Tax-deductible</span>
+                                    </div>
+                                    <a href="http://mskcc.convio.net/goto/milesforuncleedwy"
+                                       target="_blank" rel="noopener" class="btn btn--msk">
+                                        Donate to MSK
+                                    </a>
+                                    <p class="charity-card__match">
+                                        <strong>Corporate match:</strong> Many employers double your gift via
+                                        Benevity/YourCause/CyberGrants.
+                                        <a href="#matching">See instructions &rarr;</a>
+                                    </p>
+                                </div>
+                            </article>
                         </div>
-                        
-
-                      </div>
-                    </section>
-
+                    </div>
+                </section>
                     <!-- Photo Slideshow Section -->
                     <div class="race-photo-section">
                         <h3>Memories & Training Journey</h3>
@@ -2951,7 +2991,7 @@
         };
 
         // Track donation button clicks (for analytics)
-        document.querySelectorAll('.donate-button').forEach(button => {
+        document.querySelectorAll('.btn--stjude, .btn--msk').forEach(button => {
             button.addEventListener('click', function() {
                 // Google Analytics event tracking
                 gtag('event', 'click', {
