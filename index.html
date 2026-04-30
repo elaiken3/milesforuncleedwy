@@ -747,92 +747,103 @@
         }
 
         /* Impact Statistics */
+        /* ── Stats anchor bar ──────────────────────────────────── */
         .impact-stats {
-            background: var(--c-navy);
-            color: #F5F0E8;
-            padding: 60px 20px;
+            background: var(--c-ink);
+            color: rgba(255,255,255,0.8);
+            padding: 22px 20px;
             text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 880px;
             margin: 0 auto;
         }
 
         .stat-item {
-            padding: 20px;
+            padding: 8px 16px;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
 
+        .stat-item:last-child { border-right: none; }
+
         .stat-number {
-            font-size: var(--tx-4xl);
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 700;
-            color: var(--c-gold-lt);
+            color: var(--c-amber-lt);
             font-family: Impact, sans-serif;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: var(--tx-base);
-            margin-top: 10px;
-            opacity: 0.85;
-            letter-spacing: 0.03em;
+            font-size: 0.68rem;
+            margin-top: 5px;
+            opacity: 0.6;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        /* Countdown Section */
-        .countdown-section {
-          margin: 30px auto 10px;
-          max-width: 800px;
-          text-align: center;
-          padding: 30px 20px;
-          background: #ffffff;
-          border-radius: 12px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        /* ── Story-zone countdown strip ────────────────────────── */
+        .story-countdown {
+            background: var(--c-ink);
+            padding: 36px 20px;
+            text-align: center;
+            margin-top: 0;
         }
-        
-        .countdown-section h2 {
-          font-size: 2rem;
-          margin-bottom: 20px;
-          color: var(--c-navy);
+
+        .story-countdown__label-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 20px;
         }
-        
-        .countdown-grid {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          flex-wrap: wrap;
+
+        .story-countdown__grid {
+            display: flex;
+            justify-content: center;
+            max-width: 560px;
+            margin: 0 auto 16px;
         }
-        
-        .countdown-item {
-          min-width: 90px;
-          padding: 10px 12px;
-          border-radius: 10px;
-          background: var(--c-gold-bg);
-          border: 1px solid var(--c-gold-bdr);
+
+        .story-countdown__item {
+            flex: 1;
+            padding: 12px 8px;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .countdown-number {
-          display: block;
-          font-size: 2.5rem;
-          font-weight: 800;
-          color: var(--c-orange);
-          line-height: 1.1;
+
+        .story-countdown__item:last-child { border-right: none; }
+
+        .story-countdown__num {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--c-amber-lt);
+            line-height: 1;
         }
-        
-        .countdown-label {
-          display: block;
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: #555;
-          margin-top: 4px;
+
+        .story-countdown__lbl {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-top: 6px;
         }
-        
-        .countdown-note {
-          margin-top: 18px;
-          font-size: 0.95rem;
-          color: #666;
+
+        .story-countdown__note {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
         }
 
         /* Sponsor / Sponsorship Tiers */
@@ -1096,18 +1107,6 @@
         }
 
         
-        /* Mobile tweaks */
-        @media (max-width: 768px) {
-          .countdown-section {
-            padding: 24px 18px;
-          }
-          .countdown-number {
-            font-size: 2rem;
-          }
-          .countdown-item {
-            min-width: 80px;
-          }
-        }
 
 
         /* Trust Badges */
@@ -1354,44 +1353,99 @@
             }
         }
 
-        .story {
+        /* ── Story zone ──────────────────────────────────────────── */
+        .story-zone {
             background: var(--c-cream);
+            padding: 80px 0 0;
         }
 
-        .story-content {
-            max-width: 900px;
+        .story-zone__inner {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 64px;
+            max-width: 1100px;
             margin: 0 auto;
-            font-size: 1.15em;
-            line-height: 1.9;
+            padding: 0 48px;
+            align-items: start;
         }
 
-        .story-content p {
-            margin-bottom: 25px;
+        .section-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-amber);
+            margin-bottom: 14px;
         }
 
-        .story-content strong {
-            color: var(--c-gold);
+        .story-zone__heading {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--c-ink);
+            margin-bottom: 28px;
         }
 
-        /* Runner photo styling */
-        .runner-photo-container {
-            max-width: 500px;
-            margin: 40px auto;
-            text-align: center;
+        .story-zone__pullquote {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.15rem, 2vw, 1.45rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--c-navy-mid);
+            border-left: 3px solid var(--c-amber);
+            padding-left: 20px;
+            margin: 0 0 28px;
+            line-height: 1.55;
         }
-        
-        .runner-photo {
+
+        .story-zone__body p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--c-text-mid);
+            margin-bottom: 18px;
+        }
+
+        .story-zone__body a {
+            color: var(--c-navy);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--c-amber);
+            text-underline-offset: 3px;
+        }
+
+        .btn--dark {
+            background: var(--c-ink);
+            color: #fff;
+            margin-top: 8px;
+        }
+
+        .btn--dark:hover {
+            background: var(--c-navy-mid);
+            box-shadow: none;
+        }
+
+        .story-zone__photo {
+            position: sticky;
+            top: calc(var(--nav-h) + 20px);
+        }
+
+        .story-zone__photo picture { display: block; }
+
+        .story-zone__photo img {
             width: 100%;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-radius: var(--r-lg);
             display: block;
+            box-shadow: var(--sh-lg);
         }
-        
-        .runner-photo-caption {
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #666;
+
+        .story-zone__caption {
+            font-size: 0.82rem;
+            color: var(--c-text-muted);
+            text-align: center;
+            margin-top: 12px;
             font-style: italic;
         }
 
@@ -1979,19 +2033,7 @@
                 padding: 30px 20px;
             }
 
-            /* Runner photo mobile */
-            .runner-photo-container {
-                max-width: 350px;
-                margin: 30px auto;
-            }
-            
-            .runner-photo {
-                border-radius: 10px;
-            }
-            
-            .runner-photo-caption {
-                font-size: 0.9em;
-            }
+            /* story-zone photo resets at 900px — see below */
             
             .photo-frame {
                 width: 300px;
@@ -2123,7 +2165,7 @@
             }
 
             .stat-number {
-                font-size: 2.5em;
+                font-size: 1.4rem;
             }
 
             .signup-form {
@@ -2194,19 +2236,33 @@
                 max-width: 90%;
             }
 
-            /* Runner photo on small phones */
-            .runner-photo-container {
-                max-width: 280px;
-                margin: 25px auto;
-            }
-            
-            .runner-photo-caption {
-                font-size: 0.85em;
-            }
+
 
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        /* ── Story zone: mobile stack ──────────────────────── */
+        @media (max-width: 900px) {
+            .story-zone__inner {
+                grid-template-columns: 1fr;
+                padding: 0 28px;
+                gap: 36px;
+            }
+            .story-zone__photo {
+                position: static;
+                max-width: 320px;
+                margin: 0 auto;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .story-zone { padding: 48px 0 0; }
+            .story-zone__inner { padding: 0 20px; gap: 24px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+        }
+
+                @media (prefers-reduced-motion: reduce) {
           * {
             animation-duration: .001ms !important;
             animation-iteration-count: 1 !important;
@@ -2329,73 +2385,73 @@
     </section>
 
     <main id="main-content">
-        <section class="section story" id="why-running">
-            <div class="container">
-                <h2>Why I'm Running</h2>
+        <!-- Story Zone: editorial two-column layout -->
+        <section class="story-zone" id="why-running">
+            <div class="story-zone__inner">
 
-                <!-- Runner Photo -->
-                <div class="runner-photo-container">
-                    <picture>
-                      <source srcset="images/runner-photo.webp" type="image/webp">
-                      <img src="images/runner-photo.jpg" alt="Running for Uncle Edwy" class="runner-photo" loading="lazy" width="1200" height="1799">
-                    </picture>
-                    <p class="runner-photo-caption">Running 13.1 miles to honor Uncle Edwy's memory</p>
-                </div>
-                
-                <div class="story-content">
-                    <p>There was a time when running even a mile felt out of reach. For years, I carried extra weight 
-                      and the limits that came with it — limits I had quietly accepted. Over the past two years, 
-                      I’ve lost more than 100 pounds and found something bigger than fitness. 
-                      I found freedom. I learned that every barrier I thought was permanent could be moved with enough patience, 
-                      effort, and belief.</p>
+                <!-- Left column: text -->
+                <div class="story-zone__text">
+                    <p class="section-eyebrow">Why I'm Running</p>
+                    <h2 class="story-zone__heading">Running for something<br>bigger than a finish line.</h2>
+                    <blockquote class="story-zone__pullquote">
+                        &#8220;Over the past two years, I&#8217;ve lost more than 100 pounds
+                        and found something bigger than fitness. I found freedom.&#8221;
+                    </blockquote>
+                    <div class="story-zone__body">
+                        <p>There was a time when running even a mile felt out of reach. For years, I carried extra weight
+                          and the limits that came with it &#8212; limits I had quietly accepted. I learned that every barrier
+                          I thought was permanent could be moved with enough patience, effort, and belief.</p>
 
-                    <p>Running a half marathon isn’t just about crossing a finish line. It’s about proving to myself that anything 
-                      is possible. And it’s about using that belief to make a difference.</p>
+                        <p>Running a half marathon isn&#8217;t just about crossing a finish line. It&#8217;s about proving to myself
+                          that anything is possible. And it&#8217;s about using that belief to make a difference.</p>
 
-                    <p>In April 2026, I’ll be running the 
-                      <a href="https://brooklynexperience.com" target="_blank" rel="noopener">
-                        <strong>Brooklyn Experience Half Marathon</strong>
-                      </a> in honor of my Uncle Edwy, 
-                      who we lost to colorectal cancer in 2021. Every mile is a tribute to him and to every family 
-                      touched by this disease. Through this race, I’m raising money for 
-                      <a href="https://www.stjude.org" target="_blank" rel="noopener">
-                      <strong>St. Jude Children’s Research Hospital</strong>
-                      </a> and 
-                      <a href="https://www.mskcc.org" target="_blank" rel="noopener">
-                      <strong>Memorial Sloan Kettering Cancer Center</strong>
-                      </a>, two organizations that bring hope, healing, and life-saving care to 
-                      those who need it most.</p>
+                        <p>In April 2026, I&#8217;ll be running the
+                          <a href="https://brooklynexperience.com" target="_blank" rel="noopener"><strong>Brooklyn Experience Half Marathon</strong></a>
+                          in honor of my Uncle Edwy, who we lost to colorectal cancer in 2021. Every mile is a tribute
+                          to him and to every family touched by this disease. Through this race, I&#8217;m raising money for
+                          <a href="https://www.stjude.org" target="_blank" rel="noopener"><strong>St. Jude Children&#8217;s Research Hospital</strong></a>
+                          and <a href="https://www.mskcc.org" target="_blank" rel="noopener"><strong>Memorial Sloan Kettering Cancer Center</strong></a>,
+                          two organizations that bring hope, healing, and life-saving care to those who need it most.</p>
 
-                    <p>This run is my way of breaking past limits — both mine and the ones that cancer imposes on too many lives.</p>
-                </section>
-
-                <!-- Countdown to Race Day -->
-                <div class="container">
-                  <section class="countdown-section" aria-label="Countdown to race day">
-                    <h2>Countdown to Race Day</h2>
-                    <div class="countdown-grid" id="raceCountdown">
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-days">0</span>
-                        <span class="countdown-label">Days</span>
-                      </div>
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-hours">0</span>
-                        <span class="countdown-label">Hours</span>
-                      </div>
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-minutes">0</span>
-                        <span class="countdown-label">Minutes</span>
-                      </div>
-                      <div class="countdown-item">
-                        <span class="countdown-number" id="cd-seconds">0</span>
-                        <span class="countdown-label">Seconds</span>
-                      </div>
+                        <p>This run is my way of breaking past limits &#8212; both mine and the ones that cancer imposes on too many lives.</p>
                     </div>
-                    <p class="countdown-note">
-                      Brooklyn Experience Half Marathon on April 26, 2026
-                    </p>
-                  </section>
+                    <a href="#donate" class="btn btn--dark">Support This Race &rarr;</a>
                 </div>
+
+                <!-- Right column: runner photo (sticky on desktop) -->
+                <div class="story-zone__photo">
+                    <picture>
+                        <source srcset="images/runner-photo.webp" type="image/webp">
+                        <img src="images/runner-photo.jpg" alt="Running for Uncle Edwy" loading="lazy" width="1200" height="1799">
+                    </picture>
+                    <p class="story-zone__caption">Running 13.1 miles to honor Uncle Edwy&#8217;s memory</p>
+                </div>
+            </div>
+
+            <!-- Countdown strip -->
+            <div class="story-countdown">
+                <p class="story-countdown__label-text">Race Day Countdown</p>
+                <div class="story-countdown__grid">
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-days">0</span>
+                        <span class="story-countdown__lbl">Days</span>
+                    </div>
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-hours">0</span>
+                        <span class="story-countdown__lbl">Hours</span>
+                    </div>
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-minutes">0</span>
+                        <span class="story-countdown__lbl">Minutes</span>
+                    </div>
+                    <div class="story-countdown__item">
+                        <span class="story-countdown__num" id="cd-seconds">0</span>
+                        <span class="story-countdown__lbl">Seconds</span>
+                    </div>
+                </div>
+                <p class="story-countdown__note">Brooklyn Experience Half Marathon &middot; April 26, 2026</p>
+            </div>
+        </section>
 
                   <section class="uncle-tribute" id="about">
                     <div class="tribute-content">
